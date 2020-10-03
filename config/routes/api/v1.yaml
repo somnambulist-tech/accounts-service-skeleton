@@ -1,0 +1,23 @@
+accounts:
+    resource: 'v1/accounts.yaml'
+    prefix: /accounts
+    trailing_slash_on_root: false
+    name_prefix: 'accounts.'
+
+permissions:
+    resource: 'v1/permissions.yaml'
+    prefix: /permissions
+    trailing_slash_on_root: false
+    name_prefix: 'permissions.'
+
+roles:
+    resource: 'v1/roles.yaml'
+    prefix: /roles
+    trailing_slash_on_root: false
+    name_prefix: 'roles.'
+
+users:
+    resource: 'v1/users.yaml'
+    prefix: /users
+    trailing_slash_on_root: false
+    name_prefix: 'users.'

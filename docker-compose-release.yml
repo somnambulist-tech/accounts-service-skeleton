@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  accounts-app:
+    build:
+      context: .
+      dockerfile: config/docker/prod/app/Dockerfile
+    networks:
+      - mycompany_network_backend
+
+networks:
+  mycompany_network_backend:
+    external: true

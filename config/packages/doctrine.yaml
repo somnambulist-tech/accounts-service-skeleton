@@ -1,0 +1,44 @@
+doctrine:
+    dbal:
+        # configure these for your database server
+        url: '%env(resolve:DATABASE_URL)%'
+        schema_filter: '~^(?!messenger_messages)~'
+        mapping_types:
+            # doctrine + postgres sometimes screws up and prefixes text with an _...
+            _text: string
+    orm:
+        auto_generate_proxy_classes: true
+        naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
+        auto_mapping: true
+        metadata_cache_driver:
+            type: pool
+            pool: doctrine.metadata_cache_pool
+        query_cache_driver:
+            type: pool
+            pool: doctrine.query_cache_pool
+        result_cache_driver:
+            type: pool
+            pool: doctrine.result_cache_pool
+
+        mappings:
+            App\Accounts\Domain\Models:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/config/mappings/accounts'
+                prefix: 'App\Accounts\Domain\Models'
+                alias: Accounts
+
+            App\Users\Domain\Models:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/config/mappings/users'
+                prefix: 'App\Users\Domain\Models'
+                alias: User
+
+            Somnambulist\Domain\Entities\Types:
+                mapping: true
+                type: xml
+                dir: '%kernel.project_dir%/config/mappings/somnambulist'
+                is_bundle: false
+                prefix: 'Somnambulist\Domain\Entities\Types'
+                alias: Somnambulist

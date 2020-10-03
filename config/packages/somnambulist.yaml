@@ -1,0 +1,17 @@
+somnambulist_api:
+    exception_handler:
+        converters:
+            Assert\InvalidArgumentException: Somnambulist\ApiBundle\Response\ExceptionConverters\AssertionExceptionConverter
+            Assert\LazyAssertionException: Somnambulist\ApiBundle\Response\ExceptionConverters\LazyAssertionExceptionConverter
+            Symfony\Component\Messenger\Exception\HandlerFailedException: Somnambulist\ApiBundle\Response\ExceptionConverters\HandlerFailedExceptionConverter
+    request_handler:
+        per_page: 20
+        max_per_page: 100
+        limit: 100
+    subscribers:
+        exception_to_json: true
+        json_to_post: true
+
+somnambulist_read_models:
+    connections:
+        default: 'doctrine.dbal.default_connection'

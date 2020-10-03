@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  accounts-app:
+    build:
+      context: .
+      dockerfile: config/docker/test/app/Dockerfile
+    depends_on:
+      - db-accounts
+    networks:
+      - backend
+
+  accounts-redis:
+    image: redis:alpine
+    networks:
+      - backend
+
+  db-accounts:
+    image: postgres:12-alpine
+    environment:
+      POSTGRES_DB: accounts
+      POSTGRES_USER: mycompany
+      POSTGRES_PASSWORD: secret
+    volumes:
+      - ./config/docker/test/db-accounts:/docker-entrypoint-initdb.d
+    networks:
+      - backend
+
+  rabbitmq:
+    image: rabbitmq:3.7-management-alpine
+    environment:
+      RABBITMQ_ERLANG_COOKIE: rabbitmqcookienamehere
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge

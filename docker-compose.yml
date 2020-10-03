@@ -1,0 +1,23 @@
+version: '3.5'
+
+services:
+  accounts-app:
+    build:
+      context: .
+      dockerfile: config/docker/dev/app/Dockerfile
+    networks:
+      - mycompany_network_backend
+    labels:
+      traefik.enable: true
+      traefik.http.routers.accounts-app.rule: "Host(`accounts.example.dev`)"
+      traefik.http.routers.accounts-app.tls: true
+      traefik.http.services.accounts-app.loadbalancer.server.port: 8080
+
+  accounts-redis:
+    image: redis:alpine
+    networks:
+      - mycompany_network_backend
+
+networks:
+  mycompany_network_backend:
+    external: true

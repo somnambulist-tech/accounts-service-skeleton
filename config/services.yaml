@@ -1,0 +1,108 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    route.requirements.id: '[0-9]+'
+    route.requirements.provider: '[a-z\.\-\_0-9]+'
+    route.requirements.slug: '[a-z\-\_0-9]+'
+    route.requirements.type: '[a-z\-\_0-9]+'
+    route.requirements.identity: '[A-Za-z\-\_0-9]+'
+    route.requirements.uuid: '([a-fA-F0-9]{8}-(?:[a-fA-F0-9]{4}-){3}[a-fA-F0-9]{12}){1}'
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    #
+    # Custom monolog line formatters
+    #
+
+    monolog.formatter.default:
+        class: Monolog\Formatter\LineFormatter
+        arguments:
+            $format: "%%channel%%.%%level_name%%: %%message%% %%context%%\n"
+            $allowInlineLineBreaks: true
+            $ignoreEmptyContextAndExtra: true
+
+    monolog.formatter.syslog:
+        class: Monolog\Formatter\LineFormatter
+        arguments:
+            $format: "[%%extra.request_id%%] %%channel%%.%%level_name%%: %%message%% %%context%%\n"
+            $allowInlineLineBreaks: true
+            $ignoreEmptyContextAndExtra: true
+
+    App\Resources\Delivery\Api\:
+        resource: '../src/Resources/Delivery/Api'
+        tags: [ 'controller.service_arguments' ]
+
+
+
+    #
+    # Accounts
+    #
+
+    App\Accounts\Delivery\Api\:
+        resource: '../src/Accounts/Delivery/Api'
+        tags: [ 'controller.service_arguments' ]
+
+    App\Accounts\Delivery\Console\:
+        resource: '../src/Accounts/Delivery/Console'
+        tags: [ 'console.command' ]
+
+    App\Accounts\Domain\Services\:
+        resource: '../src/Accounts/Domain/Services'
+
+    App\Accounts\Application\CommandHandlers\:
+        resource: '../src/Accounts/Application/CommandHandlers/*'
+        tags: [ { name: messenger.message_handler, bus: command.bus } ]
+
+    App\Accounts\Application\QueryHandlers\:
+        resource: '../src/Accounts/Application/QueryHandlers/*'
+        tags: [ { name: messenger.message_handler, bus: query.bus } ]
+
+    App\Accounts\Infrastructure\Persistence\Repositories\:
+        resource: '../src/Accounts/Infrastructure/Persistence/Repositories/*'
+
+    App\Accounts\Domain\Services\Repositories\AccountRepository:
+        alias: App\Accounts\Infrastructure\Persistence\Repositories\AccountRepository
+
+
+
+    #
+    # Users and Roles
+    #
+
+    App\Users\Delivery\Api\:
+        resource: '../src/Users/Delivery/Api'
+        tags: [ 'controller.service_arguments' ]
+
+    App\Users\Delivery\Console\:
+        resource: '../src/Users/Delivery/Console'
+        tags: [ 'console.command' ]
+
+    App\Users\Domain\Services\:
+        resource: '../src/Users/Domain/Services'
+
+    App\Users\Application\CommandHandlers\:
+        resource: '../src/Users/Application/CommandHandlers/*'
+        tags: [ { name: messenger.message_handler, bus: command.bus } ]
+
+    App\Users\Application\QueryHandlers\:
+        resource: '../src/Users/Application/QueryHandlers/*'
+        tags: [ { name: messenger.message_handler, bus: query.bus } ]
+
+    App\Users\Infrastructure\Persistence\Repositories\:
+        resource: '../src/Users/Infrastructure/Persistence/Repositories/*'
+
+    App\Users\Domain\Services\Repositories\PermissionRepository:
+        alias: App\Users\Infrastructure\Persistence\Repositories\PermissionRepository
+
+    App\Users\Domain\Services\Repositories\RoleRepository:
+        alias: App\Users\Infrastructure\Persistence\Repositories\RoleRepository
+
+    App\Users\Domain\Services\Repositories\UserRepository:
+        alias: App\Users\Infrastructure\Persistence\Repositories\UserRepository

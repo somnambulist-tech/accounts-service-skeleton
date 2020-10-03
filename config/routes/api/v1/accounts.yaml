@@ -1,0 +1,44 @@
+list:
+    path: /
+    controller: App\Accounts\Delivery\Api\V1\Accounts\Controllers\ListController
+    methods: GET
+
+create:
+    path: /
+    controller: App\Accounts\Delivery\Api\V1\Accounts\Controllers\CreateController
+    methods: POST
+
+view:
+    path: /{id}
+    controller: App\Accounts\Delivery\Api\V1\Accounts\Controllers\ViewController
+    methods: GET
+    requirements:
+        id: '%route.requirements.uuid%'
+
+change_name:
+    path: /{id}/change-name
+    controller: App\Accounts\Delivery\Api\V1\Accounts\Controllers\ChangeNameController
+    methods: PUT|PATCH
+    requirements:
+        id: '%route.requirements.uuid%'
+
+destroy:
+    path: /{id}
+    controller: App\Accounts\Delivery\Api\V1\Accounts\Controllers\DestroyController
+    methods: DELETE
+    requirements:
+        id: '%route.requirements.uuid%'
+
+activate:
+    path: /{id}/activate
+    controller: App\Accounts\Delivery\Api\V1\Accounts\Controllers\ActivationController::activateAction
+    methods: POST
+    requirements:
+        id: '%route.requirements.uuid%'
+
+deactivate:
+    path: /{id}/deactivate
+    controller: App\Accounts\Delivery\Api\V1\Accounts\Controllers\ActivationController::deactivateAction
+    methods: POST
+    requirements:
+        id: '%route.requirements.uuid%'

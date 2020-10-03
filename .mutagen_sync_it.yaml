@@ -1,0 +1,89 @@
+#
+# Mutagen Sync Config File
+# Created: 2019-05-30 20:23:36
+#
+# Various environment parameters can be used in the config file by using
+# ${ENV_VAR_NAME}. They will be processed and merged into the config as
+# it is loaded.
+#
+# Debug available params by using: "./mutagen-sync-it.phar params"; note: this
+# makes no attempt to hide sensitive env vars. 
+#
+
+mutagen:
+    common:
+        label_prefix: accounts
+
+        options:
+            # see: https://mutagen.io/documentation/permissions/
+            default-directory-mode: '0755'
+            default-file-mode: '0644'
+            ignore-vcs: ~
+            symlink-mode: ignore
+            scan-mode: accelerated
+
+        # any common regex rules to ignore files / folders; will be merged into each session
+        ignore:
+            - ".DS_Store"
+            - ".env.local"
+            - ".env.*.local"
+            - "._*"
+            - ".idea/"
+            - "vendor/"
+            - "var/"
+
+    tasks:
+        # each session needs a unique key, this will be used as the label (from mutagen >0.9)
+        app_source_files:
+            source: "${PROJECT_DIR}"
+            target: "docker://{docker:name=${APP_SERVICE_APP}:name}/app"
+            options:
+                sync-mode: one-way-replica
+            ignore:
+                - "composer.*"
+
+        app_migrations:
+            source: "${PROJECT_DIR}/src/Resources/Migrations"
+            target: "docker://{docker:name=${APP_SERVICE_APP}:name}/app/src/Resources/Migrations"
+            use_common: false
+            options:
+                default-directory-mode: '0755'
+                default-file-mode: '0644'
+                sync-mode: two-way-safe
+                ignore-vcs: ~
+                symlink-mode: ignore
+            ignore:
+                - ".DS_Store"
+                - "._*"
+                - ".idea/"
+                - ".env.local"
+                - ".env.*.local"
+
+        app_vendor_files:
+            source: "${PROJECT_DIR}/vendor"
+            target: "docker://{docker:name=${APP_SERVICE_APP}:name}/app/vendor"
+            use_common: false
+            options:
+                default-directory-mode: '0755'
+                default-file-mode: '0644'
+                sync-mode: one-way-replica
+                ignore-vcs: ~
+                symlink-mode: ignore
+            ignore:
+                - ".DS_Store"
+                - "._*"
+                - ".idea/"
+
+        composer_json:
+            source: "${PROJECT_DIR}/composer.json"
+            target: "docker://{docker:name=${APP_SERVICE_APP}:name}/app/composer.json"
+            use_common: false
+            options:
+                sync-mode: one-way-replica
+
+        composer_lock:
+            source: "${PROJECT_DIR}/composer.lock"
+            target: "docker://{docker:name=${APP_SERVICE_APP}:name}/app/composer.lock"
+            use_common: false
+            options:
+                sync-mode: one-way-replica

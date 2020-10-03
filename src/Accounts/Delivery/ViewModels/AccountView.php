@@ -1,0 +1,60 @@
+<?php declare(strict_types=1);
+
+namespace App\Accounts\Delivery\ViewModels;
+
+use App\Users\Delivery\ViewModels\UserView;
+use Somnambulist\Collection\Contracts\Collection;
+use Somnambulist\Components\ReadModels\Model;
+use Somnambulist\Components\ReadModels\Relationships\HasOneToMany;
+use Somnambulist\Domain\Entities\Types\DateTime\DateTime;
+use Somnambulist\Domain\Entities\Types\Identity\Uuid;
+
+/**
+ * Class AccountView
+ *
+ * @package    App\Accounts\Delivery\ViewModels
+ * @subpackage App\Accounts\Delivery\ViewModels\AccountView
+ *
+ * @property-read Uuid                  $id
+ * @property-read string                $name
+ * @property-read bool                  $active
+ * @property-read string                $type
+ * @property-read DateTime              $created_at
+ * @property-read DateTime              $updated_at
+ *
+ * @property-read Collection|UserView[] $users
+ */
+class AccountView extends Model
+{
+
+    protected string $table = 'accounts';
+
+    protected ?string $tableAlias = 'a';
+
+    protected ?string $foreignKey = 'account_id';
+
+    protected array $casts = [
+        'id'         => 'uuid',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+    ];
+
+    protected array $exports = [
+        'attributes'    => [
+            'id',
+            'name',
+            'active',
+            'type',
+            'created_at',
+            'updated_at',
+        ],
+        'relationships' => [
+
+        ],
+    ];
+
+    public function users(): HasOneToMany
+    {
+        return $this->hasMany(UserView::class, 'account_id', 'id');
+    }
+}

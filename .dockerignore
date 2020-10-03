@@ -1,0 +1,12 @@
+.idea
+*.md
+.git
+.dockerignore
+vendor
+supervisord.*
+bin/dc-*
+bin/*.sh
+var
+docker-compose*
+.env.local
+.env.*.local

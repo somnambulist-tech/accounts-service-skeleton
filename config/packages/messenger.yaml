@@ -1,0 +1,50 @@
+framework:
+    messenger:
+        failure_transport: failed
+        default_bus: command.bus
+
+        serializer:
+            default_serializer: messenger.transport.symfony_serializer
+            symfony_serializer:
+                format: json
+                context: { }
+
+        buses:
+            command.bus:
+                middleware:
+                    - validation
+                    - doctrine_transaction
+
+            query.bus:
+                middleware:
+                    - validation
+
+            event.bus:
+                middleware:
+                    - validation
+
+        transports:
+            # https://symfony.com/doc/current/messenger.html#transport-configuration
+            domain_events:
+                dsn: '%env(MESSENGER_TRANSPORT_DSN)%/domain_events'
+                serializer: somnambulist.domain.event_serializer
+                options:
+                    exchange:
+                        name: domain_events
+                        type: fanout
+            job_queue:
+                dsn: '%env(MESSENGER_TRANSPORT_DSN)%/job_queue'
+                options:
+                    exchange:
+                        name: job_queue
+                        type: fanout
+
+            failed: 'doctrine://default?queue_name=failed'
+            sync: 'sync://'
+
+        routing:
+            # Route your messages to the transports
+            Somnambulist\Domain\Events\AbstractEvent: domain_events
+            Somnambulist\Domain\Jobs\AbstractJob: job_queue
+            Somnambulist\Domain\Commands\AbstractCommand: sync
+            Somnambulist\Domain\Queries\AbstractQuery: sync

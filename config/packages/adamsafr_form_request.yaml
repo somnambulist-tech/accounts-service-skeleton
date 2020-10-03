@@ -1,0 +1,8 @@
+adamsafr_form_request:
+    exception_listeners:
+        access_denied:
+            enabled: true
+        form_validation:
+            enabled: true
+        json_decode:
+            enabled: true

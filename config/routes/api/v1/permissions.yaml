@@ -1,0 +1,16 @@
+list:
+    path: /
+    controller: App\Users\Delivery\Api\V1\Permissions\Controllers\ListController
+    methods: GET
+
+create:
+    path: /
+    controller: App\Users\Delivery\Api\V1\Permissions\Controllers\CreateController
+    methods: POST
+
+destroy:
+    path: /{id}
+    controller: App\Users\Delivery\Api\V1\Permissions\Controllers\DestroyController
+    methods: DELETE
+    requirements:
+        id: '%route.requirements.slug%'

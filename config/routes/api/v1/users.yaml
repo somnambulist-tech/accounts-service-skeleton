@@ -1,0 +1,58 @@
+list:
+    path: /
+    controller: App\Users\Delivery\Api\V1\Users\Controllers\ListController
+    methods: GET
+
+create:
+    path: /
+    controller: App\Users\Delivery\Api\V1\Users\Controllers\CreateController
+    methods: POST
+
+view:
+    path: /{id}
+    controller: App\Users\Delivery\Api\V1\Users\Controllers\ViewController
+    methods: GET
+    requirements:
+        id: '%route.requirements.uuid%'
+
+destroy:
+    path: /{id}
+    controller: App\Users\Delivery\Api\V1\Users\Controllers\DestroyController
+    methods: DELETE
+    requirements:
+        id: '%route.requirements.uuid%'
+
+activate:
+    path: /{id}/activate
+    controller: App\Users\Delivery\Api\V1\Users\Controllers\ActivationController::activateAction
+    methods: POST
+    requirements:
+        id: '%route.requirements.uuid%'
+
+deactivate:
+    path: /{id}/deactivate
+    controller: App\Users\Delivery\Api\V1\Users\Controllers\ActivationController::deactivateAction
+    methods: POST
+    requirements:
+        id: '%route.requirements.uuid%'
+
+change_account:
+    path: /{id}/change-account
+    controller: App\Users\Delivery\Api\V1\Users\Controllers\ChangeAccountController
+    methods: PUT|PATCH
+    requirements:
+        id: '%route.requirements.uuid%'
+
+change_auth_credentials:
+    path: /{id}/change-auth
+    controller: App\Users\Delivery\Api\V1\Users\Controllers\ChangeAuthCredentialsController
+    methods: PUT|PATCH
+    requirements:
+        id: '%route.requirements.uuid%'
+
+change_name:
+    path: /{id}/change-name
+    controller: App\Users\Delivery\Api\V1\Users\Controllers\ChangeNameController
+    methods: PUT|PATCH
+    requirements:
+        id: '%route.requirements.uuid%'

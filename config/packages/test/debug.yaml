@@ -1,0 +1,2 @@
+debug:
+    dump_destination: php://stderr

@@ -1,0 +1,37 @@
+list:
+    path: /
+    controller: App\Users\Delivery\Api\V1\Roles\Controllers\ListController
+    methods: GET
+
+create:
+    path: /
+    controller: App\Users\Delivery\Api\V1\Roles\Controllers\CreateController
+    methods: POST
+
+view:
+    path: /{id}
+    controller: App\Users\Delivery\Api\V1\Roles\Controllers\ViewController
+    methods: GET
+    requirements:
+        id: '%route.requirements.uuid%'
+
+change_roles:
+    path: /{id}/roles
+    controller: App\Users\Delivery\Api\V1\Roles\Controllers\ChangeRolesController
+    methods: PUT|PATCH
+    requirements:
+        id: '%route.requirements.uuid%'
+
+change_permissions:
+    path: /{id}/permissions
+    controller: App\Users\Delivery\Api\V1\Roles\Controllers\ChangePermissionsController
+    methods: PUT|PATCH
+    requirements:
+        id: '%route.requirements.uuid%'
+
+destroy:
+    path: /{id}
+    controller: App\Users\Delivery\Api\V1\Roles\Controllers\DestroyController
+    methods: DELETE
+    requirements:
+        id: '%route.requirements.uuid%'

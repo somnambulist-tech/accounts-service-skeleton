@@ -1,0 +1,17 @@
+{
+    "bridge": "HttpKernel",
+    "host": "127.0.0.1",
+    "port": 8080,
+    "workers": 2,
+    "app-env": "dev",
+    "debug": 1,
+    "logging": 1,
+    "bootstrap": "PHPPM\\Bootstraps\\SomnambulistSymfony",
+    "max-requests": 1000,
+    "max-execution-time": 60,
+    "populate-server-var": true,
+    "socket-path": "var\/run\/ppm\/",
+    "pidfile": "var\/run\/ppm\/ppm.pid",
+    "cgi-path": "\/usr\/bin\/php-cgi",
+    "static-directory": "public"
+}

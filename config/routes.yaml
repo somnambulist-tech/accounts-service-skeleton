@@ -1,0 +1,11 @@
+
+api.index:
+    path: /
+    controller: App\Resources\Delivery\Api\IndexController
+    methods: [GET]
+
+api.v1:
+    resource: 'routes/api/v1.yaml'
+    prefix: /v1
+    trailing_slash_on_root: false
+    name_prefix: 'api.v1.'

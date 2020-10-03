@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="App\Users\Domain\Models\User" table="users"
+            repository-class="App\Users\Infrastructure\Persistence\EntityLocators\UserLocator">
+        <unique-constraints>
+            <unique-constraint name="uniq_users_email" columns="email"/>
+        </unique-constraints>
+
+        <indexes>
+            <index name="idx_users_account_id" columns="account_id" />
+            <index name="idx_users_active" columns="active" />
+        </indexes>
+
+        <id name="id" type="uuid">
+            <generator strategy="NONE"/>
+        </id>
+
+        <embedded name="account" class="App\Users\Domain\Models\AccountId" use-column-prefix="false" />
+
+        <field name="active" type="boolean">
+            <options>
+                <option name="default">false</option>
+            </options>
+        </field>
+        <field name="name" type="users_name" length="255" />
+        <field name="email" type="email" length="100"/>
+        <field name="password" type="password" length="255"/>
+        <field name="createdAt" type="datetime"/>
+        <field name="updatedAt" type="datetime"/>
+
+        <many-to-many field="permissions" target-entity="App\Users\Domain\Models\Permission" fetch="EXTRA_LAZY">
+            <cascade>
+                <cascade-persist />
+            </cascade>
+            <join-table name="user_permissions">
+                <join-columns>
+                    <join-column name="user_id" referenced-column-name="id" nullable="false" on-delete="CASCADE"/>
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="permission_id" referenced-column-name="id" nullable="false" on-delete="CASCADE"/>
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>
+
+        <many-to-many field="roles" target-entity="App\Users\Domain\Models\Role" fetch="EXTRA_LAZY">
+            <cascade>
+                <cascade-persist />
+            </cascade>
+            <join-table name="user_roles">
+                <join-columns>
+                    <join-column name="user_id" referenced-column-name="id" nullable="false" on-delete="CASCADE"/>
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="role_id" referenced-column-name="id" nullable="false" on-delete="CASCADE"/>
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>
+    </entity>
+
+</doctrine-mapping>

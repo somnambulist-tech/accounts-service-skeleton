@@ -1,0 +1,6 @@
+doctrine_migrations:
+    migrations_paths:
+        'App\Resources\Migrations': '%kernel.project_dir%/src/Resources/Migrations'
+    storage:
+        table_storage:
+            table_name: 'migration_versions'
