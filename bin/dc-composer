@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+DIR="${BASH_SOURCE%/*}"; if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi;
+if [[ -f "${DIR}/../.env" ]]; then . "${DIR}/../.env"; fi;
+
+docker-compose exec ${APP_SERVICE_APP} /usr/bin/composer "$@"
