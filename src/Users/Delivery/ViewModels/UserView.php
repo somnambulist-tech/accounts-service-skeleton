@@ -4,11 +4,11 @@ namespace App\Users\Delivery\ViewModels;
 
 use App\Accounts\Delivery\ViewModels\AccountView;
 use Somnambulist\Collection\Contracts\Collection;
+use Somnambulist\Components\Domain\Entities\Types\DateTime\DateTime;
+use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
 use Somnambulist\Components\ReadModels\Model;
 use Somnambulist\Components\ReadModels\Relationships\BelongsTo;
 use Somnambulist\Components\ReadModels\Relationships\BelongsToMany;
-use Somnambulist\Domain\Entities\Types\DateTime\DateTime;
-use Somnambulist\Domain\Entities\Types\Identity\Uuid;
 
 /**
  * Class UserView

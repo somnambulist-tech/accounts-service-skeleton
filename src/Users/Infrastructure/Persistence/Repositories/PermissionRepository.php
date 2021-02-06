@@ -2,8 +2,8 @@
 
 namespace App\Users\Infrastructure\Persistence\Repositories;
 
-use App\Users\Domain\Models\Name;
-use Doctrine\Common\Persistence\ManagerRegistry;
+use App\Users\Domain\Models\UserName;
+use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\Persistence\ObjectManager;
 use App\Users\Domain\Models\Permission;
 use App\Users\Domain\Services\Repositories\PermissionRepository as PermissionRepositoryContract;
@@ -32,7 +32,7 @@ class PermissionRepository implements PermissionRepositoryContract
 
     public function findByName(string $name): Permission
     {
-        return $this->repo()->findOneByOrFail(['name' => new Name($name)]);
+        return $this->repo()->findOneByOrFail(['name' => new UserName($name)]);
     }
 
     public function store(Permission $permission): bool

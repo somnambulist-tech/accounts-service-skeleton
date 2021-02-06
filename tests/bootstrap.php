@@ -9,8 +9,8 @@
  * file that was distributed with this source code.
  */
 
-use Symfony\Component\Dotenv\Dotenv;
 use Doctrine\Common\Annotations\AnnotationReader;
+use Symfony\Component\Dotenv\Dotenv;
 
 require dirname(__DIR__).'/vendor/autoload.php';
 
@@ -25,3 +25,7 @@ if (file_exists(dirname(__DIR__).'/config/bootstrap.php')) {
  */
 AnnotationReader::addGlobalIgnoredName('covers');
 AnnotationReader::addGlobalIgnoredName('group');
+
+if (!defined('AMQP_NOPARAM')) {
+    define('AMQP_NOPARAM', 0);
+}

@@ -2,8 +2,8 @@
 
 namespace App\Users\Delivery\Api\V1\Permissions\Transformers;
 
-use League\Fractal\TransformerAbstract;
 use App\Users\Delivery\ViewModels\PermissionView;
+use League\Fractal\TransformerAbstract;
 
 /**
  * Class PermissionViewTransformer

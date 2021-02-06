@@ -3,9 +3,9 @@
 namespace App\Tests\Users\Delivery\Api\V1\Roles;
 
 use App\Tests\Support\Behaviours\BootTestClient;
-use Liip\TestFixturesBundle\Test\FixturesTrait;
 use App\Tests\Support\Behaviours\MakeJsonRequestTo;
 use App\Tests\Support\Fixtures\RoleFixture;
+use Liip\TestFixturesBundle\Test\FixturesTrait;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**

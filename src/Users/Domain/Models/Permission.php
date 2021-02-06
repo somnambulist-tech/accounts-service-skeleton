@@ -2,7 +2,7 @@
 
 namespace App\Users\Domain\Models;
 
-use Somnambulist\Domain\Entities\Types\DateTime\DateTime;
+use Somnambulist\Components\Domain\Entities\Types\DateTime\DateTime;
 
 /**
  * Class Permission
@@ -14,10 +14,10 @@ class Permission
 {
 
     private ?int $id = null;
-    private Name $name;
+    private PermissionName $name;
     private DateTime $createdAt;
 
-    public function __construct(Name $name)
+    public function __construct(PermissionName $name)
     {
         $this->name = $name;
         $this->createdAt = DateTime::now();
@@ -28,7 +28,7 @@ class Permission
         return $this->id;
     }
 
-    public function name(): Name
+    public function name(): PermissionName
     {
         return $this->name;
     }

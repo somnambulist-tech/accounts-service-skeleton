@@ -6,8 +6,8 @@ use App\Accounts\Delivery\Api\V1\Accounts\Transformers\AccountViewTransformer;
 use App\Accounts\Domain\Queries\FindAccounts;
 use App\Resources\Delivery\Api\ApiController;
 use Pagerfanta\Pagerfanta;
-use Somnambulist\ApiBundle\Response\Types\PagerfantaType;
-use Somnambulist\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Bundles\ApiBundle\Response\Types\PagerfantaType;
+use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 

@@ -2,9 +2,7 @@
 
 namespace App\Users\Delivery\Api\V1\Roles\Forms;
 
-use Adamsafr\FormRequestBundle\Http\FormRequest;
-use Symfony\Component\Validator\Constraint;
-use Symfony\Component\Validator\Constraints as Assert;
+use Somnambulist\Bundles\FormRequestBundle\Http\FormRequest;
 
 /**
  * Class ChangeGrantableRolesRequest
@@ -14,25 +12,11 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class ChangeGrantableRolesRequest extends FormRequest
 {
-    /**
-     * @return Constraint|Constraint[]|Assert\Collection|null
-     */
-    public function rules()
+    public function rules(): array
     {
-        return new Assert\Collection([
-            'fields' => [
-                'roles' => new Assert\Required([
-                    new Assert\Type('array'),
-                    new Assert\All([
-                        new Assert\NotNull(),
-                        new Assert\NotBlank(),
-                        new Assert\Length([
-                            'min' => 1,
-                            'max' => 255,
-                        ]),
-                    ]),
-                ]),
-            ],
-        ]);
+        return [
+            'roles' => 'required|array',
+            'roles.*' => 'min:1|max:255',
+        ];
     }
 }

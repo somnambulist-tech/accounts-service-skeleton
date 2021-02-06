@@ -3,8 +3,8 @@
 namespace App\Users\Domain\Services\Repositories;
 
 use App\Users\Domain\Models\Role;
-use Somnambulist\Domain\Entities\Exceptions\EntityNotFoundException;
-use Somnambulist\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Components\Domain\Entities\Exceptions\EntityNotFoundException;
+use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
 
 /**
  * Interface RoleRepository

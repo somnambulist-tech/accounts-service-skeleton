@@ -11,7 +11,7 @@
             <generator strategy="NONE"/>
         </id>
 
-        <field name="name" type="users_name" length="255"/>
+        <field name="name" type="role_name" length="50"/>
         <field name="createdAt" type="datetime"/>
         <field name="updatedAt" type="datetime"/>
 

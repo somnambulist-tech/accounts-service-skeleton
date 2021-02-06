@@ -3,7 +3,7 @@
 namespace App\Users\Infrastructure\Persistence\EntityLocators;
 
 use App\Users\Domain\Models\Permission;
-use Somnambulist\Domain\Doctrine\AbstractEntityLocator;
+use Somnambulist\Components\Domain\Doctrine\AbstractEntityLocator;
 
 /**
  * Class PermissionLocator

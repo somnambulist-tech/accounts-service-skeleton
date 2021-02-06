@@ -2,8 +2,10 @@
 
 namespace App\Resources;
 
-use App\Users\Infrastructure\Persistence\Types\NameType;
-use Somnambulist\Domain\Doctrine\TypeBootstrapper;
+use App\Users\Infrastructure\Persistence\Types\PermissionNameType;
+use App\Users\Infrastructure\Persistence\Types\RoleNameType;
+use App\Users\Infrastructure\Persistence\Types\UserNameType;
+use Somnambulist\Components\Domain\Doctrine\TypeBootstrapper;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
@@ -25,6 +27,8 @@ class ResourcesBundle extends Bundle
         TypeBootstrapper::registerEnumerations();
         TypeBootstrapper::registerTypes(TypeBootstrapper::$types);
 
-        TypeBootstrapper::registerType('users_name', NameType::class);
+        TypeBootstrapper::registerType('permission_name', PermissionNameType::class);
+        TypeBootstrapper::registerType('role_name', RoleNameType::class);
+        TypeBootstrapper::registerType('user_name', UserNameType::class);
     }
 }

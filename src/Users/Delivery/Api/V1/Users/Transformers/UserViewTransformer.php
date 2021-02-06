@@ -2,13 +2,13 @@
 
 namespace App\Users\Delivery\Api\V1\Users\Transformers;
 
-use League\Fractal\Resource\Collection;
-use League\Fractal\Resource\Item;
-use League\Fractal\TransformerAbstract;
 use App\Accounts\Delivery\Api\V1\Accounts\Transformers\AccountViewTransformer;
 use App\Users\Delivery\Api\V1\Permissions\Transformers\PermissionViewTransformer;
 use App\Users\Delivery\Api\V1\Roles\Transformers\RoleViewTransformer;
 use App\Users\Delivery\ViewModels\UserView;
+use League\Fractal\Resource\Collection;
+use League\Fractal\Resource\Item;
+use League\Fractal\TransformerAbstract;
 
 /**
  * Class UserViewTransformer

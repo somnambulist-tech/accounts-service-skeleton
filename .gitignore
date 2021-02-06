@@ -1,7 +1,9 @@
 ###> symfony/framework-bundle ###
 /.env.local
+/.env.docker
 /.env.local.php
 /.env.*.local
+/.env.*.docker
 /public/bundles/
 /var/
 /vendor/

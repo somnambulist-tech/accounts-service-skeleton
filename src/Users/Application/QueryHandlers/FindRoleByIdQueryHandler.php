@@ -5,8 +5,8 @@ namespace App\Users\Application\QueryHandlers;
 use App\Users\Delivery\ViewModels\RoleView;
 use App\Users\Domain\Models\Role;
 use App\Users\Domain\Queries\FindRoleById;
+use Somnambulist\Components\Domain\Entities\Exceptions\EntityNotFoundException;
 use Somnambulist\Components\ReadModels\Exceptions\EntityNotFoundException as ReadModelNotFound;
-use Somnambulist\Domain\Entities\Exceptions\EntityNotFoundException;
 
 /**
  * Class FindRoleByIdentityQueryHandler

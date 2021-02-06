@@ -2,7 +2,7 @@
 
 namespace App\Accounts\Domain\Events;
 
-use Somnambulist\Domain\Events\AbstractEvent;
+use Somnambulist\Components\Domain\Events\AbstractEvent;
 
 /**
  * Class AccountNameUpdated

@@ -2,9 +2,7 @@
 
 namespace App\Users\Delivery\Api\V1\Users\Forms;
 
-use Adamsafr\FormRequestBundle\Http\FormRequest;
-use Symfony\Component\Validator\Constraint;
-use Symfony\Component\Validator\Constraints as Assert;
+use Somnambulist\Bundles\FormRequestBundle\Http\FormRequest;
 
 /**
  * Class ChangeAuthCredentialsRequest
@@ -14,31 +12,11 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class ChangeAuthCredentialsRequest extends FormRequest
 {
-
-    /**
-     * @return Constraint|Constraint[]|Assert\Collection|null
-     */
-    public function rules()
+    public function rules(): array
     {
-        return new Assert\Collection([
-            'fields' => [
-                'email' => new Assert\Required([
-                    new Assert\NotBlank(),
-                    new Assert\NotNull(),
-                    new Assert\Length([
-                        'min' => 3,
-                        'max' => 60,
-                    ]),
-                    new Assert\Email(),
-                ]),
-                'password' => new Assert\Required([
-                    new Assert\NotNull(),
-                    new Assert\NotBlank(),
-                    new Assert\Length([
-                        'max' => 255,
-                    ]),
-                ]),
-            ],
-        ]);
+        return [
+            'email'    => 'required|email|min:3|max:60',
+            'password' => 'required|min:1|max:255',
+        ];
     }
 }

@@ -5,7 +5,10 @@ namespace App\Users\Domain\Models\User;
 use App\Users\Domain\Events\GrantedRolesToUser;
 use App\Users\Domain\Events\RevokedRolesFromUser;
 use App\Users\Domain\Models\Role;
-use Somnambulist\Domain\Entities\AbstractEntityCollection;
+use App\Users\Domain\Models\User;
+use Countable;
+use Doctrine\Common\Collections\Collection;
+use IteratorAggregate;
 use function array_map;
 
 /**
@@ -14,8 +17,27 @@ use function array_map;
  * @package    App\Users\Domain\Models\User
  * @subpackage App\Users\Domain\Models\User\UserRoles
  */
-class UserRoles extends AbstractEntityCollection
+class UserRoles implements Countable, IteratorAggregate
 {
+
+    private User       $root;
+    private Collection $entities;
+
+    public function __construct(User $user, Collection $roles)
+    {
+        $this->root     = $user;
+        $this->entities = $roles;
+    }
+
+    public function getIterator()
+    {
+        return $this->entities;
+    }
+
+    public function count()
+    {
+        return $this->entities->count();
+    }
 
     public function grant(Role ...$roles): void
     {

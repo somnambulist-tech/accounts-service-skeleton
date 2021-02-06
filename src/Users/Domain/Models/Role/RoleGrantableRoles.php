@@ -2,10 +2,10 @@
 
 namespace App\Users\Domain\Models\Role;
 
+use App\Users\Domain\Models\Role;
 use Countable;
 use Doctrine\Common\Collections\Collection;
 use IteratorAggregate;
-use App\Users\Domain\Models\Role;
 
 /**
  * Class RoleGrantableRoles

@@ -2,15 +2,18 @@
 
 namespace App\Tests\Support;
 
+use App\Tests\Support\Factories\AccountFactory;
+use App\Tests\Support\Factories\UserFactory;
 use Faker\Factory;
 use Faker\Generator;
 use InvalidArgumentException;
-use App\Tests\Support\Factories\AccountFactory;
-use App\Tests\Support\Factories\UserFactory;
 use RuntimeException;
-use Somnambulist\Domain\Entities\Types\Identity\Uuid;
-use Somnambulist\Domain\Utils\IdentityGenerator;
+use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Components\Domain\Utils\IdentityGenerator;
 use function array_key_exists;
+use function array_keys;
+use function in_array;
+use function sprintf;
 
 /**
  * Class ObjectFactoryHelper
@@ -22,6 +25,9 @@ use function array_key_exists;
  * @property-read Generator      $faker
  * @property-read AccountFactory $account
  * @property-read UserFactory    $user
+ *
+ * @method AccountFactory account()
+ * @method UserFactory    user()
  */
 class ObjectFactoryHelper
 {
@@ -38,7 +44,17 @@ class ObjectFactoryHelper
         ];
     }
 
+    public function __call($name, $arguments)
+    {
+        return $this->magicHelper($name, $arguments, 'Method "%s" not found on "%s"');
+    }
+
     public function __get($name)
+    {
+        return $this->magicHelper($name);
+    }
+
+    private function magicHelper(string $name, array $arguments = [], string $message = 'Property "%s" not found on "%s"'): object
     {
         if ('uuid' === $name) {
             return $this->uuid();
@@ -51,11 +67,12 @@ class ObjectFactoryHelper
             return $this->from($name);
         }
 
-        throw new RuntimeException(sprintf('Property "%s" not found on "%s"', $name, static::class));
+        throw new RuntimeException(sprintf($message, $name, static::class));
     }
 
     /**
-     * @see https://github.com/fzaninotto/Faker#formatters
+     * @return Generator
+     * @see https://fakerphp.github.io/formatters/
      */
     public function faker(): Generator
     {
@@ -80,6 +97,6 @@ class ObjectFactoryHelper
 
     public function uuid(): Uuid
     {
-        return IdentityGenerator::random();
+        return IdentityGenerator::new();
     }
 }

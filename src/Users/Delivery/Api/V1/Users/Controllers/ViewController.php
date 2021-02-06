@@ -5,8 +5,8 @@ namespace App\Users\Delivery\Api\V1\Users\Controllers;
 use App\Resources\Delivery\Api\ApiController;
 use App\Users\Delivery\Api\V1\Users\Transformers\UserViewTransformer;
 use App\Users\Domain\Queries\FindUserById;
-use Somnambulist\ApiBundle\Response\Types\ObjectType;
-use Somnambulist\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Bundles\ApiBundle\Response\Types\ObjectType;
+use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
 use Symfony\Component\HttpFoundation\Request;
 
 /**

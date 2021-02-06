@@ -13,11 +13,11 @@ use App\Users\Domain\Events\UserDeactivated;
 use App\Users\Domain\Events\UserDestroyed;
 use App\Users\Domain\Events\UserNameChanged;
 use App\Users\Domain\Models\AccountId;
-use App\Users\Domain\Models\Name;
 use App\Users\Domain\Models\User;
+use App\Users\Domain\Models\UserName;
 use PHPUnit\Framework\TestCase;
-use Somnambulist\Domain\Utils\Tests\Assertions\AssertEntityHasPropertyWithValue;
-use Somnambulist\Domain\Utils\Tests\Assertions\AssertHasDomainEventOfType;
+use Somnambulist\Components\Domain\Utils\Tests\Assertions\AssertEntityHasPropertyWithValue;
+use Somnambulist\Components\Domain\Utils\Tests\Assertions\AssertHasDomainEventOfType;
 
 /**
  * Class UserTest
@@ -80,7 +80,7 @@ class UserTest extends TestCase
     public function testChangeName(): void
     {
         $user = $this->factory->user->user();
-        $user->changeName($n = new Name('bob'));
+        $user->changeName($n = new UserName('bob'));
 
         $this->assertEntityHasPropertyWithValue($user, 'name', $n);
     }
@@ -88,7 +88,7 @@ class UserTest extends TestCase
     public function testChangeNameRaisesEvent(): void
     {
         $user = $this->factory->user->user();
-        $user->changeName(new Name('bob'));
+        $user->changeName(new UserName('bob'));
 
         $this->assertHasDomainEventOfType($user, UserNameChanged::class);
     }

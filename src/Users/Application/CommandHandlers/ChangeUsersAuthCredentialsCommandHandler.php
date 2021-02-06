@@ -2,14 +2,14 @@
 
 namespace App\Users\Application\CommandHandlers;
 
-use Assert\InvalidArgumentException;
 use App\Users\Domain\Commands\ChangeUsersAuthCredentials;
 use App\Users\Domain\Queries\FindUsers;
 use App\Users\Domain\Services\Repositories\UserRepository;
+use Assert\InvalidArgumentException;
 use Pagerfanta\Pagerfanta;
-use Somnambulist\Domain\Entities\Types\Auth\Password;
-use Somnambulist\Domain\Entities\Types\Identity\EmailAddress;
-use Somnambulist\Domain\Queries\QueryBus;
+use Somnambulist\Components\Domain\Entities\Types\Auth\Password;
+use Somnambulist\Components\Domain\Entities\Types\Identity\EmailAddress;
+use Somnambulist\Components\Domain\Queries\QueryBus;
 use function sprintf;
 
 /**

@@ -6,8 +6,8 @@ use App\Users\Delivery\ViewModels\UserView;
 use Somnambulist\Collection\Contracts\Collection;
 use Somnambulist\Components\ReadModels\Model;
 use Somnambulist\Components\ReadModels\Relationships\HasOneToMany;
-use Somnambulist\Domain\Entities\Types\DateTime\DateTime;
-use Somnambulist\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Components\Domain\Entities\Types\DateTime\DateTime;
+use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
 
 /**
  * Class AccountView

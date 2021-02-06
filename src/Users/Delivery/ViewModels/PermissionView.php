@@ -2,7 +2,7 @@
 
 namespace App\Users\Delivery\ViewModels;
 
-use Somnambulist\Domain\Entities\Types\DateTime\DateTime;
+use Somnambulist\Components\Domain\Entities\Types\DateTime\DateTime;
 use Somnambulist\Components\ReadModels\Model;
 
 /**

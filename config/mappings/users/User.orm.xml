@@ -23,7 +23,7 @@
                 <option name="default">false</option>
             </options>
         </field>
-        <field name="name" type="users_name" length="255" />
+        <field name="name" type="user_name" length="255" />
         <field name="email" type="email" length="100"/>
         <field name="password" type="password" length="255"/>
         <field name="createdAt" type="datetime"/>

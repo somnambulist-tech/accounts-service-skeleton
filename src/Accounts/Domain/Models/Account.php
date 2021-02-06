@@ -4,8 +4,8 @@ namespace App\Accounts\Domain\Models;
 
 use App\Accounts\Domain\Events as Event;
 use Assert\Assert;
-use Somnambulist\Domain\Entities\AggregateRoot;
-use Somnambulist\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Components\Domain\Entities\AggregateRoot;
+use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
 
 /**
  * Class Account

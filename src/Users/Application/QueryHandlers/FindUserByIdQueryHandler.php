@@ -5,8 +5,8 @@ namespace App\Users\Application\QueryHandlers;
 use App\Users\Delivery\ViewModels\UserView;
 use App\Users\Domain\Models\User;
 use App\Users\Domain\Queries\FindUserById;
+use Somnambulist\Components\Domain\Entities\Exceptions\EntityNotFoundException;
 use Somnambulist\Components\ReadModels\Exceptions\EntityNotFoundException as ReadModelNotFound;
-use Somnambulist\Domain\Entities\Exceptions\EntityNotFoundException;
 
 /**
  * Class FindUserByIdQueryHandler

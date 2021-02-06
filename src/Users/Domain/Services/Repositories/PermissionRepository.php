@@ -3,7 +3,7 @@
 namespace App\Users\Domain\Services\Repositories;
 
 use App\Users\Domain\Models\Permission;
-use Somnambulist\Domain\Entities\Exceptions\EntityNotFoundException;
+use Somnambulist\Components\Domain\Entities\Exceptions\EntityNotFoundException;
 
 /**
  * Interface PermissionRepository

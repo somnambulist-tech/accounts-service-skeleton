@@ -2,9 +2,7 @@
 
 namespace App\Users\Delivery\Api\V1\Users\Forms;
 
-use Adamsafr\FormRequestBundle\Http\FormRequest;
-use Symfony\Component\Validator\Constraint;
-use Symfony\Component\Validator\Constraints as Assert;
+use Somnambulist\Bundles\FormRequestBundle\Http\FormRequest;
 
 /**
  * Class CreateUserRequest
@@ -14,62 +12,17 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class CreateUserRequest extends FormRequest
 {
-    /**
-     * @return Constraint|Constraint[]|Assert\Collection|null
-     */
-    public function rules()
+    public function rules(): array
     {
-        return new Assert\Collection([
-            'fields' => [
-                'account_id' => new Assert\Required([
-                    new Assert\Uuid(),
-                ]),
-                'email'     => new Assert\Required([
-                    new Assert\Email(),
-                    new Assert\Length([
-                        'min' => 3,
-                        'max' => 60,
-                    ]),
-                ]),
-                'password' => new Assert\Required([
-                    new Assert\NotNull(),
-                    new Assert\NotBlank(),
-                    new Assert\Length([
-                        'min' => 1,
-                        'max' => 255,
-                    ]),
-                ]),
-                'name' => new Assert\Optional([
-                    new Assert\NotNull(),
-                    new Assert\NotBlank(),
-                    new Assert\Length([
-                        'min' => 1,
-                        'max' => 255,
-                    ]),
-                ]),
-                'roles' => new Assert\Optional([
-                    new Assert\Type('array'),
-                    new Assert\All([
-                        new Assert\NotNull(),
-                        new Assert\NotBlank(),
-                        new Assert\Length([
-                            'min' => 1,
-                            'max' => 255,
-                        ]),
-                    ]),
-                ]),
-                'permissions' => new Assert\Optional([
-                    new Assert\Type('array'),
-                    new Assert\All([
-                        new Assert\NotNull(),
-                        new Assert\NotBlank(),
-                        new Assert\Length([
-                            'min' => 1,
-                            'max' => 255,
-                        ]),
-                    ]),
-                ]),
-            ],
-        ]);
+        return [
+            'account_id'    => 'required|uuid',
+            'email'         => 'required|email|min:3|max:60',
+            'password'      => 'required|min:1|max:255',
+            'name'          => 'required|min:1|max:255',
+            'roles'         => 'array',
+            'roles.*'       => 'min:1|max:255',
+            'permissions'   => 'array',
+            'permissions.*' => 'min:1|max:255',
+        ];
     }
 }

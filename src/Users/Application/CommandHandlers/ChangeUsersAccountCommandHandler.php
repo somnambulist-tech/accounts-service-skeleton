@@ -6,7 +6,7 @@ use App\Users\Domain\Commands\ChangeUsersAccount;
 use App\Users\Domain\Models\AccountId;
 use App\Users\Domain\Queries\FindAccountById;
 use App\Users\Domain\Services\Repositories\UserRepository;
-use Somnambulist\Domain\Queries\QueryBus;
+use Somnambulist\Components\Domain\Queries\QueryBus;
 
 /**
  * Class ChangeUsersAccountCommandHandler

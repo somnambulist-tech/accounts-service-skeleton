@@ -6,7 +6,7 @@ namespace App\Resources\Migrations;
 
 use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;
-use Somnambulist\Domain\Utils\IdentityGenerator;
+use Somnambulist\Components\Domain\Utils\IdentityGenerator;
 
 /**
  * Class Version20201003220231

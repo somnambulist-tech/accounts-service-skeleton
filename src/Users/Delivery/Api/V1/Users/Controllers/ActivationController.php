@@ -7,8 +7,8 @@ use App\Users\Delivery\Api\V1\Users\Transformers\UserViewTransformer;
 use App\Users\Domain\Commands\ActivateUser;
 use App\Users\Domain\Commands\DeactivateUser;
 use App\Users\Domain\Queries\FindUserById;
-use Somnambulist\ApiBundle\Response\Types\ObjectType;
-use Somnambulist\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Bundles\ApiBundle\Response\Types\ObjectType;
+use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
 
 /**
  * Class ActivationController

@@ -4,7 +4,7 @@ namespace App\Users\Delivery\Api\V1\Roles\Controllers;
 
 use App\Resources\Delivery\Api\ApiController;
 use App\Users\Domain\Commands\DestroyRole;
-use Somnambulist\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
 
 /**
  * Class DestroyController

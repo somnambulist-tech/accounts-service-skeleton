@@ -8,8 +8,8 @@ use App\Users\Delivery\Api\V1\Users\Transformers\UserViewTransformer;
 use App\Users\Domain\Commands\CreateUser;
 use App\Users\Domain\Models\AccountId;
 use App\Users\Domain\Queries\FindUserById;
-use Somnambulist\ApiBundle\Response\Types\ObjectType;
-use Somnambulist\Domain\Utils\IdentityGenerator;
+use Somnambulist\Bundles\ApiBundle\Response\Types\ObjectType;
+use Somnambulist\Components\Domain\Utils\IdentityGenerator;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
@@ -30,8 +30,8 @@ class CreateController extends ApiController
                 $request->get('email'),
                 $request->get('password'),
                 $request->get('name'),
-                $request->getRequest()->request->all('roles'),
-                $request->getRequest()->request->all('permissions'),
+                $request->request->all('roles'),
+                $request->request->all('permissions'),
             )
         );
 

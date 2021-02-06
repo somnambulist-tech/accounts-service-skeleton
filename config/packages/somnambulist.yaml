@@ -1,9 +1,9 @@
 somnambulist_api:
     exception_handler:
         converters:
-            Assert\InvalidArgumentException: Somnambulist\ApiBundle\Response\ExceptionConverters\AssertionExceptionConverter
-            Assert\LazyAssertionException: Somnambulist\ApiBundle\Response\ExceptionConverters\LazyAssertionExceptionConverter
-            Symfony\Component\Messenger\Exception\HandlerFailedException: Somnambulist\ApiBundle\Response\ExceptionConverters\HandlerFailedExceptionConverter
+            Assert\InvalidArgumentException: Somnambulist\Bundles\ApiBundle\Response\ExceptionConverters\AssertionExceptionConverter
+            Assert\LazyAssertionException: Somnambulist\Bundles\ApiBundle\Response\ExceptionConverters\LazyAssertionExceptionConverter
+            Symfony\Component\Messenger\Exception\HandlerFailedException: Somnambulist\Bundles\ApiBundle\Response\ExceptionConverters\HandlerFailedExceptionConverter
     request_handler:
         per_page: 20
         max_per_page: 100
@@ -15,3 +15,8 @@ somnambulist_api:
 somnambulist_read_models:
     connections:
         default: 'doctrine.dbal.default_connection'
+
+somnambulist_form_request:
+    subscribers:
+        authorization: true
+        form_validation: true

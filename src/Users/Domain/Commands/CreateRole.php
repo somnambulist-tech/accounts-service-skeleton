@@ -2,9 +2,9 @@
 
 namespace App\Users\Domain\Commands;
 
-use App\Users\Domain\Models\Name;
-use Somnambulist\Domain\Commands\AbstractCommand;
-use Somnambulist\Domain\Entities\Types\Identity\Uuid;
+use App\Users\Domain\Models\RoleName;
+use Somnambulist\Components\Domain\Commands\AbstractCommand;
+use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
 
 /**
  * Class CreateRole
@@ -15,12 +15,12 @@ use Somnambulist\Domain\Entities\Types\Identity\Uuid;
 class CreateRole extends AbstractCommand
 {
 
-    private Uuid $id;
-    private Name $name;
-    private array $permissions;
+    private Uuid     $id;
+    private RoleName $name;
+    private array    $permissions;
     private array $roles;
 
-    public function __construct(Uuid $id, Name $name, array $permissions = [], array $roles = [])
+    public function __construct(Uuid $id, RoleName $name, array $permissions = [], array $roles = [])
     {
         $this->id          = $id;
         $this->name        = $name;
@@ -33,7 +33,7 @@ class CreateRole extends AbstractCommand
         return $this->id;
     }
 
-    public function getName(): Name
+    public function getName(): RoleName
     {
         return $this->name;
     }

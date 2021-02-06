@@ -10,43 +10,39 @@ services:
     Somnambulist\Components\ReadModels\EventSubscribers\IdentityMapClearerMessengerSubscriber:
         tags: ['kernel.event_subscriber']
 
-    Somnambulist\Domain\Events\Publishers\DoctrineEventPublisher:
+    Somnambulist\Components\Domain\Events\Publishers\DoctrineEventPublisher:
         tags: ['doctrine.event_subscriber']
 
-    Somnambulist\Domain\Events\Adapters\MessengerSerializer:
+    Somnambulist\Components\Domain\Events\Adapters\MessengerSerializer:
 
     somnambulist.domain.event_serializer:
-        alias: Somnambulist\Domain\Events\Adapters\MessengerSerializer
+        alias: Somnambulist\Components\Domain\Events\Adapters\MessengerSerializer
 
-    Somnambulist\Domain\Commands\CommandBus:
-        alias: Somnambulist\Domain\Commands\Adapters\MessengerCommandBus
+    Somnambulist\Components\Domain\Commands\CommandBus:
+        alias: Somnambulist\Components\Domain\Commands\Adapters\MessengerCommandBus
         public: true
 
-    Somnambulist\Domain\Commands\Adapters\MessengerCommandBus:
+    Somnambulist\Components\Domain\Commands\Adapters\MessengerCommandBus:
 
-    Somnambulist\Domain\Events\EventBus:
-        alias: Somnambulist\Domain\Events\Adapters\MessengerEventBus
+    Somnambulist\Components\Domain\Events\EventBus:
+        alias: Somnambulist\Components\Domain\Events\Adapters\MessengerEventBus
         public: true
 
-    Somnambulist\Domain\Jobs\Adapters\MessengerJobQueue:
+    Somnambulist\Components\Domain\Jobs\Adapters\MessengerJobQueue:
 
-    Somnambulist\Domain\Jobs\JobQueue:
-        alias: Somnambulist\Domain\Jobs\Adapters\MessengerJobQueue
+    Somnambulist\Components\Domain\Jobs\JobQueue:
+        alias: Somnambulist\Components\Domain\Jobs\Adapters\MessengerJobQueue
         public: true
 
-    Somnambulist\Domain\Events\Adapters\MessengerEventBus:
+    Somnambulist\Components\Domain\Events\Adapters\MessengerEventBus:
 
-    Somnambulist\Domain\Queries\QueryBus:
-        alias: Somnambulist\Domain\Queries\Adapters\MessengerQueryBus
+    Somnambulist\Components\Domain\Queries\QueryBus:
+        alias: Somnambulist\Components\Domain\Queries\Adapters\MessengerQueryBus
         public: true
 
-    Somnambulist\Domain\Queries\Adapters\MessengerQueryBus:
+    Somnambulist\Components\Domain\Queries\Adapters\MessengerQueryBus:
 
-    Somnambulist\ApiBundle\ArgumentResolvers\:
+    Somnambulist\Bundles\ApiBundle\ArgumentResolvers\:
         resource: '../../vendor/somnambulist/api-bundle/src/ArgumentResolvers/'
         tags:
             - { name: controller.argument_value_resolver, priority: 105 }
-
-    Somnambulist\Components\ReadModels\TypeCasters\DoctrineTypeCaster:
-        tags: [ 'somnambulist.read_models.type_caster' ]
-

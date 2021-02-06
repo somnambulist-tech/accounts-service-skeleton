@@ -7,10 +7,10 @@ use App\Users\Domain\Models\User\UserPermissions;
 use App\Users\Domain\Models\User\UserRoles;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Somnambulist\Domain\Entities\AggregateRoot;
-use Somnambulist\Domain\Entities\Types\Auth\Password;
-use Somnambulist\Domain\Entities\Types\Identity\EmailAddress;
-use Somnambulist\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Components\Domain\Entities\AggregateRoot;
+use Somnambulist\Components\Domain\Entities\Types\Auth\Password;
+use Somnambulist\Components\Domain\Entities\Types\Identity\EmailAddress;
+use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
 
 /**
  * Class User
@@ -24,12 +24,12 @@ class User extends AggregateRoot
     private AccountId $account;
     private EmailAddress $email;
     private Password $password;
-    private Name $name;
-    private bool $active;
+    private UserName $name;
+    private bool     $active;
     private Collection $permissions;
     private Collection $roles;
 
-    private function __construct(Uuid $id, AccountId $account, EmailAddress $email, Password $password, Name $name)
+    private function __construct(Uuid $id, AccountId $account, EmailAddress $email, Password $password, UserName $name)
     {
         $this->id       = $id;
         $this->account  = $account;
@@ -44,7 +44,7 @@ class User extends AggregateRoot
         $this->initializeTimestamps();
     }
 
-    public static function create(Uuid $uuid, AccountId $account, EmailAddress $email, Password $password, Name $name): self
+    public static function create(Uuid $uuid, AccountId $account, EmailAddress $email, Password $password, UserName $name): self
     {
         $entity = new static($uuid, $account, $email, $password, $name);
 
@@ -97,7 +97,7 @@ class User extends AggregateRoot
         ]);
     }
 
-    public function changeName(Name $name): void
+    public function changeName(UserName $name): void
     {
         $this->name = $name;
 

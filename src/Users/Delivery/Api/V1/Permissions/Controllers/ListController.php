@@ -6,7 +6,7 @@ use App\Resources\Delivery\Api\ApiController;
 use App\Users\Delivery\Api\V1\Permissions\Transformers\PermissionViewTransformer;
 use App\Users\Domain\Queries\FindPermissions;
 use Pagerfanta\Pagerfanta;
-use Somnambulist\ApiBundle\Response\Types\PagerfantaType;
+use Somnambulist\Bundles\ApiBundle\Response\Types\PagerfantaType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 

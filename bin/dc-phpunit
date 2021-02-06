@@ -3,4 +3,4 @@
 DIR="${BASH_SOURCE%/*}"; if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi;
 if [[ -f "${DIR}/../.env" ]]; then . "${DIR}/../.env"; fi;
 
-docker-compose exec -T ${APP_SERVICE_APP} ${APP_PATH}/bin/simple-phpunit "$@"
+docker-compose exec -T ${APP_SERVICE_APP} ${APP_PATH}/bin/phpunit "$@"

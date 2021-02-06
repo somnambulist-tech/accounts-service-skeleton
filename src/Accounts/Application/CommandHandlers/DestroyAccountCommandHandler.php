@@ -6,7 +6,7 @@ use App\Accounts\Domain\Commands\DestroyAccount;
 use App\Accounts\Domain\Queries\CountUsersOnAccount;
 use App\Accounts\Domain\Services\Repositories\AccountRepository;
 use Assert\Assert;
-use Somnambulist\Domain\Queries\QueryBus;
+use Somnambulist\Components\Domain\Queries\QueryBus;
 
 /**
  * Class DestroyAccountCommandHandler

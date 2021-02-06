@@ -2,19 +2,18 @@
 
 namespace App\Tests\Accounts\Domain\Models;
 
-use App\Accounts\Domain\Models\Account;
-use Assert\AssertionFailedException;
 use App\Accounts\Domain\Events\AccountCreated;
 use App\Accounts\Domain\Events\AccountCurrencyUpdated;
 use App\Accounts\Domain\Events\AccountDestroyed;
 use App\Accounts\Domain\Events\AccountNameUpdated;
+use App\Accounts\Domain\Models\Account;
 use App\Accounts\Domain\Models\Client;
 use App\Tests\Support\Behaviours\UseObjectFactoryHelper;
+use Assert\AssertionFailedException;
 use PHPUnit\Framework\TestCase;
-use Somnambulist\Domain\Entities\Types\Money\Currency;
-use Somnambulist\Domain\Utils\IdentityGenerator;
-use Somnambulist\Domain\Utils\Tests\Assertions\AssertEntityHasPropertyWithValue;
-use Somnambulist\Domain\Utils\Tests\Assertions\AssertHasDomainEventOfType;
+use Somnambulist\Components\Domain\Utils\IdentityGenerator;
+use Somnambulist\Components\Domain\Utils\Tests\Assertions\AssertEntityHasPropertyWithValue;
+use Somnambulist\Components\Domain\Utils\Tests\Assertions\AssertHasDomainEventOfType;
 
 /**
  * Class AccountTest

@@ -3,13 +3,13 @@
 namespace App\Users\Application\CommandHandlers;
 
 use App\Users\Domain\Commands\CreateRole;
-use App\Users\Domain\Models\Name;
 use App\Users\Domain\Models\Permission;
+use App\Users\Domain\Models\PermissionName;
 use App\Users\Domain\Models\Role;
 use App\Users\Domain\Services\Repositories\PermissionRepository;
 use App\Users\Domain\Services\Repositories\RoleRepository;
-use Somnambulist\Domain\Entities\Exceptions\EntityNotFoundException;
-use Somnambulist\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Components\Domain\Entities\Exceptions\EntityNotFoundException;
+use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
 
 /**
  * Class CreateRoleCommandHandler
@@ -52,7 +52,7 @@ class CreateRoleCommandHandler
         try {
             return $this->permissions->findByName($name);
         } catch (EntityNotFoundException $e) {
-            return new Permission(new Name($name));
+            return new Permission(new PermissionName($name));
         }
     }
 }

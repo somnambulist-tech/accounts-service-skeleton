@@ -2,10 +2,10 @@
 
 namespace App\Users\Delivery\Api\V1\Roles\Transformers;
 
-use League\Fractal\Resource\Collection;
-use League\Fractal\TransformerAbstract;
 use App\Users\Delivery\Api\V1\Permissions\Transformers\PermissionViewTransformer;
 use App\Users\Delivery\ViewModels\RoleView;
+use League\Fractal\Resource\Collection;
+use League\Fractal\TransformerAbstract;
 
 /**
  * Class RoleViewTransformer

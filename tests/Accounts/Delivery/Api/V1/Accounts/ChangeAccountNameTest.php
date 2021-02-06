@@ -42,6 +42,9 @@ class ChangeAccountNameTest extends WebTestCase
         $this->assertSame('test test', $res['name']);
     }
 
+    /**
+     * @group cur
+     */
     public function testUpdateWithNoNameReturnsJsonError(): void
     {
         $res = $this->update([

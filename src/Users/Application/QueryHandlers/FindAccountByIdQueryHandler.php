@@ -5,8 +5,8 @@ namespace App\Users\Application\QueryHandlers;
 use App\Accounts\Delivery\ViewModels\AccountView;
 use App\Accounts\Domain\Models\Account;
 use App\Users\Domain\Queries\FindAccountById;
+use Somnambulist\Components\Domain\Entities\Exceptions\EntityNotFoundException;
 use Somnambulist\Components\ReadModels\Exceptions\EntityNotFoundException as ReadModelNotFound;
-use Somnambulist\Domain\Entities\Exceptions\EntityNotFoundException;
 
 /**
  * Class FindAccountByIdQueryHandler

@@ -3,7 +3,7 @@
 namespace App\Accounts\Infrastructure\Persistence\EntityLocators;
 
 use App\Accounts\Domain\Models\Account;
-use Somnambulist\Domain\Doctrine\AbstractEntityLocator;
+use Somnambulist\Components\Domain\Doctrine\AbstractEntityLocator;
 
 /**
  * Class AccountLocator

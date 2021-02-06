@@ -3,8 +3,8 @@
 namespace App\Tests\Support\Fixtures;
 
 use App\Tests\Support\Behaviours\UseObjectFactoryHelper;
-use App\Users\Domain\Models\Name;
 use App\Users\Domain\Models\Permission;
+use App\Users\Domain\Models\PermissionName;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -35,7 +35,7 @@ class RoleWithPermissionFixture extends Fixture
 
             if ($role === 'root') {
                 foreach ($permissions as $permission) {
-                    $entity->permissions()->grant(new Permission(new Name($permission)));
+                    $entity->permissions()->grant(new Permission(new PermissionName($permission)));
                 }
             }
         }

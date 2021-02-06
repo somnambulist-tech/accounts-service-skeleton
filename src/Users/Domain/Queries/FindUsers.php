@@ -2,8 +2,8 @@
 
 namespace App\Users\Domain\Queries;
 
-use Somnambulist\Domain\Entities\Types\Identity\Uuid;
-use Somnambulist\Domain\Queries\AbstractPaginatableQuery;
+use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Components\Domain\Queries\AbstractPaginatableQuery;
 
 /**
  * Class FindUsers

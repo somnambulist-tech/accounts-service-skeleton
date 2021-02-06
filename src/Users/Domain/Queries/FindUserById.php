@@ -2,8 +2,8 @@
 
 namespace App\Users\Domain\Queries;
 
-use Somnambulist\Domain\Queries\AbstractFindByIdQuery;
-use Somnambulist\Domain\Queries\Behaviours\CanIncludeRelatedData;
+use Somnambulist\Components\Domain\Queries\AbstractFindByIdQuery;
+use Somnambulist\Components\Domain\Queries\Behaviours\CanIncludeRelatedData;
 
 /**
  * Class FindUserById

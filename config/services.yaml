@@ -47,6 +47,7 @@ services:
 
     App\Accounts\Delivery\Api\:
         resource: '../src/Accounts/Delivery/Api'
+        exclude: '../src/Accounts/Delivery/Api/**/Forms/*'
         tags: [ 'controller.service_arguments' ]
 
     App\Accounts\Delivery\Console\:
@@ -78,6 +79,7 @@ services:
 
     App\Users\Delivery\Api\:
         resource: '../src/Users/Delivery/Api'
+        exclude: '../src/Users/Delivery/Api/**/Forms/*'
         tags: [ 'controller.service_arguments' ]
 
     App\Users\Delivery\Console\:

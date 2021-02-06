@@ -2,8 +2,8 @@
 
 namespace App\Users\Domain\Queries;
 
-use App\Users\Domain\Models\Name;
-use Somnambulist\Domain\Queries\AbstractQuery;
+use App\Users\Domain\Models\PermissionName;
+use Somnambulist\Components\Domain\Queries\AbstractQuery;
 
 /**
  * Class FindPermissionByName
@@ -14,14 +14,14 @@ use Somnambulist\Domain\Queries\AbstractQuery;
 class FindPermissionByName extends AbstractQuery
 {
 
-    private Name $name;
+    private PermissionName $name;
 
-    public function __construct(Name $name)
+    public function __construct(PermissionName $name)
     {
         $this->name = $name;
     }
 
-    public function getName(): Name
+    public function getName(): PermissionName
     {
         return $this->name;
     }

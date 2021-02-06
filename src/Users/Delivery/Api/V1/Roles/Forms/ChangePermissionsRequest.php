@@ -2,9 +2,7 @@
 
 namespace App\Users\Delivery\Api\V1\Roles\Forms;
 
-use Adamsafr\FormRequestBundle\Http\FormRequest;
-use Symfony\Component\Validator\Constraint;
-use Symfony\Component\Validator\Constraints as Assert;
+use Somnambulist\Bundles\FormRequestBundle\Http\FormRequest;
 
 /**
  * Class ChangePermissionsRequest
@@ -14,25 +12,11 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class ChangePermissionsRequest extends FormRequest
 {
-    /**
-     * @return Constraint|Constraint[]|Assert\Collection|null
-     */
-    public function rules()
+    public function rules(): array
     {
-        return new Assert\Collection([
-            'fields' => [
-                'permissions' => new Assert\Required([
-                    new Assert\Type('array'),
-                    new Assert\All([
-                        new Assert\NotNull(),
-                        new Assert\NotBlank(),
-                        new Assert\Length([
-                            'min' => 1,
-                            'max' => 255,
-                        ]),
-                    ]),
-                ]),
-            ],
-        ]);
+        return [
+            'permissions' => 'required|array',
+            'permissions.*' => 'min:1|max:255',
+        ];
     }
 }

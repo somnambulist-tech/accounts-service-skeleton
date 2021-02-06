@@ -2,15 +2,17 @@
 
 namespace App\Tests\Support\Factories;
 
-use App\Users\Domain\Models\Name;
-use Faker\Generator;
 use App\Users\Domain\Models\AccountId;
 use App\Users\Domain\Models\Permission;
+use App\Users\Domain\Models\PermissionName;
 use App\Users\Domain\Models\Role;
+use App\Users\Domain\Models\RoleName;
 use App\Users\Domain\Models\User;
-use Somnambulist\Domain\Entities\Types\Auth\Password;
-use Somnambulist\Domain\Entities\Types\Identity\EmailAddress;
-use Somnambulist\Domain\Utils\IdentityGenerator;
+use App\Users\Domain\Models\UserName;
+use Faker\Generator;
+use Somnambulist\Components\Domain\Entities\Types\Auth\Password;
+use Somnambulist\Components\Domain\Entities\Types\Identity\EmailAddress;
+use Somnambulist\Components\Domain\Utils\IdentityGenerator;
 
 /**
  * Class UserFactory
@@ -38,9 +40,9 @@ class UserFactory
         return new AccountId(IdentityGenerator::random()->toString());
     }
 
-    public function name(string $name = null): Name
+    public function name(string $name = null): UserName
     {
-        return new Name($name ?? $this->faker->name);
+        return new UserName($name ?? $this->faker->name);
     }
 
     public function password($algo = PASSWORD_BCRYPT, array $options = []): Password
@@ -50,10 +52,10 @@ class UserFactory
 
     public function role(string $name = 'role'): Role
     {
-        return new Role(IdentityGenerator::random(), new Name($name));
+        return new Role(IdentityGenerator::random(), new RoleName($name));
     }
 
-    public function user(AccountId $accountId = null, EmailAddress $email = null, Password $password = null, Name $name = null): User
+    public function user(AccountId $accountId = null, EmailAddress $email = null, Password $password = null, UserName $name = null): User
     {
         return User::create(
             IdentityGenerator::random(),
@@ -74,7 +76,7 @@ class UserFactory
         $tmp = [];
 
         foreach ($permission as $name) {
-            $tmp[] = new Permission(new Name($name));
+            $tmp[] = new Permission(new PermissionName($name));
         }
 
         return (count($tmp) == 1) ? $tmp[0] : $tmp;

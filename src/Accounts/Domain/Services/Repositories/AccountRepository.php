@@ -3,8 +3,8 @@
 namespace App\Accounts\Domain\Services\Repositories;
 
 use App\Accounts\Domain\Models\Account;
-use Somnambulist\Domain\Entities\Exceptions\EntityNotFoundException;
-use Somnambulist\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Components\Domain\Entities\Exceptions\EntityNotFoundException;
+use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
 
 /**
  * Interface AccountRepository

@@ -2,9 +2,7 @@
 
 namespace App\Users\Delivery\Api\V1\Users\Forms;
 
-use Adamsafr\FormRequestBundle\Http\FormRequest;
-use Symfony\Component\Validator\Constraint;
-use Symfony\Component\Validator\Constraints as Assert;
+use Somnambulist\Bundles\FormRequestBundle\Http\FormRequest;
 
 /**
  * Class UpdateEmailRequest
@@ -14,18 +12,10 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class UpdateEmailRequest extends FormRequest
 {
-
-    /**
-     * @return Constraint|Constraint[]|Assert\Collection|null
-     */
-    public function rules()
+    public function rules(): array
     {
-        return new Assert\Collection([
-            'fields' => [
-                'email' => new Assert\Required([
-                    new Assert\Email(),
-                ]),
-            ],
-        ]);
+        return [
+            'email' => 'required|email',
+        ];
     }
 }

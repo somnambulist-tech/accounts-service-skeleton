@@ -2,8 +2,8 @@
 
 namespace App\Users\Domain\Commands;
 
-use App\Users\Domain\Models\Name;
-use Somnambulist\Domain\Commands\AbstractCommand;
+use App\Users\Domain\Models\PermissionName;
+use Somnambulist\Components\Domain\Commands\AbstractCommand;
 
 /**
  * Class CreatePermission
@@ -14,14 +14,14 @@ use Somnambulist\Domain\Commands\AbstractCommand;
 class CreatePermission extends AbstractCommand
 {
 
-    private Name $name;
+    private PermissionName $name;
 
-    public function __construct(Name $name)
+    public function __construct(PermissionName $name)
     {
         $this->name = $name;
     }
 
-    public function getName(): Name
+    public function getName(): PermissionName
     {
         return $this->name;
     }

@@ -2,9 +2,7 @@
 
 namespace App\Users\Delivery\Api\V1\Users\Forms;
 
-use Adamsafr\FormRequestBundle\Http\FormRequest;
-use Symfony\Component\Validator\Constraint;
-use Symfony\Component\Validator\Constraints as Assert;
+use Somnambulist\Bundles\FormRequestBundle\Http\FormRequest;
 
 /**
  * Class ListUsersRequest
@@ -14,18 +12,10 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class ListUsersRequest extends FormRequest
 {
-
-    /**
-     * @return Constraint|Constraint[]|Assert\Collection|null
-     */
-    public function rules()
+    public function rules(): array
     {
-        return new Assert\Collection([
-            'fields' => [
-                'account_id' => new Assert\Required([
-                    new Assert\Uuid(),
-                ]),
-            ],
-        ]);
+        return [
+            'account_id' => 'required|uuid',
+        ];
     }
 }

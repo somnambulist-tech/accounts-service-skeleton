@@ -3,16 +3,16 @@
 namespace App\Users\Application\CommandHandlers;
 
 use App\Users\Domain\Commands\CreateUser;
-use App\Users\Domain\Models\Name;
 use App\Users\Domain\Models\Role;
 use App\Users\Domain\Models\User;
+use App\Users\Domain\Models\UserName;
 use App\Users\Domain\Queries\FindAccountById;
 use App\Users\Domain\Services\Repositories\PermissionRepository;
 use App\Users\Domain\Services\Repositories\RoleRepository;
 use App\Users\Domain\Services\Repositories\UserRepository;
-use Somnambulist\Domain\Entities\Types\Auth\Password;
-use Somnambulist\Domain\Entities\Types\Identity\EmailAddress;
-use Somnambulist\Domain\Queries\QueryBus;
+use Somnambulist\Components\Domain\Entities\Types\Auth\Password;
+use Somnambulist\Components\Domain\Entities\Types\Identity\EmailAddress;
+use Somnambulist\Components\Domain\Queries\QueryBus;
 
 /**
  * Class CreateUserCommandHandler
@@ -45,7 +45,7 @@ class CreateUserCommandHandler
             $command->getAccount(),
             new EmailAddress($command->getEmail()),
             new Password($command->getPassword()),
-            new Name($command->getName())
+            new UserName($command->getName())
         );
 
         $user->roles()->grant($this->roles->findByName(Role::ROLE_USER));

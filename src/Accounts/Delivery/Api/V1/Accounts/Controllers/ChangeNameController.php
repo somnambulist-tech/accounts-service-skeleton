@@ -7,8 +7,8 @@ use App\Accounts\Delivery\Api\V1\Accounts\Transformers\AccountViewTransformer;
 use App\Accounts\Domain\Commands\ChangeAccountName;
 use App\Accounts\Domain\Queries\FindAccountById;
 use App\Resources\Delivery\Api\ApiController;
-use Somnambulist\ApiBundle\Response\Types\ObjectType;
-use Somnambulist\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Bundles\ApiBundle\Response\Types\ObjectType;
+use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
 
 /**
  * Class ChangeNameController

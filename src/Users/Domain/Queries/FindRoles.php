@@ -2,7 +2,7 @@
 
 namespace App\Users\Domain\Queries;
 
-use Somnambulist\Domain\Queries\AbstractPaginatableQuery;
+use Somnambulist\Components\Domain\Queries\AbstractPaginatableQuery;
 
 /**
  * Class FindRoles

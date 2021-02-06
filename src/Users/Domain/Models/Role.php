@@ -2,12 +2,12 @@
 
 namespace App\Users\Domain\Models;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use App\Users\Domain\Models\Role\RoleGrantableRoles;
 use App\Users\Domain\Models\Role\RolePermissions;
-use Somnambulist\Domain\Entities\AggregateRoot;
-use Somnambulist\Domain\Entities\Types\Identity\Uuid;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Somnambulist\Components\Domain\Entities\AggregateRoot;
+use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
 
 /**
  * Class Role
@@ -21,13 +21,13 @@ class Role extends AggregateRoot
     const ROLE_ADMIN       = 'admin';
     const ROLE_ROOT        = 'root';
     const ROLE_USER        = 'user';
-    const ROLE_SWITCH_USER = 'switch_user';
+    const ROLE_SWITCH_USER = 'allowed_to_switch';
 
-    private Name $name;
+    private RoleName   $name;
     private Collection $permissions;
     private Collection $roles;
 
-    public function __construct(Uuid $id, Name $name)
+    public function __construct(Uuid $id, RoleName $name)
     {
         $this->id          = $id;
         $this->name        = $name;

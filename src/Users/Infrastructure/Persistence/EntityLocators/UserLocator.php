@@ -3,8 +3,8 @@
 namespace App\Users\Infrastructure\Persistence\EntityLocators;
 
 use App\Users\Domain\Models\User;
-use Somnambulist\Domain\Doctrine\AbstractEntityLocator;
-use Somnambulist\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Components\Domain\Doctrine\AbstractEntityLocator;
+use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
 
 /**
  * Class UserLocator

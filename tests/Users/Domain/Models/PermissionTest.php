@@ -2,8 +2,8 @@
 
 namespace App\Tests\Users\Domain\Models;
 
-use App\Users\Domain\Models\Name;
 use App\Users\Domain\Models\Permission;
+use App\Users\Domain\Models\PermissionName;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -21,7 +21,7 @@ class PermissionTest extends TestCase
 
     public function testCreate()
     {
-        $ent = new Permission(new Name('permission'));
+        $ent = new Permission(new PermissionName('permission'));
 
         $this->assertEquals('permission', $ent->name());
     }

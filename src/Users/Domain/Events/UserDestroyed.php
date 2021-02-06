@@ -2,7 +2,7 @@
 
 namespace App\Users\Domain\Events;
 
-use Somnambulist\Domain\Events\AbstractEvent;
+use Somnambulist\Components\Domain\Events\AbstractEvent;
 
 /**
  * Class UserDestroyed

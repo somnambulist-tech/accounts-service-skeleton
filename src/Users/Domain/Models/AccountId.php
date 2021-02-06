@@ -2,7 +2,7 @@
 
 namespace App\Users\Domain\Models;
 
-use Somnambulist\Domain\Entities\Types\Identity\AbstractIdentity;
+use Somnambulist\Components\Domain\Entities\Types\Identity\AbstractIdentity;
 
 /**
  * Class AccountId

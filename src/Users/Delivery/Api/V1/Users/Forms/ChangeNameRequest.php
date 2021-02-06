@@ -2,9 +2,7 @@
 
 namespace App\Users\Delivery\Api\V1\Users\Forms;
 
-use Adamsafr\FormRequestBundle\Http\FormRequest;
-use Symfony\Component\Validator\Constraint;
-use Symfony\Component\Validator\Constraints as Assert;
+use Somnambulist\Bundles\FormRequestBundle\Http\FormRequest;
 
 /**
  * Class ChangeNameRequest
@@ -14,23 +12,10 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class ChangeNameRequest extends FormRequest
 {
-
-    /**
-     * @return Constraint|Constraint[]|Assert\Collection|null
-     */
-    public function rules()
+    public function rules(): array
     {
-        return new Assert\Collection([
-            'fields' => [
-                'name' => new Assert\Required([
-                    new Assert\NotBlank(),
-                    new Assert\NotNull(),
-                    new Assert\Length([
-                        'min' => 1,
-                        'max' => 255,
-                    ]),
-                ]),
-            ],
-        ]);
+        return [
+            'name' => 'required|min:1|max:255',
+        ];
     }
 }

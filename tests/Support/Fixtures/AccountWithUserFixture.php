@@ -6,7 +6,7 @@ use App\Tests\Support\Behaviours\UseObjectFactoryHelper;
 use App\Users\Domain\Models\AccountId;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
-use Somnambulist\Domain\Entities\Types\Identity\EmailAddress;
+use Somnambulist\Components\Domain\Entities\Types\Identity\EmailAddress;
 
 /**
  * Class AccountWithUserFixture

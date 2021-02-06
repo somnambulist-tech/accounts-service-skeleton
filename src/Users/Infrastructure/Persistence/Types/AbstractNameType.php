@@ -2,23 +2,23 @@
 
 namespace App\Users\Infrastructure\Persistence\Types;
 
-use App\Users\Domain\Models\Name;
+use App\Users\Domain\Models\UserName;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\ConversionException;
 use Doctrine\DBAL\Types\Type;
 use InvalidArgumentException;
 
 /**
- * Class NameType
+ * Class AbstractNameType
  *
  * @package    App\Users\Infrastructure\Persistence\Types
- * @subpackage App\Users\Infrastructure\Persistence\Types\NameType
+ * @subpackage App\Users\Infrastructure\Persistence\Types\AbstractNameType
  */
-class NameType extends Type
+class AbstractNameType extends Type
 {
 
     protected string $name = 'name';
-    protected string $class = Name::class;
+    protected string $class = UserName::class;
 
     public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
     {
@@ -36,12 +36,12 @@ class NameType extends Type
         }
 
         try {
-            $uuid = new $this->class($value);
+            $ret = new $this->class($value);
         } catch (InvalidArgumentException $e) {
             throw ConversionException::conversionFailed($value, $this->name);
         }
 
-        return $uuid;
+        return $ret;
     }
 
     public function convertToDatabaseValue($value, AbstractPlatform $platform)

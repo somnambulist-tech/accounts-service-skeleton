@@ -2,13 +2,13 @@
 
 namespace App\Users\Infrastructure\Persistence\Repositories;
 
-use App\Users\Domain\Models\Name;
-use Doctrine\Common\Persistence\ManagerRegistry;
+use App\Users\Domain\Models\UserName;
+use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\Persistence\ObjectManager;
 use App\Users\Domain\Models\Role;
 use App\Users\Domain\Services\Repositories\RoleRepository as RoleRepositoryContract;
 use App\Users\Infrastructure\Persistence\EntityLocators\RoleLocator;
-use Somnambulist\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
 
 /**
  * Class RoleRepository
@@ -33,7 +33,7 @@ class RoleRepository implements RoleRepositoryContract
 
     public function findByName(string $name): Role
     {
-        return $this->repo()->findOneByOrFail(['name' => new Name($name)]);
+        return $this->repo()->findOneByOrFail(['name' => new UserName($name)]);
     }
 
     public function store(Role $role): bool

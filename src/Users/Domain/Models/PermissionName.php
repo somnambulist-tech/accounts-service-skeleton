@@ -3,22 +3,22 @@
 namespace App\Users\Domain\Models;
 
 use Assert\Assert;
-use Somnambulist\Domain\Entities\AbstractValueObject;
+use Somnambulist\Components\Domain\Entities\AbstractValueObject;
 
 /**
- * Class Name
+ * Class PermissionName
  *
  * @package    App\Users\Domain\Models
- * @subpackage App\Users\Domain\Models\Name
+ * @subpackage App\Users\Domain\Models\PermissionName
  */
-final class Name extends AbstractValueObject
+final class PermissionName extends AbstractValueObject
 {
 
     private string $value;
 
     public function __construct(string $value)
     {
-        Assert::that($value, null, 'name')->notEmpty()->notBlank()->notNull()->maxLength(255);
+        Assert::that($value, null, 'permission_name')->notEmpty()->notBlank()->notNull()->maxLength(255);
 
         $this->value = $value;
     }

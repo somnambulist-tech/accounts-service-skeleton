@@ -2,12 +2,12 @@
 
 namespace App\Tests\Accounts\Delivery\Api\V1\Accounts;
 
+use App\Accounts\Delivery\ViewModels\AccountView;
 use App\Tests\Support\Behaviours\BootTestClient;
-use Liip\TestFixturesBundle\Test\FixturesTrait;
 use App\Tests\Support\Behaviours\MakeJsonRequestTo;
 use App\Tests\Support\Fixtures\AccountFixture;
 use App\Tests\Support\Fixtures\AccountWithUserFixture;
-use App\Accounts\Delivery\ViewModels\AccountView;
+use Liip\TestFixturesBundle\Test\FixturesTrait;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**

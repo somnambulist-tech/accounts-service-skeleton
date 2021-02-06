@@ -4,7 +4,7 @@ namespace App\Users\Application\CommandHandlers;
 
 use App\Users\Domain\Commands\DestroyRole;
 use App\Users\Domain\Services\Repositories\RoleRepository;
-use Somnambulist\Domain\Entities\Exceptions\InvalidDomainStateException;
+use Somnambulist\Components\Domain\Entities\Exceptions\InvalidDomainStateException;
 
 /**
  * Class DestroyRoleCommandHandler

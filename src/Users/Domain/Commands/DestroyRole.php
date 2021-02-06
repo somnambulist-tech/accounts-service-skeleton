@@ -2,8 +2,8 @@
 
 namespace App\Users\Domain\Commands;
 
-use Somnambulist\Domain\Commands\AbstractCommand;
-use Somnambulist\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Components\Domain\Commands\AbstractCommand;
+use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
 
 /**
  * Class DestroyRole

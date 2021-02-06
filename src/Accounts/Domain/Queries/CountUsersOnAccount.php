@@ -2,8 +2,8 @@
 
 namespace App\Accounts\Domain\Queries;
 
-use Somnambulist\Domain\Entities\Types\Identity\Uuid;
-use Somnambulist\Domain\Queries\AbstractQuery;
+use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Components\Domain\Queries\AbstractQuery;
 
 /**
  * Class CountUsersOnAccount

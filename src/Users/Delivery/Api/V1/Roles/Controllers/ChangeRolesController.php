@@ -7,8 +7,8 @@ use App\Users\Delivery\Api\V1\Roles\Forms\ChangeGrantableRolesRequest;
 use App\Users\Delivery\Api\V1\Roles\Transformers\RoleViewTransformer;
 use App\Users\Domain\Commands\ChangeGrantableRoles;
 use App\Users\Domain\Queries\FindRoleById;
-use Somnambulist\ApiBundle\Response\Types\ObjectType;
-use Somnambulist\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Bundles\ApiBundle\Response\Types\ObjectType;
+use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
 
 /**
  * Class ChangeRolesController

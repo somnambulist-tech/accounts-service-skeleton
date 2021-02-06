@@ -2,7 +2,7 @@
 
 namespace App\Users\Domain\Queries;
 
-use Somnambulist\Domain\Queries\AbstractFindByIdQuery;
+use Somnambulist\Components\Domain\Queries\AbstractFindByIdQuery;
 
 /**
  * Class FindAccountById

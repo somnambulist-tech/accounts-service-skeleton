@@ -2,12 +2,12 @@
 
 namespace App\Accounts\Infrastructure\Persistence\Repositories;
 
-use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\Persistence\ObjectManager;
 use App\Accounts\Domain\Models\Account;
 use App\Accounts\Domain\Services\Repositories\AccountRepository as AccountRepositoryContract;
 use App\Accounts\Infrastructure\Persistence\EntityLocators\AccountLocator;
-use Somnambulist\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
 
 /**
  * Class AccountRepository

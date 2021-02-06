@@ -2,10 +2,10 @@
 
 namespace App\Resources\Delivery\Api;
 
-use Somnambulist\ApiBundle\Controllers\ApiController as BaseController;
-use Somnambulist\Domain\Commands\CommandBus;
-use Somnambulist\Domain\Jobs\JobQueue;
-use Somnambulist\Domain\Queries\QueryBus;
+use Somnambulist\Bundles\ApiBundle\Controllers\ApiController as BaseController;
+use Somnambulist\Components\Domain\Commands\CommandBus;
+use Somnambulist\Components\Domain\Jobs\JobQueue;
+use Somnambulist\Components\Domain\Queries\QueryBus;
 
 /**
  * Class ApiController

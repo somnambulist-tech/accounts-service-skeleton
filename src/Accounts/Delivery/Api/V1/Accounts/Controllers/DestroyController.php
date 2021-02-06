@@ -4,7 +4,7 @@ namespace App\Accounts\Delivery\Api\V1\Accounts\Controllers;
 
 use App\Accounts\Domain\Commands\DestroyAccount;
 use App\Resources\Delivery\Api\ApiController;
-use Somnambulist\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
 
 /**
  * Class DestroyController

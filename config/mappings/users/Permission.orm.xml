@@ -13,7 +13,7 @@
             </options>
         </id>
 
-        <field name="name" type="users_name" length="255"/>
+        <field name="name" type="permission_name" length="255"/>
         <field name="createdAt" type="datetime"/>
     </entity>
 
