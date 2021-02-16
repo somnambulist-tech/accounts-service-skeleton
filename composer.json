@@ -13,7 +13,7 @@
         "doctrine/orm": "^2.8",
         "somnambulist/api-bundle": "~3.0",
         "somnambulist/domain": "~4.1",
-        "somnambulist/form-request-bundle": "dev-main",
+        "somnambulist/form-request-bundle": "^1.0",
         "somnambulist/read-models-bundle": "^2.0",
         "symfony/console": "5.2.*",
         "symfony/dotenv": "5.2.*",
