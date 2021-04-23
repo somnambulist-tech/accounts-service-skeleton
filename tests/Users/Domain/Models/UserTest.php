@@ -38,11 +38,11 @@ class UserTest extends TestCase
     public function testMake()
     {
         $user = User::create(
-            $id = $this->factory->uuid,
-            $account = new AccountId((string)$this->factory->uuid),
-            $email = $this->factory->user->email(),
-            $password = $this->factory->user->password(),
-            $name = $this->factory->user->name(),
+            $id = $this->factory()->uuid,
+            $account = new AccountId((string)$this->factory()->uuid),
+            $email = $this->factory()->user->email(),
+            $password = $this->factory()->user->password(),
+            $name = $this->factory()->user->name(),
         );
 
         $this->assertEntityHasPropertyWithValue($user, 'id', $id);
@@ -54,7 +54,7 @@ class UserTest extends TestCase
 
     public function testDestroyRaisesEvent(): void
     {
-        $user = $this->factory->user->user();
+        $user = $this->factory()->user->user();
         $user->destroy();
 
         $this->assertHasDomainEventOfType($user, UserDestroyed::class);
@@ -62,8 +62,8 @@ class UserTest extends TestCase
 
     public function testChangeAccount(): void
     {
-        $user       = $this->factory->user->user();
-        $newAccount = $this->factory->user->accountId();
+        $user       = $this->factory()->user->user();
+        $newAccount = $this->factory()->user->accountId();
         $user->changeAccount($newAccount);
 
         $this->assertEntityHasPropertyWithValue($user, 'account', $newAccount);
@@ -71,15 +71,15 @@ class UserTest extends TestCase
 
     public function testChangeAccountRaisesEvent(): void
     {
-        $user = $this->factory->user->user();
-        $user->changeAccount($this->factory->user->accountId());
+        $user = $this->factory()->user->user();
+        $user->changeAccount($this->factory()->user->accountId());
 
         $this->assertHasDomainEventOfType($user, UserAccountChanged::class);
     }
 
     public function testChangeName(): void
     {
-        $user = $this->factory->user->user();
+        $user = $this->factory()->user->user();
         $user->changeName($n = new UserName('bob'));
 
         $this->assertEntityHasPropertyWithValue($user, 'name', $n);
@@ -87,7 +87,7 @@ class UserTest extends TestCase
 
     public function testChangeNameRaisesEvent(): void
     {
-        $user = $this->factory->user->user();
+        $user = $this->factory()->user->user();
         $user->changeName(new UserName('bob'));
 
         $this->assertHasDomainEventOfType($user, UserNameChanged::class);
@@ -95,7 +95,7 @@ class UserTest extends TestCase
 
     public function testCanActivateUser(): void
     {
-        $user = $this->factory->user->user();
+        $user = $this->factory()->user->user();
         $user->activate();
 
         $this->assertEntityHasPropertyWithValue($user, 'active', true);
@@ -103,7 +103,7 @@ class UserTest extends TestCase
 
     public function testActivateRaisesDomainEvent(): void
     {
-        $user = $this->factory->user->user();
+        $user = $this->factory()->user->user();
         $user->activate();
 
         $this->assertHasDomainEventOfType($user, UserActivated::class);
@@ -111,7 +111,7 @@ class UserTest extends TestCase
 
     public function testCanDeactivateUser(): void
     {
-        $user = $this->factory->user->user();
+        $user = $this->factory()->user->user();
         $user->deactivate();
 
         $this->assertEntityHasPropertyWithValue($user, 'active', false);
@@ -119,7 +119,7 @@ class UserTest extends TestCase
 
     public function testDeactivateRaisesDomainEvent(): void
     {
-        $user = $this->factory->user->user();
+        $user = $this->factory()->user->user();
         $user->deactivate();
 
         $this->assertHasDomainEventOfType($user, UserDeactivated::class);
@@ -127,24 +127,24 @@ class UserTest extends TestCase
 
     public function testCanAddPermission()
     {
-        $user = $this->factory->user->user();
-        $user->permissions()->grant($this->factory->user->permission('perm'));
+        $user = $this->factory()->user->user();
+        $user->permissions()->grant($this->factory()->user->permission('perm'));
 
         $this->assertCount(1, $user->permissions());
     }
 
     public function testAddingPermissionRaisesEvent()
     {
-        $user = $this->factory->user->user();
-        $user->permissions()->grant($this->factory->user->permission('perm'));
+        $user = $this->factory()->user->user();
+        $user->permissions()->grant($this->factory()->user->permission('perm'));
 
         $this->assertHasDomainEventOfType($user, GrantedPermissionsToUser::class);
     }
 
     public function testCanRemovePermission()
     {
-        $user = $this->factory->user->user();
-        $user->permissions()->grant($p = $this->factory->user->permission('perm'));
+        $user = $this->factory()->user->user();
+        $user->permissions()->grant($p = $this->factory()->user->permission('perm'));
         $user->permissions()->revoke($p);
 
         $this->assertCount(0, $user->permissions());
@@ -152,8 +152,8 @@ class UserTest extends TestCase
 
     public function testRemovingPermissionRaisesEvent()
     {
-        $user = $this->factory->user->user();
-        $user->permissions()->grant($p = $this->factory->user->permission('perm'));
+        $user = $this->factory()->user->user();
+        $user->permissions()->grant($p = $this->factory()->user->permission('perm'));
         $user->permissions()->revoke($p);
 
         $this->assertHasDomainEventOfType($user, RevokedPermissionsFromUser::class);
@@ -161,32 +161,32 @@ class UserTest extends TestCase
 
     public function testCanBatchAddPermissions()
     {
-        $user = $this->factory->user->user();
-        $user->permissions()->grant(...$this->factory->user->permission('perm', 'perm', 'perm'));
+        $user = $this->factory()->user->user();
+        $user->permissions()->grant(...$this->factory()->user->permission('perm', 'perm', 'perm'));
 
         $this->assertCount(3, $user->permissions());
     }
 
     public function testCanAddRole()
     {
-        $user = $this->factory->user->user();
-        $user->roles()->grant($this->factory->user->role());
+        $user = $this->factory()->user->user();
+        $user->roles()->grant($this->factory()->user->role());
 
         $this->assertCount(1, $user->roles());
     }
 
     public function testAddingRoleRaisesEvent()
     {
-        $user = $this->factory->user->user();
-        $user->roles()->grant($this->factory->user->role());
+        $user = $this->factory()->user->user();
+        $user->roles()->grant($this->factory()->user->role());
 
         $this->assertHasDomainEventOfType($user, GrantedRolesToUser::class);
     }
 
     public function testCanRemoveRole()
     {
-        $user = $this->factory->user->user();
-        $user->roles()->grant($r = $this->factory->user->role());
+        $user = $this->factory()->user->user();
+        $user->roles()->grant($r = $this->factory()->user->role());
         $user->roles()->revoke($r);
 
         $this->assertCount(0, $user->permissions());
@@ -194,8 +194,8 @@ class UserTest extends TestCase
 
     public function testRemovingRoleRaisesEvent()
     {
-        $user = $this->factory->user->user();
-        $user->roles()->grant($r = $this->factory->user->role());
+        $user = $this->factory()->user->user();
+        $user->roles()->grant($r = $this->factory()->user->role());
         $user->roles()->revoke($r);
 
         $this->assertHasDomainEventOfType($user, RevokedRolesFromUser::class);
@@ -203,8 +203,8 @@ class UserTest extends TestCase
 
     public function testCanBatchAddRoles()
     {
-        $user = $this->factory->user->user();
-        $user->roles()->grant($this->factory->user->role(), $this->factory->user->role(), $this->factory->user->role());
+        $user = $this->factory()->user->user();
+        $user->roles()->grant($this->factory()->user->role(), $this->factory()->user->role(), $this->factory()->user->role());
 
         $this->assertCount(3, $user->roles());
     }

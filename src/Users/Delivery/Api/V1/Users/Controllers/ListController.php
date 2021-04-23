@@ -3,12 +3,12 @@
 namespace App\Users\Delivery\Api\V1\Users\Controllers;
 
 use App\Resources\Delivery\Api\ApiController;
+use App\Users\Delivery\Api\V1\Users\Forms\SearchUsersRequest;
 use App\Users\Delivery\Api\V1\Users\Transformers\UserViewTransformer;
 use App\Users\Domain\Queries\FindUsers;
 use Pagerfanta\Pagerfanta;
 use Somnambulist\Bundles\ApiBundle\Response\Types\PagerfantaType;
 use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
@@ -20,15 +20,15 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 class ListController extends ApiController
 {
 
-    public function __invoke(Request $request)
+    public function __invoke(SearchUsersRequest $request)
     {
         $query = new FindUsers([
-            'account_id' => $this->nullOrValue($request->query, ['account_id'], Uuid::class),
-            'name'       => $this->nullOrValue($request->query, ['name']),
-            'email'      => $this->nullOrValue($request->query, ['email']),
-            'active'     => $this->nullOrValue($request->query, ['active']),
-        ], [], $this->page($request), $this->perPage($request));
-        $query->with($inc = $this->includes($request));
+            'account_id' => $request->nullOrValue('query', ['account_id'], Uuid::class),
+            'name'       => $request->nullOrValue('query', ['name']),
+            'email'      => $request->nullOrValue('query', ['email']),
+            'active'     => $request->nullOrValue('query', ['active']),
+        ], [], $request->page(), $request->perPage());
+        $query->with(...$inc = $request->includes());
 
         /** @var Pagerfanta $result */
         $result  = $this->query()->execute($query);

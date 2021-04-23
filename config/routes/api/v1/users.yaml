@@ -2,11 +2,21 @@ list:
     path: /
     controller: App\Users\Delivery\Api\V1\Users\Controllers\ListController
     methods: GET
+    defaults:
+        operation: 'getSearchUsers'
+        responses:
+            200: 'schemas/UserSearchResult'
 
 create:
     path: /
     controller: App\Users\Delivery\Api\V1\Users\Controllers\CreateController
     methods: POST
+    defaults:
+        operation: 'postCreateUser'
+        responses:
+            201: 'schemas/User'
+            400: 'schemas/Error'
+            422: 'schemas/Error'
 
 view:
     path: /{id}
@@ -14,6 +24,11 @@ view:
     methods: GET
     requirements:
         id: '%route.requirements.uuid%'
+    defaults:
+        operation: 'getViewUser'
+        responses:
+            200: 'schemas/User'
+            404: 'schemas/Error'
 
 destroy:
     path: /{id}
@@ -21,6 +36,11 @@ destroy:
     methods: DELETE
     requirements:
         id: '%route.requirements.uuid%'
+    defaults:
+        operation: 'deleteUser'
+        responses:
+            204: ~
+            404: 'schemas/Error'
 
 activate:
     path: /{id}/activate
@@ -28,6 +48,12 @@ activate:
     methods: POST
     requirements:
         id: '%route.requirements.uuid%'
+    defaults:
+        operation: 'postActivateUser'
+        responses:
+            200: 'schemas/User'
+            404: 'schemas/Error'
+            422: 'schemas/Error'
 
 deactivate:
     path: /{id}/deactivate
@@ -35,6 +61,12 @@ deactivate:
     methods: POST
     requirements:
         id: '%route.requirements.uuid%'
+    defaults:
+        operation: 'postDeactivateUser'
+        responses:
+            200: 'schemas/User'
+            404: 'schemas/Error'
+            422: 'schemas/Error'
 
 change_account:
     path: /{id}/change-account
@@ -42,6 +74,12 @@ change_account:
     methods: PUT|PATCH
     requirements:
         id: '%route.requirements.uuid%'
+    defaults:
+        operation: 'putChangeUserAccount'
+        responses:
+            200: 'schemas/User'
+            404: 'schemas/Error'
+            422: 'schemas/Error'
 
 change_auth_credentials:
     path: /{id}/change-auth
@@ -49,6 +87,12 @@ change_auth_credentials:
     methods: PUT|PATCH
     requirements:
         id: '%route.requirements.uuid%'
+    defaults:
+        operation: 'putChangeUserAuthCredentials'
+        responses:
+            200: 'schemas/User'
+            404: 'schemas/Error'
+            422: 'schemas/Error'
 
 change_name:
     path: /{id}/change-name
@@ -56,3 +100,9 @@ change_name:
     methods: PUT|PATCH
     requirements:
         id: '%route.requirements.uuid%'
+    defaults:
+        operation: 'putChangeUserName'
+        responses:
+            200: 'schemas/User'
+            404: 'schemas/Error'
+            422: 'schemas/Error'

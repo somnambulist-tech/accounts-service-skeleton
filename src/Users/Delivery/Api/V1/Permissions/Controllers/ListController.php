@@ -3,11 +3,11 @@
 namespace App\Users\Delivery\Api\V1\Permissions\Controllers;
 
 use App\Resources\Delivery\Api\ApiController;
+use App\Users\Delivery\Api\V1\Permissions\Forms\SearchPermissionsRequest;
 use App\Users\Delivery\Api\V1\Permissions\Transformers\PermissionViewTransformer;
 use App\Users\Domain\Queries\FindPermissions;
 use Pagerfanta\Pagerfanta;
 use Somnambulist\Bundles\ApiBundle\Response\Types\PagerfantaType;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
@@ -19,9 +19,9 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 class ListController extends ApiController
 {
 
-    public function __invoke(Request $request)
+    public function __invoke(SearchPermissionsRequest $request)
     {
-        $query = new FindPermissions([], [], $this->page($request), $this->perPage($request, 50, 5000));
+        $query = new FindPermissions([], [], $request->page(), $request->perPage(50, 5000));
 
         /** @var Pagerfanta $result */
         $result  = $this->query()->execute($query);

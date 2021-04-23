@@ -41,8 +41,8 @@ class CreateUserTest extends WebTestCase
         $res = $this->create([
             'account_id' => (string)$acc->id(),
             'email'      => 'test@test.com',
-            'password'   => (string)$this->factory->user->password(),
-            'name'       => $this->factory->faker->name,
+            'password'   => (string)$this->factory()->user->password(),
+            'name'       => $this->factory()->faker->name,
         ], 201);
 
         $this->assertArrayHasKey('id', $res);
@@ -56,7 +56,7 @@ class CreateUserTest extends WebTestCase
             'account_id' => (string)$acc->id(),
             'email'      => 'test@test.com',
             'password'   => 'notHashed',
-            'name'       => $this->factory->faker->name,
+            'name'       => $this->factory()->faker->name,
         ], 422);
 
         $this->assertNotEmpty($res['errors']['password']);

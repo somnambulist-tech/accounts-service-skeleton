@@ -18,7 +18,7 @@ class AccountFixture extends Fixture
 
     public function load(ObjectManager $manager)
     {
-        $account = $this->factory->account->account();
+        $account = $this->factory()->account->account();
         $manager->persist($account);
 
         $manager->flush();

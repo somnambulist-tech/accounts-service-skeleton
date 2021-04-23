@@ -3,21 +3,29 @@ accounts:
     prefix: /accounts
     trailing_slash_on_root: false
     name_prefix: 'accounts.'
+    defaults:
+        tags: [ 'v1', 'accounts' ]
 
 permissions:
     resource: 'v1/permissions.yaml'
     prefix: /permissions
     trailing_slash_on_root: false
     name_prefix: 'permissions.'
+    defaults:
+        tags: [ 'v1', 'permissions' ]
 
 roles:
     resource: 'v1/roles.yaml'
     prefix: /roles
     trailing_slash_on_root: false
     name_prefix: 'roles.'
+    defaults:
+        tags: [ 'v1', 'roles' ]
 
 users:
     resource: 'v1/users.yaml'
     prefix: /users
     trailing_slash_on_root: false
     name_prefix: 'users.'
+    defaults:
+        tags: [ 'v1', 'users' ]

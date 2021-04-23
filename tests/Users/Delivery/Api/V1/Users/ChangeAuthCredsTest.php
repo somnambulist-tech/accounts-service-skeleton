@@ -38,7 +38,7 @@ class ChangeAuthCredsTest extends WebTestCase
     {
         $user = UserView::query()->fetchFirstOrFail();
 
-        $password = $this->factory->user->password();
+        $password = $this->factory()->user->password();
         $res      = $this->changeCreds($user, $user->email(), (string)$password);
 
         $this->assertSame($user->email, $res['email']);

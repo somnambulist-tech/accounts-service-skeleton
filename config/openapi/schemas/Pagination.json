@@ -1,0 +1,33 @@
+{
+    "type": "object",
+    "description": "Represents Pagerfanta pagination output for a paginated response.",
+    "properties": {
+        "total": {
+            "type": "integer"
+        },
+        "count": {
+            "type": "integer"
+        },
+        "per_page": {
+            "type": "integer"
+        },
+        "current_page": {
+            "type": "integer"
+        },
+        "total_pages": {
+            "type": "integer"
+        },
+        "next": {
+            "type": "object",
+            "description": "Provides the previous and next resources, only if there are previous or next resources.",
+            "properties": {
+                "next": {
+                    "type": "string"
+                },
+                "prev": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

@@ -5,6 +5,7 @@ namespace App\Tests\Support\Fixtures;
 use App\Tests\Support\Behaviours\UseObjectFactoryHelper;
 use App\Users\Domain\Models\Permission;
 use App\Users\Domain\Models\PermissionName;
+use App\Users\Domain\Models\Role;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -30,8 +31,10 @@ class RoleWithPermissionFixture extends Fixture
         ];
 
         foreach (['user', 'root', 'admin'] as $role) {
-            $entity = $this->factory->user->role($role);
-            $manager->persist($entity);
+            if (null === $entity = $manager->getRepository(Role::class)->findOneBy(['name' => $role])) {
+                $entity = $this->factory()->user->role($role);
+                $manager->persist($entity);
+            }
 
             if ($role === 'root') {
                 foreach ($permissions as $permission) {

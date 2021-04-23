@@ -1,0 +1,19 @@
+{
+    "type": "object",
+    "properties": {
+        "data": {
+            "type": "array",
+            "items": {
+                "$ref": "#/components/schemas/Account"
+            }
+        },
+        "meta": {
+            "type": "object",
+            "properties": {
+                "pagination": {
+                    "$ref": "#/components/schemas/Pagination"
+                }
+            }
+        }
+    }
+}

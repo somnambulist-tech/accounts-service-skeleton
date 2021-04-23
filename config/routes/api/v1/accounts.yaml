@@ -2,11 +2,21 @@ list:
     path: /
     controller: App\Accounts\Delivery\Api\V1\Accounts\Controllers\ListController
     methods: GET
+    defaults:
+        operation: 'getSearchAccounts'
+        responses:
+            200: 'schemas/AccountSearchResult'
 
 create:
     path: /
     controller: App\Accounts\Delivery\Api\V1\Accounts\Controllers\CreateController
     methods: POST
+    defaults:
+        operation: 'postCreateAccount'
+        responses:
+            201: 'schemas/Account'
+            400: 'schemas/Error'
+            422: 'schemas/Error'
 
 view:
     path: /{id}
@@ -14,6 +24,10 @@ view:
     methods: GET
     requirements:
         id: '%route.requirements.uuid%'
+    defaults:
+        operation: 'getViewAccount'
+        responses:
+            200: 'schemas/Account'
 
 change_name:
     path: /{id}/change-name
@@ -21,6 +35,11 @@ change_name:
     methods: PUT|PATCH
     requirements:
         id: '%route.requirements.uuid%'
+    defaults:
+        operation: 'putChangeAccountName'
+        responses:
+            200: 'schemas/Account'
+            404: 'schemas/Error'
 
 destroy:
     path: /{id}
@@ -28,6 +47,12 @@ destroy:
     methods: DELETE
     requirements:
         id: '%route.requirements.uuid%'
+    defaults:
+        operation: 'deleteAccount'
+        responses:
+            204: ~
+            400: 'schemas/Error'
+            404: 'schemas/Error'
 
 activate:
     path: /{id}/activate
@@ -35,6 +60,13 @@ activate:
     methods: POST
     requirements:
         id: '%route.requirements.uuid%'
+    defaults:
+        operation: 'postActivateAccount'
+        responses:
+            200: 'schemas/Account'
+            400: 'schemas/Error'
+            404: 'schemas/Error'
+            422: 'schemas/Error'
 
 deactivate:
     path: /{id}/deactivate
@@ -42,3 +74,10 @@ deactivate:
     methods: POST
     requirements:
         id: '%route.requirements.uuid%'
+    defaults:
+        operation: 'postDeactivateAccount'
+        responses:
+            200: 'schemas/Account'
+            400: 'schemas/Error'
+            404: 'schemas/Error'
+            422: 'schemas/Error'

@@ -21,20 +21,20 @@ class AccountWithUserFixture extends Fixture
     public function load(ObjectManager $manager)
     {
         for ($i=0; $i<2; $i++) {
-            $account = $this->factory->account->account();
+            $account = $this->factory()->account->account();
             $manager->persist($account);
 
-            $user = $this->factory->user->user(
+            $user = $this->factory()->user->user(
                 $id = new AccountId($account->id()->toString()),
-                new EmailAddress($this->factory->faker()->email),
-                $this->factory->user->password()
+                new EmailAddress($this->factory()->faker()->email),
+                $this->factory()->user->password()
             );
             $manager->persist($user);
 
-            $user = $this->factory->user->user(
+            $user = $this->factory()->user->user(
                 $id,
-                new EmailAddress($this->factory->faker()->email),
-                $this->factory->user->password()
+                new EmailAddress($this->factory()->faker()->email),
+                $this->factory()->user->password()
             );
             $manager->persist($user);
         }

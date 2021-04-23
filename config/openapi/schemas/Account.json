@@ -1,0 +1,27 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string",
+            "format": "uuid"
+        },
+        "name": {
+            "type": "string"
+        },
+        "created_at": {
+            "type": "string",
+            "format": "datetime"
+        },
+        "updated_at": {
+            "type": "string",
+            "format": "datetime"
+        },
+        "users": {
+            "type": "array",
+            "description": "The users assigned to this account if included in the results.",
+            "items": {
+                "$ref": "#/components/schemas/User"
+            }
+        }
+    }
+}

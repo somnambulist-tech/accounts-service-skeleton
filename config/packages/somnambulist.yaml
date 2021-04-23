@@ -11,6 +11,10 @@ somnambulist_api:
     subscribers:
         exception_to_json: true
         json_to_post: true
+    openapi:
+        version: '1.0.0'
+        title: 'Accounts Service'
+        description: 'API documentation for the accounts service.'
 
 somnambulist_read_models:
     connections:

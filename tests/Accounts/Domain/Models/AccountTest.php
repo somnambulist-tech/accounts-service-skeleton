@@ -44,7 +44,7 @@ class AccountTest extends TestCase
 
     public function testCreatingRaisesEvent(): void
     {
-        $account = $this->factory->account->account();
+        $account = $this->factory()->account->account();
 
         $this->assertHasDomainEventOfType($account, AccountCreated::class);
     }
@@ -53,12 +53,12 @@ class AccountTest extends TestCase
     {
         $this->expectException(AssertionFailedException::class);
 
-        $this->factory->account->account('');
+        $this->factory()->account->account('');
     }
 
     public function testChangeName(): void
     {
-        $account = $this->factory->account->account();
+        $account = $this->factory()->account->account();
         $account->changeName('Updated');
 
         $this->assertEntityHasPropertyWithValue($account, 'name', 'Updated');
@@ -68,13 +68,13 @@ class AccountTest extends TestCase
     {
         $this->expectException(AssertionFailedException::class);
 
-        $account = $this->factory->account->account();
+        $account = $this->factory()->account->account();
         $account->changeName('');
     }
 
     public function testUpdateNameRaisesEvent(): void
     {
-        $account = $this->factory->account->account();
+        $account = $this->factory()->account->account();
         $account->changeName('Updated');
 
         $this->assertHasDomainEventOfType($account, AccountNameUpdated::class);
@@ -82,7 +82,7 @@ class AccountTest extends TestCase
 
     public function testDestroyRaisesEvent(): void
     {
-        $account = $this->factory->account->account();
+        $account = $this->factory()->account->account();
         $account->destroy();
 
         $this->assertHasDomainEventOfType($account, AccountDestroyed::class);

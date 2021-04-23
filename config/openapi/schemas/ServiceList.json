@@ -1,0 +1,12 @@
+{
+    "type": "object",
+    "description": "The list of valid end points for this service.",
+    "properties": {
+        "services": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        }
+    }
+}

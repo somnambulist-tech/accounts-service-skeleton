@@ -2,11 +2,21 @@ list:
     path: /
     controller: App\Users\Delivery\Api\V1\Permissions\Controllers\ListController
     methods: GET
+    defaults:
+        operation: 'getSearchPermissions'
+        responses:
+            200: 'schemas/PermissionSearchResult'
 
 create:
     path: /
     controller: App\Users\Delivery\Api\V1\Permissions\Controllers\CreateController
     methods: POST
+    defaults:
+        operation: 'postCreatePermission'
+        responses:
+            201: 'schemas/Permission'
+            400: 'schemas/Error'
+            422: 'schemas/Error'
 
 destroy:
     path: /{id}
@@ -14,3 +24,9 @@ destroy:
     methods: DELETE
     requirements:
         id: '%route.requirements.slug%'
+    defaults:
+        operation: 'deletePermission'
+        responses:
+            204: ~
+            400: 'schemas/Error'
+            404: 'schemas/Error'

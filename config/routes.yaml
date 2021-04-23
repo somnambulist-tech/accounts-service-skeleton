@@ -1,11 +1,20 @@
+api.docs:
+    resource: '@SomnambulistApiBundle/Resources/config/routes.xml'
 
 api.index:
     path: /
     controller: App\Resources\Delivery\Api\IndexController
-    methods: [GET]
+    methods: [ GET ]
+    defaults:
+        document: true
+        operation: 'getListOfServices'
+        responses:
+            200: 'schemas/ServiceList'
 
 api.v1:
     resource: 'routes/api/v1.yaml'
     prefix: /v1
     trailing_slash_on_root: false
     name_prefix: 'api.v1.'
+    defaults:
+        document: true

@@ -1,0 +1,49 @@
+{
+    "type": "object",
+    "description": "Represents an error response that might include fields that failed validation and a debug trace in debug mode.",
+    "properties": {
+        "errors": {
+            "type": "object",
+            "description": "key/value pairs of submitted fields that have errors.",
+            "additionalProperties": true
+        },
+        "message": {
+            "type": "string"
+        },
+        "debug": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "class": {
+                    "type": "string"
+                },
+                "trace": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "previous": {
+                    "type": "object",
+                    "description": "The previous exception if one was present; might be the same as the main error.",
+                    "properties": {
+                        "message": {
+                            "type": "string"
+                        },
+                        "class": {
+                            "type": "string"
+                        },
+                        "trace": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

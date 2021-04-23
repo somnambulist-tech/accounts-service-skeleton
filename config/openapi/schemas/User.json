@@ -1,0 +1,51 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string",
+            "format": "uuid"
+        },
+        "account_id": {
+            "type": "string",
+            "format": "uuid"
+        },
+        "email": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string"
+        },
+        "password": {
+            "type": "string",
+            "format": "password",
+            "description": "The hashed password for this user; usually in bcrypt or argon2i or better."
+        },
+        "created_at": {
+            "type": "string",
+            "format": "datetime"
+        },
+        "updated_at": {
+            "type": "string",
+            "format": "datetime"
+        },
+        "account": {
+            "type": "object",
+            "description": "The Account this User is assigned to.",
+            "$ref": "#/components/schemas/Account"
+        },
+        "roles": {
+            "type": "array",
+            "description": "The set of roles granted to this User.",
+            "items": {
+                "$ref": "#/components/schemas/Role"
+            }
+        },
+        "permissions": {
+            "type": "array",
+            "description": "The set of specific permissions granted to this User.",
+            "items": {
+                "$ref": "#/components/schemas/Permission"
+            }
+        }
+    }
+}
