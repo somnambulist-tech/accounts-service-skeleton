@@ -6,7 +6,7 @@
         },
         "created_at": {
             "type": "string",
-            "format": "datetime"
+            "format": "date-time"
         }
     }
 }

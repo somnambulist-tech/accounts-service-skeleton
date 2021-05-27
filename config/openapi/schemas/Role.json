@@ -10,11 +10,11 @@
         },
         "created_at": {
             "type": "string",
-            "format": "datetime"
+            "format": "date-time"
         },
         "updated_at": {
             "type": "string",
-            "format": "datetime"
+            "format": "date-time"
         },
         "permissions": {
             "type": "array",
