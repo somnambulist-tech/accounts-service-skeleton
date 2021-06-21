@@ -16,11 +16,11 @@ trait DoctrineHelper
 
     protected function doctrine(): EntityManagerInterface
     {
-        return static::$container->get('doctrine')->getManager();
+        return static::getContainer()->get('doctrine')->getManager();
     }
 
     protected function locatorFor(string $class): AbstractEntityLocator
     {
-        return static::$container->get('doctrine')->getManager()->getRepository($class);
+        return static::getContainer()->get('doctrine')->getManager()->getRepository($class);
     }
 }

@@ -3,11 +3,11 @@
 namespace App\Tests\Users\Delivery\Api\V1\Users;
 
 use App\Tests\Support\Behaviours\BootTestClient;
+use App\Tests\Support\Behaviours\FixturesTrait;
 use App\Tests\Support\Behaviours\MakeJsonRequestTo;
 use App\Tests\Support\Behaviours\UseObjectFactoryHelper;
 use App\Tests\Support\Fixtures\AccountWithUserFixture;
 use App\Users\Delivery\ViewModels\UserView;
-use Liip\TestFixturesBundle\Test\FixturesTrait;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**

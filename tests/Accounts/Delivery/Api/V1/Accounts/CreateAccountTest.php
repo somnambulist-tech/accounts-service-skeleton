@@ -3,9 +3,9 @@
 namespace App\Tests\Accounts\Delivery\Api\V1\Accounts;
 
 use App\Tests\Support\Behaviours\BootTestClient;
+use App\Tests\Support\Behaviours\FixturesTrait;
 use App\Tests\Support\Behaviours\MakeJsonRequestTo;
 use App\Tests\Support\Fixtures\AccountWithUserFixture;
-use Liip\TestFixturesBundle\Test\FixturesTrait;
 use Somnambulist\Components\Domain\Utils\IdentityGenerator;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

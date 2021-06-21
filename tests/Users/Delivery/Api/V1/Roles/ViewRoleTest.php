@@ -3,10 +3,10 @@
 namespace App\Tests\Users\Delivery\Api\V1\Roles;
 
 use App\Tests\Support\Behaviours\BootTestClient;
+use App\Tests\Support\Behaviours\FixturesTrait;
 use App\Tests\Support\Behaviours\MakeJsonRequestTo;
 use App\Tests\Support\Fixtures\RoleFixture;
 use App\Users\Delivery\ViewModels\RoleView;
-use Liip\TestFixturesBundle\Test\FixturesTrait;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**

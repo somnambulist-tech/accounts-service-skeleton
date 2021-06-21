@@ -4,8 +4,6 @@ framework:
         system: cache.adapter.redis
         default_redis_provider: '%env(REDIS_URL)%'
         pools:
-            doctrine.metadata_cache_pool:
-                adapter: cache.adapter.apcu
             doctrine.query_cache_pool:
                 adapter: cache.adapter.apcu
             doctrine.result_cache_pool:

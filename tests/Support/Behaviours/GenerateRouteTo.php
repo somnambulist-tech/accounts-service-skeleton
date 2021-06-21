@@ -25,6 +25,6 @@ trait GenerateRouteTo
      */
     protected function routeTo(string $name, array $parameters = []): string
     {
-        return static::$container->get('router')->getGenerator()->generate($name, $parameters);
+        return static::getContainer()->get('router')->getGenerator()->generate($name, $parameters);
     }
 }

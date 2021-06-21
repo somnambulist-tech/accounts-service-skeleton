@@ -4,9 +4,9 @@ namespace App\Tests\Accounts\Delivery\Api\V1\Accounts;
 
 use App\Accounts\Delivery\ViewModels\AccountView;
 use App\Tests\Support\Behaviours\BootTestClient;
+use App\Tests\Support\Behaviours\FixturesTrait;
 use App\Tests\Support\Behaviours\MakeJsonRequestTo;
 use App\Tests\Support\Fixtures\AccountFixture;
-use Liip\TestFixturesBundle\Test\FixturesTrait;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
@@ -42,9 +42,6 @@ class ChangeAccountNameTest extends WebTestCase
         $this->assertSame('test test', $res['name']);
     }
 
-    /**
-     * @group cur
-     */
     public function testUpdateWithNoNameReturnsJsonError(): void
     {
         $res = $this->update([
