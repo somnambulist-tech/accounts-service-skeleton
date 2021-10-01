@@ -311,6 +311,9 @@
     "somnambulist/form-request-bundle": {
         "version": "dev-main"
     },
+    "somnambulist/fractal-bundle": {
+        "version": "1.0.0"
+    },
     "somnambulist/read-models": {
         "version": "2.1.3"
     },
