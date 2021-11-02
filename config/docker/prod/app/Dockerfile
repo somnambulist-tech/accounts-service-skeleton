@@ -8,6 +8,8 @@ RUN apk --update add ca-certificates \
     && apk --no-cache add -U \
     php8-pdo_pgsql \
     php8-pgsql \
+    && wget https://mirror.reenigne.net/alpine/edge/community/x86_64/php8-pecl-amqp-1.11.0_rc1-r0.apk \
+    && apk add --allow-untrusted php8-pecl-amqp-1.11.0_rc1-r0.apk \
     && rm -rf /var/cache/apk/* /tmp/*
 
 # setup custom PHP ini files
@@ -23,7 +25,7 @@ COPY ppm*.json ./
 COPY composer.* ./
 COPY .env* ./
 
-RUN composer install --no-scripts --quiet && rm -rf /tmp/*
+RUN composer install -o --no-scripts --quiet && rm -rf /tmp/*
 
 COPY . .
 
