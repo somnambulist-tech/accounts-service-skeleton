@@ -10,8 +10,7 @@ RUN apk --update add ca-certificates \
     php8-pdo_pgsql \
     php8-pgsql \
     php8-pecl-xdebug \
-    && wget https://mirror.reenigne.net/alpine/edge/community/x86_64/php8-pecl-amqp-1.11.0_rc1-r0.apk \
-    && apk add --allow-untrusted php8-pecl-amqp-1.11.0_rc1-r0.apk \
+    php8-pecl-amqp \
     && rm -rf /var/cache/apk/* /tmp/*
 
 # setup custom PHP ini files
@@ -22,6 +21,7 @@ WORKDIR /app
 
 COPY config/docker/dev/app/docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod 755 /docker-entrypoint.sh
+RUN composer selfupdate
 
 COPY ppm*.json ./
 COPY composer.* ./
