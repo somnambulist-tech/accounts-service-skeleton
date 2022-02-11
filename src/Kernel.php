@@ -28,12 +28,12 @@ class Kernel extends BaseKernel
 {
     use MicroKernelTrait;
 
-    public function getLogDir()
+    public function getLogDir(): string
     {
         return $this->getProjectDir().'/var/logs';
     }
 
-    protected function getContainerClass()
+    protected function getContainerClass(): string
     {
         $class = get_class($this);
         $class = 'c' === $class[0] && 0 === strpos($class, "class@anonymous\0") ? get_parent_class($class).str_replace('.', '_', ContainerBuilder::hash($class)) : $class;

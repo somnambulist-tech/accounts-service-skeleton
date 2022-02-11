@@ -21,8 +21,8 @@ class ViewController extends ApiController
     public function __invoke(Request $request, Uuid $id)
     {
         $query = new FindRoleById($id);
-        $query->with($inc = $this->includes($request));
+        $query->with(...$this->includes($request));
 
-        return $this->item((new ObjectType($this->query()->execute($query), RoleViewTransformer::class))->withIncludes($inc));
+        return $this->item((new ObjectType($this->query()->execute($query), RoleViewTransformer::class))->withIncludes(...$this->includes($request)));
     }
 }

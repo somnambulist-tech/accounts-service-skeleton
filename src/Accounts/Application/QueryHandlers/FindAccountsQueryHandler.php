@@ -22,7 +22,7 @@ class FindAccountsQueryHandler
     public function __invoke(FindAccounts $query)
     {
         $qb = AccountView::query();
-        $qb->with($query->getIncludes());
+        $qb->with(...$query->getIncludes());
 
         $this->applySortCriteria($qb, $query, 'name', 'ASC');
 

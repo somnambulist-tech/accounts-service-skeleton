@@ -16,7 +16,7 @@ class FindRolesQueryHandler
 
     public function __invoke(FindRoles $query)
     {
-        $qb = RoleView::with($query->getIncludes());
+        $qb = RoleView::with(...$query->getIncludes());
         $qb->orderBy('name', 'ASC');
 
         if ($query->getName()) {

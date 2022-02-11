@@ -28,7 +28,7 @@ class ListController extends ApiController
             'email'      => $request->nullOrValue('query', ['email']),
             'active'     => $request->nullOrValue('query', ['active']),
         ], [], $request->page(), $request->perPage());
-        $query->with(...$inc = $request->includes());
+        $query->with(...$request->includes());
 
         /** @var Pagerfanta $result */
         $result  = $this->query()->execute($query);
@@ -37,7 +37,7 @@ class ListController extends ApiController
             UserViewTransformer::class,
             $this->generateUrl($request->attributes->get('_route'), $request->query->all(), UrlGeneratorInterface::ABSOLUTE_URL)
         );
-        $binding->withIncludes($inc);
+        $binding->withIncludes(...$request->includes());
 
         return $this->paginate($binding);
     }

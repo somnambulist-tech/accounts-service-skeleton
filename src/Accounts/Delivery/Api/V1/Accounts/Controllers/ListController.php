@@ -32,7 +32,7 @@ class ListController extends ApiController
             $request->page(),
             $request->perPage(null, 100)
         );
-        $query->with(...$inc = $request->includes());
+        $query->with(...$request->includes());
 
         $result = $this->query()->execute($query);
 
@@ -41,7 +41,7 @@ class ListController extends ApiController
             AccountViewTransformer::class,
             $this->generateUrl($request->attributes->get('_route'), $request->query->all(), UrlGeneratorInterface::ABSOLUTE_URL)
         );
-        $binding->withIncludes($inc);
+        $binding->withIncludes(...$request->includes());
 
         return $this->paginate($binding);
     }

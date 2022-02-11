@@ -19,7 +19,7 @@ class FindUserByIdQueryHandler
     public function __invoke(FindUserById $query)
     {
         $qb = UserView::query();
-        $qb->with($query->getIncludes())->orderBy('name', 'ASC');
+        $qb->with(...$query->getIncludes())->orderBy('name', 'ASC');
 
         try {
             return $qb->findOrFail($query->getId());

@@ -22,7 +22,7 @@ class ListController extends ApiController
     public function __invoke(SearchRolesRequest $request)
     {
         $query = new FindRoles([], [], $request->page(), $request->perPage());
-        $query->with(...$inc = $request->includes());
+        $query->with(...$request->includes());
 
         /** @var Pagerfanta $result */
         $result  = $this->query()->execute($query);
@@ -31,7 +31,7 @@ class ListController extends ApiController
             RoleViewTransformer::class,
             $this->generateUrl($request->attributes->get('_route'), $request->query->all(), UrlGeneratorInterface::ABSOLUTE_URL)
         );
-        $binding->withIncludes($inc);
+        $binding->withIncludes(...$request->includes());
 
         return $this->paginate($binding);
     }

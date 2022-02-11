@@ -20,7 +20,7 @@ class FindRoleByIdQueryHandler
     public function __invoke(FindRoleById $query)
     {
         $qb = RoleView::query();
-        $qb->with($query->getIncludes());
+        $qb->with(...$query->getIncludes());
 
         try {
             return $qb->findOrFail((string)$query->getId());

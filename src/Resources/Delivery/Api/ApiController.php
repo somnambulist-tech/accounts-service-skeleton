@@ -16,7 +16,7 @@ use Somnambulist\Components\Domain\Queries\QueryBus;
 abstract class ApiController extends BaseController
 {
 
-    public static function getSubscribedServices()
+    public static function getSubscribedServices(): array
     {
         return array_merge(parent::getSubscribedServices(), [
             CommandBus::class,
@@ -27,16 +27,16 @@ abstract class ApiController extends BaseController
 
     protected function query(): QueryBus
     {
-        return $this->get(QueryBus::class);
+        return $this->container->get(QueryBus::class);
     }
 
     protected function command(): CommandBus
     {
-        return $this->get(CommandBus::class);
+        return $this->container->get(CommandBus::class);
     }
 
     protected function job(): JobQueue
     {
-        return $this->get(JobQueue::class);
+        return $this->container->get(JobQueue::class);
     }
 }

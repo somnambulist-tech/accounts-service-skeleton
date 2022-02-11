@@ -16,7 +16,7 @@ class FindUsersQueryHandler
     public function __invoke(FindUsers $query)
     {
         $qb = UserView::query();
-        $qb->with($query->getIncludes())->orderBy('name', 'ASC');
+        $qb->with(...$query->getIncludes())->orderBy('name', 'ASC');
 
         if ($query->getAccountId()) {
             $qb->whereColumn('account_id', '=', (string)$query->getAccountId());

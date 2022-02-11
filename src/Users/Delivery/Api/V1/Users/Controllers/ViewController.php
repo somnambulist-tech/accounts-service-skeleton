@@ -21,12 +21,12 @@ class ViewController extends ApiController
     public function __invoke(Request $request, Uuid $id)
     {
         $query   = new FindUserById($id);
-        $query->with($inc = $this->includes($request));
+        $query->with(...$this->includes($request));
 
         $entity = $this->query()->execute($query);
 
         return $this->item(
-            (new ObjectType($entity, UserViewTransformer::class))->withIncludes($inc)
+            (new ObjectType($entity, UserViewTransformer::class))->withIncludes(...$this->includes($request))
         );
     }
 }

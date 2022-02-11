@@ -20,8 +20,8 @@ class ViewController extends ApiController
 
     public function __invoke(Request $request, Uuid $id)
     {
-        $account = $this->query()->execute((new FindAccountById($id))->with($this->includes($request)));
+        $account = $this->query()->execute((new FindAccountById($id))->with(...$this->includes($request)));
 
-        return $this->item((new ObjectType($account, AccountViewTransformer::class))->withIncludes($this->includes($request)));
+        return $this->item((new ObjectType($account, AccountViewTransformer::class))->withIncludes(...$this->includes($request)));
     }
 }
