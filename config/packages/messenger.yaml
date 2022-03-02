@@ -12,16 +12,13 @@ framework:
         buses:
             command.bus:
                 middleware:
-                    - validation
                     - doctrine_transaction
 
             query.bus:
                 middleware:
-                    - validation
 
             event.bus:
                 middleware:
-                    - validation
 
         transports:
             # https://symfony.com/doc/current/messenger.html#transport-configuration

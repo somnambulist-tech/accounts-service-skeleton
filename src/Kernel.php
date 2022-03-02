@@ -15,7 +15,7 @@ use function php_sapi_name;
 use function preg_match;
 use function sprintf;
 use function str_replace;
-use function strpos;
+use function str_starts_with;
 use function ucfirst;
 
 /**
@@ -36,7 +36,7 @@ class Kernel extends BaseKernel
     protected function getContainerClass(): string
     {
         $class = get_class($this);
-        $class = 'c' === $class[0] && 0 === strpos($class, "class@anonymous\0") ? get_parent_class($class).str_replace('.', '_', ContainerBuilder::hash($class)) : $class;
+        $class = 'c' === $class[0] && str_starts_with($class, "class@anonymous\0") ? get_parent_class($class) . str_replace('.', '_', ContainerBuilder::hash($class)) : $class;
         $class = str_replace('\\', '_', $class).Str::studly(php_sapi_name()).ucfirst($this->environment).($this->debug ? 'Debug' : '').'Container';
 
         if (!preg_match('/^[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$/', $class)) {
