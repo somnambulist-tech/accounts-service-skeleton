@@ -13,8 +13,7 @@ use App\Users\Delivery\ViewModels\UserView;
  */
 class CountUsersOnAccountQueryHandler
 {
-
-    public function __invoke(CountUsersOnAccount $query)
+    public function __invoke(CountUsersOnAccount $query): int
     {
         return UserView::query()->whereColumn('account_id', '=', $query->getId())->count();
     }

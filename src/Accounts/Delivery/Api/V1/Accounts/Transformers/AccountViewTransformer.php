@@ -2,10 +2,10 @@
 
 namespace App\Accounts\Delivery\Api\V1\Accounts\Transformers;
 
-use League\Fractal\Resource\Collection;
-use League\Fractal\TransformerAbstract;
 use App\Accounts\Delivery\ViewModels\AccountView;
 use App\Users\Delivery\Api\V1\Users\Transformers\UserViewTransformer;
+use League\Fractal\Resource\Collection;
+use League\Fractal\TransformerAbstract;
 
 /**
  * Class AccountViewTransformer
@@ -15,7 +15,7 @@ use App\Users\Delivery\Api\V1\Users\Transformers\UserViewTransformer;
  */
 class AccountViewTransformer extends TransformerAbstract
 {
-    protected $availableIncludes = ['users',];
+    protected array $availableIncludes = ['users',];
 
     public function transform(AccountView $account): array
     {

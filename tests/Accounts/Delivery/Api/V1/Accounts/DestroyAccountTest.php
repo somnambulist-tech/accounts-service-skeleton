@@ -25,7 +25,6 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
  */
 class DestroyAccountTest extends WebTestCase
 {
-
     use BootTestClient;
     use FixturesTrait;
     use MakeJsonRequestTo;

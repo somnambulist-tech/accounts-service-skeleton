@@ -4,7 +4,7 @@ namespace App\Users\Application\CommandHandlers;
 
 use App\Users\Domain\Commands\ChangeUsersAccount;
 use App\Users\Domain\Models\AccountId;
-use App\Users\Domain\Queries\FindAccountById;
+use App\Users\Domain\Queries\GetAccountById;
 use App\Users\Domain\Services\Repositories\UserRepository;
 use Somnambulist\Components\Domain\Queries\QueryBus;
 
@@ -16,19 +16,13 @@ use Somnambulist\Components\Domain\Queries\QueryBus;
  */
 class ChangeUsersAccountCommandHandler
 {
-
-    protected UserRepository $repository;
-    protected QueryBus $queryBus;
-
-    public function __construct(UserRepository $repository, QueryBus $queryBus)
+    public function __construct(private UserRepository $repository, private QueryBus $queryBus)
     {
-        $this->repository = $repository;
-        $this->queryBus   = $queryBus;
     }
 
     public function __invoke(ChangeUsersAccount $command)
     {
-        $this->queryBus->execute(new FindAccountById($command->getAccountId()));
+        $this->queryBus->execute(new GetAccountById($command->getAccountId()));
 
         $user = $this->repository->find($command->getId());
 

@@ -2,7 +2,7 @@
 
 namespace App\Users\Delivery\ViewModels;
 
-use Somnambulist\Collection\Contracts\Collection;
+use Somnambulist\Components\Collection\Contracts\Collection;
 use Somnambulist\Components\Domain\Entities\Types\DateTime\DateTime;
 use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
 use Somnambulist\Components\ReadModels\Model;
@@ -24,7 +24,6 @@ use Somnambulist\Components\ReadModels\Relationships\BelongsToMany;
  */
 class RoleView extends Model
 {
-
     protected string $table = 'roles';
 
     protected ?string $tableAlias = 'r';

@@ -4,25 +4,24 @@ namespace App\Users\Application\QueryHandlers;
 
 use App\Users\Delivery\ViewModels\PermissionView;
 use App\Users\Domain\Models\Permission;
-use App\Users\Domain\Queries\FindPermissionByName;
+use App\Users\Domain\Queries\GetPermissionByName;
 use Somnambulist\Components\Domain\Entities\Exceptions\EntityNotFoundException;
 use Somnambulist\Components\ReadModels\Exceptions\NoResultsException;
 
 /**
- * Class FindPermissionByNameQueryHandler
+ * Class GetPermissionByNameQueryHandler
  *
  * @package    App\Users\Application\QueryHandlers
- * @subpackage App\Users\Application\QueryHandlers\FindPermissionByNameQueryHandler
+ * @subpackage App\Users\Application\QueryHandlers\GetPermissionByNameQueryHandler
  */
-class FindPermissionByNameQueryHandler
+class GetPermissionByNameQueryHandler
 {
-
-    public function __invoke(FindPermissionByName $query)
+    public function __invoke(GetPermissionByName $query): PermissionView
     {
         try {
             return PermissionView::query()->whereColumn('name', '=', $query->getName())->fetchFirstOrFail();
-        } catch (NoResultsException $e) {
-            throw EntityNotFoundException::entityNotFound(Permission::class, $query->getName());
+        } catch (NoResultsException) {
+            throw EntityNotFoundException::entityNotFound(Permission::class, (string)$query->getName());
         }
     }
 }

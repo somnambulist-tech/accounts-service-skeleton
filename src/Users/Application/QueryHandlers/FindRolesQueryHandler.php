@@ -4,6 +4,7 @@ namespace App\Users\Application\QueryHandlers;
 
 use App\Users\Delivery\ViewModels\RoleView;
 use App\Users\Domain\Queries\FindRoles;
+use Pagerfanta\Pagerfanta;
 
 /**
  * Class FindRolesQueryHandler
@@ -13,11 +14,10 @@ use App\Users\Domain\Queries\FindRoles;
  */
 class FindRolesQueryHandler
 {
-
-    public function __invoke(FindRoles $query)
+    public function __invoke(FindRoles $query): Pagerfanta
     {
         $qb = RoleView::with(...$query->getIncludes());
-        $qb->orderBy('name', 'ASC');
+        $qb->orderBy('name');
 
         if ($query->getName()) {
             $qb->whereColumn('name', 'ILIKE', sprintf('%%%s%%', $query->getName()));

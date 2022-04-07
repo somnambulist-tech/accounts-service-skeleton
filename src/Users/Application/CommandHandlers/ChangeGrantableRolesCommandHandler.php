@@ -13,12 +13,8 @@ use App\Users\Domain\Services\Repositories\RoleRepository;
  */
 class ChangeGrantableRolesCommandHandler
 {
-
-    private RoleRepository $roles;
-
-    public function __construct(RoleRepository $roles)
+    public function __construct(private RoleRepository $roles)
     {
-        $this->roles = $roles;
     }
 
     public function __invoke(ChangeGrantableRoles $command)

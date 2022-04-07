@@ -15,7 +15,6 @@ use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
  */
 class Account extends AggregateRoot
 {
-
     protected string $name;
     protected bool   $active;
 
@@ -35,7 +34,6 @@ class Account extends AggregateRoot
         $entity = new static($id, $name);
 
         $entity->raise(Event\AccountCreated::class, [
-            'id'   => (string)$id,
             'name' => $name,
         ]);
 
@@ -46,25 +44,19 @@ class Account extends AggregateRoot
     {
         $this->active = true;
 
-        $this->raise(Event\AccountActivated::class, [
-            'id' => (string)$this->id,
-        ]);
+        $this->raise(Event\AccountActivated::class);
     }
 
     public function deactivate(): void
     {
         $this->active = false;
 
-        $this->raise(Event\AccountDeactivated::class, [
-            'id' => (string)$this->id,
-        ]);
+        $this->raise(Event\AccountDeactivated::class);
     }
 
     public function destroy(): void
     {
-        $this->raise(Event\AccountDestroyed::class, [
-            'id' => (string)$this->id,
-        ]);
+        $this->raise(Event\AccountDestroyed::class);
     }
 
     public function changeName(string $name): void
@@ -74,7 +66,6 @@ class Account extends AggregateRoot
         $this->name = $name;
 
         $this->raise(Event\AccountNameUpdated::class, [
-            'id'   => (string)$this->id,
             'name' => $name,
         ]);
     }

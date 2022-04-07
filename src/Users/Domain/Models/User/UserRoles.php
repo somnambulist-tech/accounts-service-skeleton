@@ -9,6 +9,7 @@ use App\Users\Domain\Models\User;
 use Countable;
 use Doctrine\Common\Collections\Collection;
 use IteratorAggregate;
+use Traversable;
 use function array_map;
 
 /**
@@ -19,7 +20,6 @@ use function array_map;
  */
 class UserRoles implements Countable, IteratorAggregate
 {
-
     private User       $root;
     private Collection $entities;
 
@@ -29,12 +29,12 @@ class UserRoles implements Countable, IteratorAggregate
         $this->entities = $roles;
     }
 
-    public function getIterator()
+    public function getIterator(): Traversable
     {
         return $this->entities;
     }
 
-    public function count()
+    public function count(): int
     {
         return $this->entities->count();
     }
@@ -54,7 +54,6 @@ class UserRoles implements Countable, IteratorAggregate
         }
 
         $this->root->raise(GrantedRolesToUser::class, [
-            'id'    => (string)$this->root->id(),
             'roles' => $granted,
         ]);
     }
@@ -66,7 +65,6 @@ class UserRoles implements Countable, IteratorAggregate
         }
 
         $this->root->raise(RevokedRolesFromUser::class, [
-            'id'    => (string)$this->root->id(),
             'roles' => array_map(fn(Role $role) => (string)$role->id(), $roles),
         ]);
     }

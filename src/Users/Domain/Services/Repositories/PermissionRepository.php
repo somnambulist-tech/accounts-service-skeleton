@@ -13,7 +13,6 @@ use Somnambulist\Components\Domain\Entities\Exceptions\EntityNotFoundException;
  */
 interface PermissionRepository
 {
-
     /**
      * @param int $id
      *

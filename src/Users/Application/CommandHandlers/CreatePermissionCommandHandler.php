@@ -14,12 +14,8 @@ use App\Users\Domain\Services\Repositories\PermissionRepository;
  */
 class CreatePermissionCommandHandler
 {
-
-    private PermissionRepository $permissions;
-
-    public function __construct(PermissionRepository $permissions)
+    public function __construct(private PermissionRepository $permissions)
     {
-        $this->permissions = $permissions;
     }
 
     public function __invoke(CreatePermission $command)

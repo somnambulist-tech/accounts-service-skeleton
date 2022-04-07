@@ -4,6 +4,7 @@ namespace App\Users\Application\QueryHandlers;
 
 use App\Users\Delivery\ViewModels\UserView;
 use App\Users\Domain\Queries\FindUsers;
+use Pagerfanta\Pagerfanta;
 
 /**
  * Class FindUsersQueryHandler
@@ -13,10 +14,10 @@ use App\Users\Domain\Queries\FindUsers;
  */
 class FindUsersQueryHandler
 {
-    public function __invoke(FindUsers $query)
+    public function __invoke(FindUsers $query): Pagerfanta
     {
         $qb = UserView::query();
-        $qb->with(...$query->getIncludes())->orderBy('name', 'ASC');
+        $qb->with(...$query->getIncludes())->orderBy('name');
 
         if ($query->getAccountId()) {
             $qb->whereColumn('account_id', '=', (string)$query->getAccountId());

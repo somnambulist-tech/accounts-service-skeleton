@@ -3,7 +3,6 @@
 namespace App\Users\Delivery\Api\V1\Permissions\Forms;
 
 use App\Resources\Delivery\Api\Forms\FormRequest;
-use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class SearchPermissionsRequest

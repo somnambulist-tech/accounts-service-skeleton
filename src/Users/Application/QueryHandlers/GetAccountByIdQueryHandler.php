@@ -4,25 +4,24 @@ namespace App\Users\Application\QueryHandlers;
 
 use App\Accounts\Delivery\ViewModels\AccountView;
 use App\Accounts\Domain\Models\Account;
-use App\Users\Domain\Queries\FindAccountById;
+use App\Users\Domain\Queries\GetAccountById;
 use Somnambulist\Components\Domain\Entities\Exceptions\EntityNotFoundException;
 use Somnambulist\Components\ReadModels\Exceptions\EntityNotFoundException as ReadModelNotFound;
 
 /**
- * Class FindAccountByIdQueryHandler
+ * Class GetAccountByIdQueryHandler
  *
  * @package    App\Users\Application\QueryHandlers
- * @subpackage App\Users\Application\QueryHandlers\FindAccountByIdQueryHandler
+ * @subpackage App\Users\Application\QueryHandlers\GetAccountByIdQueryHandler
  */
-class FindAccountByIdQueryHandler
+class GetAccountByIdQueryHandler
 {
-
-    public function __invoke(FindAccountById $query)
+    public function __invoke(GetAccountById $query): AccountView
     {
         try {
             return AccountView::findOrFail($query->getId());
-        } catch (ReadModelNotFound $e) {
-            throw EntityNotFoundException::entityNotFound(Account::class, $query->getId());
+        } catch (ReadModelNotFound) {
+            throw EntityNotFoundException::entityNotFound(Account::class, (string)$query->getId());
         }
     }
 }

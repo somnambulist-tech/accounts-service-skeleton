@@ -15,7 +15,6 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  */
 abstract class AbstractCommand extends Command implements ContainerAwareInterface
 {
-
     private ?ContainerInterface $container = null;
 
     /**
@@ -23,7 +22,7 @@ abstract class AbstractCommand extends Command implements ContainerAwareInterfac
      *
      * @throws LogicException
      */
-    protected function getContainer()
+    protected function getContainer(): ContainerInterface
     {
         if (null === $this->container) {
             $application = $this->getApplication();
@@ -40,7 +39,7 @@ abstract class AbstractCommand extends Command implements ContainerAwareInterfac
     /**
      * {@inheritdoc}
      */
-    public function setContainer(ContainerInterface $container = null)
+    public function setContainer(ContainerInterface $container = null): void
     {
         $this->container = $container;
     }

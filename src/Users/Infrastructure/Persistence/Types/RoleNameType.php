@@ -12,7 +12,6 @@ use App\Users\Domain\Models\RoleName;
  */
 class RoleNameType extends AbstractNameType
 {
-
     protected string $name = 'role_name';
     protected string $class = RoleName::class;
 }

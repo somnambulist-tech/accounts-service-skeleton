@@ -13,14 +13,9 @@ use Somnambulist\Components\Domain\Entities\AbstractValueObject;
  */
 final class RoleName extends AbstractValueObject
 {
-
-    private string $value;
-
-    public function __construct(string $value)
+    public function __construct(private string $value)
     {
         Assert::that($value, null, 'role_name')->notEmpty()->notBlank()->notNull()->minLength(3)->maxLength(50)->regex('/[a-z0-9_]/');
-
-        $this->value = $value;
     }
 
     public function toString(): string

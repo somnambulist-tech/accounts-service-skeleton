@@ -2,12 +2,12 @@
 
 namespace App\Users\Infrastructure\Persistence\Repositories;
 
-use App\Users\Domain\Models\UserName;
-use Doctrine\Persistence\ManagerRegistry;
-use Doctrine\Persistence\ObjectManager;
 use App\Users\Domain\Models\Permission;
+use App\Users\Domain\Models\UserName;
 use App\Users\Domain\Services\Repositories\PermissionRepository as PermissionRepositoryContract;
 use App\Users\Infrastructure\Persistence\EntityLocators\PermissionLocator;
+use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Persistence\ObjectManager;
 
 /**
  * Class PermissionRepository
@@ -17,7 +17,6 @@ use App\Users\Infrastructure\Persistence\EntityLocators\PermissionLocator;
  */
 class PermissionRepository implements PermissionRepositoryContract
 {
-
     private ObjectManager $em;
 
     public function __construct(ManagerRegistry $registry)

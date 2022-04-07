@@ -7,8 +7,9 @@ use App\Users\Delivery\Api\V1\Permissions\Forms\CreatePermissionRequest;
 use App\Users\Delivery\Api\V1\Permissions\Transformers\PermissionViewTransformer;
 use App\Users\Domain\Commands\CreatePermission;
 use App\Users\Domain\Models\PermissionName;
-use App\Users\Domain\Queries\FindPermissionByName;
+use App\Users\Domain\Queries\GetPermissionByName;
 use Somnambulist\Bundles\ApiBundle\Response\Types\ObjectType;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * Class CreateController
@@ -18,11 +19,10 @@ use Somnambulist\Bundles\ApiBundle\Response\Types\ObjectType;
  */
 class CreateController extends ApiController
 {
-
-    public function __invoke(CreatePermissionRequest $request)
+    public function __invoke(CreatePermissionRequest $request): JsonResponse
     {
         $this->command()->dispatch(new CreatePermission($n = new PermissionName($request->get('name'))));
 
-        return $this->created(new ObjectType($this->query()->execute(new FindPermissionByName($n)), PermissionViewTransformer::class));
+        return $this->created(new ObjectType($this->query()->execute(new GetPermissionByName($n)), PermissionViewTransformer::class));
     }
 }

@@ -13,8 +13,7 @@ use League\Fractal\TransformerAbstract;
  */
 class PermissionViewTransformer extends TransformerAbstract
 {
-
-    public function transform(PermissionView $permission)
+    public function transform(PermissionView $permission): array
     {
         return $permission->toArray();
     }

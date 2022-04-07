@@ -15,7 +15,6 @@ use Somnambulist\Components\ReadModels\ModelBuilder;
  */
 trait CanApplyOrderToQuery
 {
-
     private function applySortCriteria(ModelBuilder $qb, AbstractPaginatableQuery $query, string $field, string $dir = 'ASC'): void
     {
         if (!$query->getOrderBy()->count()) {

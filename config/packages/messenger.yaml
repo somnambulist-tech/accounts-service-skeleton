@@ -24,7 +24,6 @@ framework:
             # https://symfony.com/doc/current/messenger.html#transport-configuration
             domain_events:
                 dsn: '%env(MESSENGER_TRANSPORT_DSN)%/domain_events'
-                serializer: somnambulist.domain.event_serializer
                 options:
                     exchange:
                         name: domain_events

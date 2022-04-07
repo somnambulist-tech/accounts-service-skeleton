@@ -15,7 +15,6 @@ use Somnambulist\Components\Domain\Queries\QueryBus;
  */
 abstract class ApiController extends BaseController
 {
-
     public static function getSubscribedServices(): array
     {
         return array_merge(parent::getSubscribedServices(), [

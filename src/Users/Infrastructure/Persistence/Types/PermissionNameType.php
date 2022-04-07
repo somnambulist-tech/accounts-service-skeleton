@@ -12,7 +12,6 @@ use App\Users\Domain\Models\PermissionName;
  */
 class PermissionNameType extends AbstractNameType
 {
-
     protected string $name = 'permission_name';
     protected string $class = PermissionName::class;
 }

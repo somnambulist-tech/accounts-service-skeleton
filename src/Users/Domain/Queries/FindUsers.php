@@ -13,7 +13,6 @@ use Somnambulist\Components\Domain\Queries\AbstractPaginatableQuery;
  */
 class FindUsers extends AbstractPaginatableQuery
 {
-
     public function getAccountId(): ?Uuid
     {
         return $this->getCriteria()->get('account_id');

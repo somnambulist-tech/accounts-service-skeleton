@@ -37,10 +37,10 @@ final class Version20201003220231 extends AbstractMigration
                 (:admin, \'admin\', NOW(), NOW()),
                 (:su, \'switch_user\', NOW(), NOW())
         ', [
-            ':user'  => $user,
-            ':root'  => $root,
-            ':admin' => $adm,
-            ':su'    => $su,
+            'user'  => $user,
+            'root'  => $root,
+            'admin' => $adm,
+            'su'    => $su,
         ]);
         $this->addSql('
             INSERT INTO role_grantable_roles (role_source, role_target)
@@ -50,10 +50,10 @@ final class Version20201003220231 extends AbstractMigration
                 (:root, :admin),
                 (:root, :su)
         ', [
-            ':user'  => $user,
-            ':root'  => $root,
-            ':admin' => $adm,
-            ':su'    => $su,
+            'user'  => $user,
+            'root'  => $root,
+            'admin' => $adm,
+            'su'    => $su,
         ]);
     }
 

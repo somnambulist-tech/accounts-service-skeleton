@@ -14,12 +14,8 @@ use App\Accounts\Domain\Services\Repositories\AccountRepository;
  */
 class CreateAccountCommandHandler
 {
-
-    private AccountRepository $accounts;
-
-    public function __construct(AccountRepository $accounts)
+    public function __construct(private AccountRepository $accounts)
     {
-        $this->accounts = $accounts;
     }
 
     public function __invoke(CreateAccount $command)

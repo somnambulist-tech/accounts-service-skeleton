@@ -18,7 +18,6 @@ use Somnambulist\Components\Domain\Doctrine\AbstractEntityLocator;
  */
 class AccountLocator extends AbstractEntityLocator
 {
-
     protected function getEntityUuidFieldName(): string
     {
         return 'id';

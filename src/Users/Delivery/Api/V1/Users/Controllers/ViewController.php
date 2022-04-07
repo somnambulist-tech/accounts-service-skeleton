@@ -3,11 +3,12 @@
 namespace App\Users\Delivery\Api\V1\Users\Controllers;
 
 use App\Resources\Delivery\Api\ApiController;
+use App\Users\Delivery\Api\V1\Users\Forms\ViewUserRequest;
 use App\Users\Delivery\Api\V1\Users\Transformers\UserViewTransformer;
-use App\Users\Domain\Queries\FindUserById;
+use App\Users\Domain\Queries\GetUserById;
 use Somnambulist\Bundles\ApiBundle\Response\Types\ObjectType;
 use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
-use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * Class ViewController
@@ -17,16 +18,15 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class ViewController extends ApiController
 {
-
-    public function __invoke(Request $request, Uuid $id)
+    public function __invoke(ViewUserRequest $request, Uuid $id): JsonResponse
     {
-        $query   = new FindUserById($id);
-        $query->with(...$this->includes($request));
+        $query   = new GetUserById($id);
+        $query->with(...$request->includes());
 
         $entity = $this->query()->execute($query);
 
         return $this->item(
-            (new ObjectType($entity, UserViewTransformer::class))->withIncludes(...$this->includes($request))
+            (new ObjectType($entity, UserViewTransformer::class))->include(...$request->includes())
         );
     }
 }

@@ -12,7 +12,6 @@ use Somnambulist\Components\Domain\Queries\AbstractPaginatableQuery;
  */
 class FindRoles extends AbstractPaginatableQuery
 {
-
     public function getName(): ?string
     {
         return $this->getCriteria()->get('name');

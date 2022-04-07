@@ -12,7 +12,6 @@ use App\Users\Domain\Models\UserName;
  */
 class UserNameType extends AbstractNameType
 {
-
     protected string $name = 'user_name';
     protected string $class = UserName::class;
 }

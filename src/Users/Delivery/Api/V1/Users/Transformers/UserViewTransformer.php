@@ -18,8 +18,7 @@ use League\Fractal\TransformerAbstract;
  */
 class UserViewTransformer extends TransformerAbstract
 {
-
-    protected $availableIncludes = ['account', 'permissions', 'roles',];
+    protected array $availableIncludes = ['account', 'permissions', 'roles',];
 
     public function transform(UserView $user): array
     {

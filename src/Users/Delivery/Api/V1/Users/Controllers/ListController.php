@@ -9,6 +9,7 @@ use App\Users\Domain\Queries\FindUsers;
 use Pagerfanta\Pagerfanta;
 use Somnambulist\Bundles\ApiBundle\Response\Types\PagerfantaType;
 use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
@@ -19,8 +20,7 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
  */
 class ListController extends ApiController
 {
-
-    public function __invoke(SearchUsersRequest $request)
+    public function __invoke(SearchUsersRequest $request): JsonResponse
     {
         $query = new FindUsers([
             'account_id' => $request->nullOrValue('query', ['account_id'], Uuid::class),
@@ -37,7 +37,7 @@ class ListController extends ApiController
             UserViewTransformer::class,
             $this->generateUrl($request->attributes->get('_route'), $request->query->all(), UrlGeneratorInterface::ABSOLUTE_URL)
         );
-        $binding->withIncludes(...$request->includes());
+        $binding->include(...$request->includes());
 
         return $this->paginate($binding);
     }

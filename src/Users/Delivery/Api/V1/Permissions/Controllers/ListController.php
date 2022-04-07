@@ -8,6 +8,7 @@ use App\Users\Delivery\Api\V1\Permissions\Transformers\PermissionViewTransformer
 use App\Users\Domain\Queries\FindPermissions;
 use Pagerfanta\Pagerfanta;
 use Somnambulist\Bundles\ApiBundle\Response\Types\PagerfantaType;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
@@ -18,8 +19,7 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
  */
 class ListController extends ApiController
 {
-
-    public function __invoke(SearchPermissionsRequest $request)
+    public function __invoke(SearchPermissionsRequest $request): JsonResponse
     {
         $query = new FindPermissions([], [], $request->page(), $request->perPage(50, 5000));
 

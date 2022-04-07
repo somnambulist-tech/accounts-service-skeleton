@@ -2,11 +2,11 @@
 
 namespace App\Users\Infrastructure\Persistence\Repositories;
 
-use Doctrine\Persistence\ManagerRegistry;
-use Doctrine\Persistence\ObjectManager;
 use App\Users\Domain\Models\User;
 use App\Users\Domain\Services\Repositories\UserRepository as UserRepositoryContract;
 use App\Users\Infrastructure\Persistence\EntityLocators\UserLocator;
+use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Persistence\ObjectManager;
 use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
 
 /**
@@ -17,7 +17,6 @@ use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
  */
 class UserRepository implements UserRepositoryContract
 {
-
     private ObjectManager $em;
 
     public function __construct(ManagerRegistry $registry)

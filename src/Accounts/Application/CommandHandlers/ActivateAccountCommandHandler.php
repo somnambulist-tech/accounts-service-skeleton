@@ -13,12 +13,8 @@ use App\Accounts\Domain\Services\Repositories\AccountRepository;
  */
 class ActivateAccountCommandHandler
 {
-
-    private AccountRepository $repository;
-
-    public function __construct(AccountRepository $repository)
+    public function __construct(private AccountRepository $repository)
     {
-        $this->repository = $repository;
     }
 
     public function __invoke(ActivateAccount $command)

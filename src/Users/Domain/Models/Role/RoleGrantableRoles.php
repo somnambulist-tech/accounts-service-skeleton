@@ -6,6 +6,7 @@ use App\Users\Domain\Models\Role;
 use Countable;
 use Doctrine\Common\Collections\Collection;
 use IteratorAggregate;
+use Traversable;
 
 /**
  * Class RoleGrantableRoles
@@ -15,7 +16,6 @@ use IteratorAggregate;
  */
 class RoleGrantableRoles implements Countable, IteratorAggregate
 {
-
     private Role $role;
     private Collection $roles;
 
@@ -25,12 +25,12 @@ class RoleGrantableRoles implements Countable, IteratorAggregate
         $this->roles = $roles;
     }
 
-    public function count()
+    public function count(): int
     {
         return $this->roles->count();
     }
 
-    public function getIterator()
+    public function getIterator(): Traversable
     {
         return $this->roles;
     }

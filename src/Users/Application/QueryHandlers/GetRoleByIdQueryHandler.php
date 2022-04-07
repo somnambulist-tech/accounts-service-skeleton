@@ -4,28 +4,27 @@ namespace App\Users\Application\QueryHandlers;
 
 use App\Users\Delivery\ViewModels\RoleView;
 use App\Users\Domain\Models\Role;
-use App\Users\Domain\Queries\FindRoleById;
+use App\Users\Domain\Queries\GetRoleById;
 use Somnambulist\Components\Domain\Entities\Exceptions\EntityNotFoundException;
 use Somnambulist\Components\ReadModels\Exceptions\EntityNotFoundException as ReadModelNotFound;
 
 /**
- * Class FindRoleByIdentityQueryHandler
+ * Class GetRoleByIdQueryHandler
  *
  * @package    App\Users\Application\QueryHandlers
- * @subpackage App\Users\Application\QueryHandlers\FindRoleByIdentityQueryHandler
+ * @subpackage App\Users\Application\QueryHandlers\GetRoleByIdQueryHandler
  */
-class FindRoleByIdQueryHandler
+class GetRoleByIdQueryHandler
 {
-
-    public function __invoke(FindRoleById $query)
+    public function __invoke(GetRoleById $query): RoleView
     {
         $qb = RoleView::query();
         $qb->with(...$query->getIncludes());
 
         try {
             return $qb->findOrFail((string)$query->getId());
-        } catch (ReadModelNotFound $e) {
-            throw EntityNotFoundException::entityNotFound(Role::class, $query->getId());
+        } catch (ReadModelNotFound) {
+            throw EntityNotFoundException::entityNotFound(Role::class, (string)$query->getId());
         }
     }
 }

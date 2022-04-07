@@ -4,7 +4,6 @@ namespace App\Users\Application\CommandHandlers;
 
 use App\Users\Domain\Commands\DestroyRole;
 use App\Users\Domain\Services\Repositories\RoleRepository;
-use Somnambulist\Components\Domain\Entities\Exceptions\InvalidDomainStateException;
 
 /**
  * Class DestroyRoleCommandHandler
@@ -14,21 +13,14 @@ use Somnambulist\Components\Domain\Entities\Exceptions\InvalidDomainStateExcepti
  */
 class DestroyRoleCommandHandler
 {
-
-    private RoleRepository $roles;
-
-    public function __construct(RoleRepository $roles)
+    public function __construct(private RoleRepository $roles)
     {
-        $this->roles = $roles;
     }
 
     public function __invoke(DestroyRole $command)
     {
         $role = $this->roles->find($command->getId());
-
-        if ($role->isReserved()) {
-            throw new InvalidDomainStateException(sprintf('Role "%s" is a reserved role and cannot be deleted', $command->getId()));
-        }
+        $role->destroy();
 
         $this->roles->destroy($role);
     }

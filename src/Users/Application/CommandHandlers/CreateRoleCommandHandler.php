@@ -19,14 +19,8 @@ use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
  */
 class CreateRoleCommandHandler
 {
-
-    private RoleRepository $roles;
-    private PermissionRepository $permissions;
-
-    public function __construct(RoleRepository $roles, PermissionRepository $permissions)
+    public function __construct(private RoleRepository $roles, private PermissionRepository $permissions)
     {
-        $this->roles       = $roles;
-        $this->permissions = $permissions;
     }
 
     public function __invoke(CreateRole $command)
@@ -51,7 +45,7 @@ class CreateRoleCommandHandler
     {
         try {
             return $this->permissions->findByName($name);
-        } catch (EntityNotFoundException $e) {
+        } catch (EntityNotFoundException) {
             return new Permission(new PermissionName($name));
         }
     }

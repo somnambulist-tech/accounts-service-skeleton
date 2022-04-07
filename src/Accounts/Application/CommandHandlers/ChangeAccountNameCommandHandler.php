@@ -13,12 +13,8 @@ use App\Accounts\Domain\Services\Repositories\AccountRepository;
  */
 class ChangeAccountNameCommandHandler
 {
-
-    private AccountRepository $repository;
-
-    public function __construct(AccountRepository $repository)
+    public function __construct(private AccountRepository $repository)
     {
-        $this->repository = $repository;
     }
 
     public function __invoke(ChangeAccountName $command)

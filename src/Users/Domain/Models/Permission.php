@@ -12,7 +12,6 @@ use Somnambulist\Components\Domain\Entities\Types\DateTime\DateTime;
  */
 class Permission
 {
-
     private ?int $id = null;
     private PermissionName $name;
     private DateTime $createdAt;

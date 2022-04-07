@@ -13,14 +13,9 @@ use Somnambulist\Components\Domain\Entities\AbstractValueObject;
  */
 final class PermissionName extends AbstractValueObject
 {
-
-    private string $value;
-
-    public function __construct(string $value)
+    public function __construct(private string $value)
     {
         Assert::that($value, null, 'permission_name')->notEmpty()->notBlank()->notNull()->maxLength(255);
-
-        $this->value = $value;
     }
 
     public function toString(): string

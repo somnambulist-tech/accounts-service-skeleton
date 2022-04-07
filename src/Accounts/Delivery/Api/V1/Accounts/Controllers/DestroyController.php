@@ -5,6 +5,7 @@ namespace App\Accounts\Delivery\Api\V1\Accounts\Controllers;
 use App\Accounts\Domain\Commands\DestroyAccount;
 use App\Resources\Delivery\Api\ApiController;
 use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * Class DestroyController
@@ -14,8 +15,7 @@ use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
  */
 class DestroyController extends ApiController
 {
-
-    public function __invoke(Uuid $id)
+    public function __invoke(Uuid $id): JsonResponse
     {
         $this->command()->dispatch(new DestroyAccount($id));
 

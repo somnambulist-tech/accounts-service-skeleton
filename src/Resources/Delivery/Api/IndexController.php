@@ -12,8 +12,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
  */
 class IndexController extends ApiController
 {
-
-    public function __invoke()
+    public function __invoke(): JsonResponse
     {
         return new JsonResponse([
             'services' => [

@@ -4,6 +4,7 @@ namespace App\Users\Delivery\Api\V1\Permissions\Controllers;
 
 use App\Resources\Delivery\Api\ApiController;
 use App\Users\Domain\Commands\DestroyPermission;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * Class CreateController
@@ -13,8 +14,7 @@ use App\Users\Domain\Commands\DestroyPermission;
  */
 class DestroyController extends ApiController
 {
-
-    public function __invoke(string $id)
+    public function __invoke(string $id): JsonResponse
     {
         $this->command()->dispatch(new DestroyPermission($id));
 

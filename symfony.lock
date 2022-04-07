@@ -1,7 +1,4 @@
 {
-    "adamsafr/form-request-bundle": {
-        "version": "v0.1.2"
-    },
     "beberlei/assert": {
         "version": "v3.2.7"
     },
@@ -110,9 +107,6 @@
     "doctrine/persistence": {
         "version": "1.3.8"
     },
-    "doctrine/reflection": {
-        "version": "1.2.1"
-    },
     "doctrine/sql-formatter": {
         "version": "1.1.1"
     },
@@ -125,17 +119,8 @@
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.3"
     },
-    "fzaninotto/faker": {
-        "version": "v1.9.1"
-    },
     "laminas/laminas-code": {
         "version": "3.4.1"
-    },
-    "laminas/laminas-eventmanager": {
-        "version": "3.3.0"
-    },
-    "laminas/laminas-zendframework-bridge": {
-        "version": "1.1.1"
     },
     "league/fractal": {
         "version": "0.19.2"
@@ -152,9 +137,6 @@
     "nikic/php-parser": {
         "version": "v4.10.2"
     },
-    "ocramius/proxy-manager": {
-        "version": "2.8.1"
-    },
     "pagerfanta/pagerfanta": {
         "version": "v2.4.1"
     },
@@ -163,9 +145,6 @@
     },
     "phar-io/version": {
         "version": "3.0.2"
-    },
-    "php": {
-        "version": "7.4"
     },
     "phpdocumentor/reflection-common": {
         "version": "2.2.0"
@@ -223,17 +202,11 @@
     "psr/log": {
         "version": "1.1.3"
     },
-    "rakit/validation": {
-        "version": "v1.4.0"
-    },
     "ramsey/collection": {
         "version": "1.1.1"
     },
     "ramsey/uuid": {
         "version": "4.1.1"
-    },
-    "samj/fractal-bundle": {
-        "version": "4.0.0"
     },
     "sebastian/cli-parser": {
         "version": "1.0.1"
@@ -282,18 +255,6 @@
     },
     "sebastian/version": {
         "version": "3.0.2"
-    },
-    "sensiolabs/security-checker": {
-        "version": "4.0",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "4.0",
-            "ref": "160c9b600564faa1224e8f387d49ef13ceb8b793"
-        },
-        "files": [
-            "config/packages/security_checker.yaml"
-        ]
     },
     "somnambulist/api-bundle": {
         "version": "2.0.0"
@@ -428,12 +389,6 @@
             "src/Kernel.php"
         ]
     },
-    "symfony/http-client": {
-        "version": "v5.1.6"
-    },
-    "symfony/http-client-contracts": {
-        "version": "v2.2.0"
-    },
     "symfony/http-foundation": {
         "version": "v5.1.6"
     },
@@ -451,9 +406,6 @@
         "files": [
             "config/packages/messenger.yaml"
         ]
-    },
-    "symfony/mime": {
-        "version": "v5.1.6"
     },
     "symfony/monolog-bridge": {
         "version": "v5.1.6"
@@ -494,9 +446,6 @@
     "symfony/polyfill-intl-grapheme": {
         "version": "v1.18.1"
     },
-    "symfony/polyfill-intl-idn": {
-        "version": "v1.18.1"
-    },
     "symfony/polyfill-intl-normalizer": {
         "version": "v1.18.1"
     },
@@ -504,9 +453,6 @@
         "version": "v1.18.1"
     },
     "symfony/polyfill-php72": {
-        "version": "v1.18.1"
-    },
-    "symfony/polyfill-php73": {
         "version": "v1.18.1"
     },
     "symfony/polyfill-php80": {
@@ -618,9 +564,6 @@
     },
     "voku/portable-ascii": {
         "version": "1.5.3"
-    },
-    "webimpress/safe-writer": {
-        "version": "2.1.0"
     },
     "webmozart/assert": {
         "version": "1.9.1"

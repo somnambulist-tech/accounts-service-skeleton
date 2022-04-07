@@ -3,11 +3,11 @@
 namespace App\Accounts\Delivery\ViewModels;
 
 use App\Users\Delivery\ViewModels\UserView;
-use Somnambulist\Collection\Contracts\Collection;
-use Somnambulist\Components\ReadModels\Model;
-use Somnambulist\Components\ReadModels\Relationships\HasOneToMany;
+use Somnambulist\Components\Collection\Contracts\Collection;
 use Somnambulist\Components\Domain\Entities\Types\DateTime\DateTime;
 use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Components\ReadModels\Model;
+use Somnambulist\Components\ReadModels\Relationships\HasOneToMany;
 
 /**
  * Class AccountView
@@ -23,10 +23,11 @@ use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
  * @property-read DateTime              $updated_at
  *
  * @property-read Collection|UserView[] $users
+ *
+ * @method static AccountView findOrFail($id)
  */
 class AccountView extends Model
 {
-
     protected string $table = 'accounts';
 
     protected ?string $tableAlias = 'a';

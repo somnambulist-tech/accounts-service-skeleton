@@ -20,14 +20,8 @@ use function sprintf;
  */
 class ChangeUsersAuthCredentialsCommandHandler
 {
-
-    private UserRepository $users;
-    private QueryBus $queryBus;
-
-    public function __construct(UserRepository $repository, QueryBus $queryBus)
+    public function __construct(private UserRepository $users, private QueryBus $queryBus)
     {
-        $this->users    = $repository;
-        $this->queryBus = $queryBus;
     }
 
     public function __invoke(ChangeUsersAuthCredentials $command)

@@ -6,13 +6,12 @@ use Somnambulist\Components\Domain\Queries\AbstractFindByIdQuery;
 use Somnambulist\Components\Domain\Queries\Behaviours\CanIncludeRelatedData;
 
 /**
- * Class FindRoleById
+ * Class GetUserById
  *
  * @package    App\Users\Domain\Queries
- * @subpackage App\Users\Domain\Queries\FindRoleById
+ * @subpackage App\Users\Domain\Queries\GetUserById
  */
-class FindRoleById extends AbstractFindByIdQuery
+class GetUserById extends AbstractFindByIdQuery
 {
-
     use CanIncludeRelatedData;
 }

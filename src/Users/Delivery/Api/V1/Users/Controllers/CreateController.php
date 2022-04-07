@@ -7,7 +7,7 @@ use App\Users\Delivery\Api\V1\Users\Forms\CreateUserRequest;
 use App\Users\Delivery\Api\V1\Users\Transformers\UserViewTransformer;
 use App\Users\Domain\Commands\CreateUser;
 use App\Users\Domain\Models\AccountId;
-use App\Users\Domain\Queries\FindUserById;
+use App\Users\Domain\Queries\GetUserById;
 use Somnambulist\Bundles\ApiBundle\Response\Types\ObjectType;
 use Somnambulist\Components\Domain\Utils\IdentityGenerator;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -20,7 +20,6 @@ use Symfony\Component\HttpFoundation\JsonResponse;
  */
 class CreateController extends ApiController
 {
-
     public function __invoke(CreateUserRequest $request): JsonResponse
     {
         $this->command()->dispatch(
@@ -36,7 +35,7 @@ class CreateController extends ApiController
         );
 
         return $this->created(
-            new ObjectType($this->query()->execute(new FindUserById($id)), UserViewTransformer::class)
+            new ObjectType($this->query()->execute(new GetUserById($id)), UserViewTransformer::class)
         );
     }
 }

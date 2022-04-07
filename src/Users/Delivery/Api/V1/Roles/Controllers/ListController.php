@@ -8,6 +8,7 @@ use App\Users\Delivery\Api\V1\Roles\Transformers\RoleViewTransformer;
 use App\Users\Domain\Queries\FindRoles;
 use Pagerfanta\Pagerfanta;
 use Somnambulist\Bundles\ApiBundle\Response\Types\PagerfantaType;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
@@ -18,8 +19,7 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
  */
 class ListController extends ApiController
 {
-
-    public function __invoke(SearchRolesRequest $request)
+    public function __invoke(SearchRolesRequest $request): JsonResponse
     {
         $query = new FindRoles([], [], $request->page(), $request->perPage());
         $query->with(...$request->includes());
@@ -31,7 +31,7 @@ class ListController extends ApiController
             RoleViewTransformer::class,
             $this->generateUrl($request->attributes->get('_route'), $request->query->all(), UrlGeneratorInterface::ABSOLUTE_URL)
         );
-        $binding->withIncludes(...$request->includes());
+        $binding->include(...$request->includes());
 
         return $this->paginate($binding);
     }

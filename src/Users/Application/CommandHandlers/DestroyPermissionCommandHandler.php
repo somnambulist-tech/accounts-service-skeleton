@@ -13,12 +13,8 @@ use App\Users\Infrastructure\Persistence\Repositories\PermissionRepository;
  */
 class DestroyPermissionCommandHandler
 {
-
-    private PermissionRepository $permissions;
-
-    public function __construct(PermissionRepository $permissions)
+    public function __construct(private PermissionRepository $permissions)
     {
-        $this->permissions = $permissions;
     }
 
     public function __invoke(DestroyPermission $command)

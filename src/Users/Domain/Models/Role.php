@@ -7,7 +7,9 @@ use App\Users\Domain\Models\Role\RolePermissions;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Somnambulist\Components\Domain\Entities\AggregateRoot;
+use Somnambulist\Components\Domain\Entities\Exceptions\InvalidDomainStateException;
 use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
+use function sprintf;
 
 /**
  * Class Role
@@ -17,7 +19,6 @@ use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
  */
 class Role extends AggregateRoot
 {
-
     const ROLE_ADMIN       = 'admin';
     const ROLE_ROOT        = 'root';
     const ROLE_USER        = 'user';
@@ -43,6 +44,13 @@ class Role extends AggregateRoot
     public function updateTimestamps(): void
     {
         $this->changeLastUpdatedToNow();
+    }
+
+    public function destroy(): void
+    {
+        if ($this->isReserved()) {
+            throw new InvalidDomainStateException(sprintf('Role "%s" is a reserved role and cannot be deleted', $this->id()));
+        }
     }
 
     public function isReserved(): bool

@@ -5,12 +5,12 @@ namespace App\Users\Domain\Queries;
 use Somnambulist\Components\Domain\Queries\AbstractFindByIdQuery;
 
 /**
- * Class FindAccountById
+ * Class GetAccountById
  *
  * @package    App\Users\Domain\Queries
- * @subpackage App\Users\Domain\Queries\FindAccountById
+ * @subpackage App\Users\Domain\Queries\GetAccountById
  */
-class FindAccountById extends AbstractFindByIdQuery
+class GetAccountById extends AbstractFindByIdQuery
 {
 
 }

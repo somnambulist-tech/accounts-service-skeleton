@@ -15,7 +15,6 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
  */
 class DocumentationTest extends WebTestCase
 {
-
     use BootTestClient;
 
     public function testCanActivate(): void

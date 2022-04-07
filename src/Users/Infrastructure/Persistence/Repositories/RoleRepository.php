@@ -2,12 +2,12 @@
 
 namespace App\Users\Infrastructure\Persistence\Repositories;
 
-use App\Users\Domain\Models\UserName;
-use Doctrine\Persistence\ManagerRegistry;
-use Doctrine\Persistence\ObjectManager;
 use App\Users\Domain\Models\Role;
+use App\Users\Domain\Models\UserName;
 use App\Users\Domain\Services\Repositories\RoleRepository as RoleRepositoryContract;
 use App\Users\Infrastructure\Persistence\EntityLocators\RoleLocator;
+use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Persistence\ObjectManager;
 use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
 
 /**
@@ -18,7 +18,6 @@ use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
  */
 class RoleRepository implements RoleRepositoryContract
 {
-
     private ObjectManager $em;
 
     public function __construct(ManagerRegistry $registry)

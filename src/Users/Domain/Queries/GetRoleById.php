@@ -1,18 +1,17 @@
 <?php declare(strict_types=1);
 
-namespace App\Accounts\Domain\Queries;
+namespace App\Users\Domain\Queries;
 
 use Somnambulist\Components\Domain\Queries\AbstractFindByIdQuery;
 use Somnambulist\Components\Domain\Queries\Behaviours\CanIncludeRelatedData;
 
 /**
- * Class FindAccountById
+ * Class GetRoleById
  *
- * @package    App\Accounts\Domain\Queries
- * @subpackage App\Accounts\Domain\Queries\FindAccountById
+ * @package    App\Users\Domain\Queries
+ * @subpackage App\Users\Domain\Queries\GetRoleById
  */
-class FindAccountById extends AbstractFindByIdQuery
+class GetRoleById extends AbstractFindByIdQuery
 {
-
     use CanIncludeRelatedData;
 }

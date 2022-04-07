@@ -14,7 +14,6 @@ use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
  */
 interface RoleRepository
 {
-
     /**
      * @param Uuid $id
      *

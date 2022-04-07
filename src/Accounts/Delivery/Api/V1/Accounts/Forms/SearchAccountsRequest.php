@@ -3,7 +3,6 @@
 namespace App\Accounts\Delivery\Api\V1\Accounts\Forms;
 
 use App\Resources\Delivery\Api\Forms\FormRequest;
-use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class SearchAccountsRequest
@@ -13,7 +12,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class SearchAccountsRequest extends FormRequest
 {
-
     public function rules(): array
     {
         return [

@@ -7,9 +7,10 @@ use App\Users\Delivery\Api\V1\Roles\Forms\CreateRoleRequest;
 use App\Users\Delivery\Api\V1\Roles\Transformers\RoleViewTransformer;
 use App\Users\Domain\Commands\CreateRole;
 use App\Users\Domain\Models\RoleName;
-use App\Users\Domain\Queries\FindRoleById;
+use App\Users\Domain\Queries\GetRoleById;
 use Somnambulist\Bundles\ApiBundle\Response\Types\ObjectType;
 use Somnambulist\Components\Domain\Utils\IdentityGenerator;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * Class CreateController
@@ -19,8 +20,7 @@ use Somnambulist\Components\Domain\Utils\IdentityGenerator;
  */
 class CreateController extends ApiController
 {
-
-    public function __invoke(CreateRoleRequest $request)
+    public function __invoke(CreateRoleRequest $request): JsonResponse
     {
         $this->command()->dispatch(new CreateRole(
             $id = IdentityGenerator::random(),
@@ -30,8 +30,8 @@ class CreateController extends ApiController
         ));
 
         return $this->created(
-            (new ObjectType($this->query()->execute(new FindRoleById($id)), RoleViewTransformer::class))
-                ->withIncludes('roles', 'permissions')
+            (new ObjectType($this->query()->execute(new GetRoleById($id)), RoleViewTransformer::class))
+                ->include('roles', 'permissions')
         );
     }
 }

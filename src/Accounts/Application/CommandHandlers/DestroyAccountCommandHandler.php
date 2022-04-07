@@ -16,14 +16,8 @@ use Somnambulist\Components\Domain\Queries\QueryBus;
  */
 class DestroyAccountCommandHandler
 {
-
-    private AccountRepository $repository;
-    private QueryBus          $queryBus;
-
-    public function __construct(AccountRepository $repository, QueryBus $queryBus)
+    public function __construct(private AccountRepository $repository, private QueryBus $queryBus)
     {
-        $this->repository = $repository;
-        $this->queryBus   = $queryBus;
     }
 
     public function __invoke(DestroyAccount $command)

@@ -4,7 +4,7 @@ namespace App\Users\Application\CommandHandlers;
 
 use App\Users\Domain\Commands\ChangeRolePermissions;
 use App\Users\Domain\Models\Permission;
-use App\Users\Domain\Models\UserName;
+use App\Users\Domain\Models\PermissionName;
 use App\Users\Domain\Services\Repositories\PermissionRepository;
 use App\Users\Domain\Services\Repositories\RoleRepository;
 use Somnambulist\Components\Domain\Entities\Exceptions\EntityNotFoundException;
@@ -17,14 +17,8 @@ use Somnambulist\Components\Domain\Entities\Exceptions\EntityNotFoundException;
  */
 class ChangeRolePermissionsCommandHandler
 {
-
-    private RoleRepository $roles;
-    private PermissionRepository $permissions;
-
-    public function __construct(RoleRepository $roles, PermissionRepository $permissions)
+    public function __construct(private RoleRepository $roles, private PermissionRepository $permissions)
     {
-        $this->roles       = $roles;
-        $this->permissions = $permissions;
     }
 
     public function __invoke(ChangeRolePermissions $command)
@@ -43,8 +37,8 @@ class ChangeRolePermissionsCommandHandler
     {
         try {
             return $this->permissions->findByName($name);
-        } catch (EntityNotFoundException $e) {
-            return new Permission(new UserName($name));
+        } catch (EntityNotFoundException) {
+            return new Permission(new PermissionName($name));
         }
     }
 }

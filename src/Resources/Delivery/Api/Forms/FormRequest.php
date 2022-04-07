@@ -16,7 +16,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 abstract class FormRequest extends BaseFormRequest
 {
-
     use GetIncludesFromParameterBag;
     use GetOrderByFromParameterBag;
     use GetPaginationFromParameterBag;

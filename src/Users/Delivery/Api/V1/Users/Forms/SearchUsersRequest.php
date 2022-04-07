@@ -12,7 +12,6 @@ use App\Resources\Delivery\Api\Forms\FormRequest;
  */
 class SearchUsersRequest extends FormRequest
 {
-
     public function rules(): array
     {
         return [

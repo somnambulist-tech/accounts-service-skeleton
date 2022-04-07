@@ -3,11 +3,12 @@
 namespace App\Users\Delivery\Api\V1\Roles\Controllers;
 
 use App\Resources\Delivery\Api\ApiController;
+use App\Users\Delivery\Api\V1\Roles\Forms\ViewRoleRequest;
 use App\Users\Delivery\Api\V1\Roles\Transformers\RoleViewTransformer;
-use App\Users\Domain\Queries\FindRoleById;
+use App\Users\Domain\Queries\GetRoleById;
 use Somnambulist\Bundles\ApiBundle\Response\Types\ObjectType;
 use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
-use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * Class ViewController
@@ -17,12 +18,13 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class ViewController extends ApiController
 {
-
-    public function __invoke(Request $request, Uuid $id)
+    public function __invoke(ViewRoleRequest $request, Uuid $id): JsonResponse
     {
-        $query = new FindRoleById($id);
-        $query->with(...$this->includes($request));
+        $query = new GetRoleById($id);
+        $query->with(...$request->includes());
 
-        return $this->item((new ObjectType($this->query()->execute($query), RoleViewTransformer::class))->withIncludes(...$this->includes($request)));
+        return $this->item(
+            (new ObjectType($this->query()->execute($query), RoleViewTransformer::class))->include(...$request->includes())
+        );
     }
 }

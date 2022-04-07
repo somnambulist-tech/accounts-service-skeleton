@@ -6,7 +6,7 @@ use App\Users\Domain\Commands\CreateUser;
 use App\Users\Domain\Models\Role;
 use App\Users\Domain\Models\User;
 use App\Users\Domain\Models\UserName;
-use App\Users\Domain\Queries\FindAccountById;
+use App\Users\Domain\Queries\GetAccountById;
 use App\Users\Domain\Services\Repositories\PermissionRepository;
 use App\Users\Domain\Services\Repositories\RoleRepository;
 use App\Users\Domain\Services\Repositories\UserRepository;
@@ -22,23 +22,17 @@ use Somnambulist\Components\Domain\Queries\QueryBus;
  */
 class CreateUserCommandHandler
 {
-
-    private UserRepository $users;
-    private RoleRepository $roles;
-    private PermissionRepository $permissions;
-    private QueryBus $queryBus;
-
-    public function __construct(UserRepository $users, RoleRepository $roles, PermissionRepository $permissions, QueryBus $queryBus)
-    {
-        $this->users       = $users;
-        $this->roles       = $roles;
-        $this->permissions = $permissions;
-        $this->queryBus    = $queryBus;
+    public function __construct(
+        private UserRepository $users,
+        private RoleRepository $roles,
+        private PermissionRepository $permissions,
+        private QueryBus $queryBus
+    ) {
     }
 
     public function __invoke(CreateUser $command)
     {
-        $this->queryBus->execute(new FindAccountById($command->getAccount()->toUuid()));
+        $this->queryBus->execute(new GetAccountById($command->getAccount()->toUuid()));
 
         $user = User::create(
             $command->getId(),

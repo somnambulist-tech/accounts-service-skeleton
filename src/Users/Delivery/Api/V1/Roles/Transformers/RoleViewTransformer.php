@@ -15,10 +15,9 @@ use League\Fractal\TransformerAbstract;
  */
 class RoleViewTransformer extends TransformerAbstract
 {
+    protected array $availableIncludes = ['roles', 'permissions',];
 
-    protected $availableIncludes = ['roles', 'permissions',];
-
-    public function transform(RoleView $role)
+    public function transform(RoleView $role): array
     {
         return $role->toArray();
     }

@@ -14,7 +14,6 @@ use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
  */
 interface UserRepository
 {
-
     /**
      * @param Uuid $id
      *

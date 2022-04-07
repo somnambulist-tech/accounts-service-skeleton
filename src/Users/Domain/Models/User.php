@@ -20,12 +20,11 @@ use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
  */
 class User extends AggregateRoot
 {
-
     private AccountId $account;
     private EmailAddress $email;
     private Password $password;
     private UserName $name;
-    private bool     $active;
+    private bool $active;
     private Collection $permissions;
     private Collection $roles;
 
@@ -44,12 +43,11 @@ class User extends AggregateRoot
         $this->initializeTimestamps();
     }
 
-    public static function create(Uuid $uuid, AccountId $account, EmailAddress $email, Password $password, UserName $name): self
+    public static function create(Uuid $id, AccountId $account, EmailAddress $email, Password $password, UserName $name): self
     {
-        $entity = new static($uuid, $account, $email, $password, $name);
+        $entity = new static($id, $account, $email, $password, $name);
 
         $entity->raise(Event\UserCreated::class, [
-            'id'         => (string)$uuid,
             'account_id' => (string)$account,
             'email'      => (string)$email,
         ]);
@@ -61,18 +59,14 @@ class User extends AggregateRoot
     {
         $this->active = true;
 
-        $this->raise(Event\UserActivated::class, [
-            'id' => (string)$this->id(),
-        ]);
+        $this->raise(Event\UserActivated::class);
     }
 
     public function deactivate(): void
     {
         $this->active = false;
 
-        $this->raise(Event\UserDeactivated::class, [
-            'id' => (string)$this->id(),
-        ]);
+        $this->raise(Event\UserDeactivated::class);
     }
 
     public function changeAuthCredentials(EmailAddress $email, Password $password): void
@@ -81,7 +75,6 @@ class User extends AggregateRoot
         $this->password = $password;
 
         $this->raise(Event\UserAuthenticationCredentialsChanged::class, [
-            'id'    => (string)$this->id(),
             'email' => (string)$email,
         ]);
     }
@@ -91,9 +84,7 @@ class User extends AggregateRoot
         $this->account = $account;
 
         $this->raise(Event\UserAccountChanged::class, [
-            'id'         => (string)$this->id(),
             'account_id' => (string)$this->account,
-            'email'      => (string)$this->email,
         ]);
     }
 
@@ -102,16 +93,13 @@ class User extends AggregateRoot
         $this->name = $name;
 
         $this->raise(Event\UserNameChanged::class, [
-            'id'   => (string)$this->id(),
             'name' => (string)$name,
         ]);
     }
 
     public function destroy(): void
     {
-        $this->raise(Event\UserDestroyed::class, [
-            'id' => (string)$this->id(),
-        ]);
+        $this->raise(Event\UserDestroyed::class);
     }
 
     public function permissions(): UserPermissions

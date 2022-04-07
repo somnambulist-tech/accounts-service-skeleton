@@ -9,6 +9,7 @@ use App\Resources\Delivery\Api\ApiController;
 use Pagerfanta\Pagerfanta;
 use Somnambulist\Bundles\ApiBundle\Response\Types\PagerfantaType;
 use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
@@ -19,8 +20,7 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
  */
 class ListController extends ApiController
 {
-
-    public function __invoke(SearchAccountsRequest $request)
+    public function __invoke(SearchAccountsRequest $request): JsonResponse
     {
         /** @var Pagerfanta $result */
         $query = new FindAccounts(
@@ -41,7 +41,7 @@ class ListController extends ApiController
             AccountViewTransformer::class,
             $this->generateUrl($request->attributes->get('_route'), $request->query->all(), UrlGeneratorInterface::ABSOLUTE_URL)
         );
-        $binding->withIncludes(...$request->includes());
+        $binding->include(...$request->includes());
 
         return $this->paginate($binding);
     }
