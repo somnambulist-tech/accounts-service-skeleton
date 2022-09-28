@@ -10,11 +10,6 @@ use App\Users\Delivery\ViewModels\UserView;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
- * Class ViewUserTest
- *
- * @package    App\Tests\Users\Delivery\Api\V1\Users
- * @subpackage App\Tests\Users\Delivery\Api\V1\Users\ViewUserTest
- *
  * @group      users
  * @group      users-delivery
  * @group      users-delivery-api

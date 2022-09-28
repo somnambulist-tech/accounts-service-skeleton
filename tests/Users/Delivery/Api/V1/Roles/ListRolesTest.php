@@ -9,11 +9,6 @@ use App\Tests\Support\Fixtures\RoleFixture;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
- * Class ListRolesTest
- *
- * @package    App\Tests\Users\Delivery\Api\V1\Roles
- * @subpackage App\Tests\Users\Delivery\Api\V1\Roles\ListRolesTest
- *
  * @group users
  * @group users-delivery
  * @group users-delivery-api
@@ -21,7 +16,6 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
  */
 class ListRolesTest extends WebTestCase
 {
-
     use BootTestClient;
     use FixturesTrait;
     use MakeJsonRequestTo;

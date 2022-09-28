@@ -2,15 +2,9 @@
 
 namespace App\Accounts\Domain\Queries;
 
-use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
-use Somnambulist\Components\Domain\Queries\AbstractPaginatableQuery;
+use Somnambulist\Components\Models\Types\Identity\Uuid;
+use Somnambulist\Components\Queries\AbstractPaginatableQuery;
 
-/**
- * Class FindAccounts
- *
- * @package    App\Accounts\Domain\Queries
- * @subpackage App\Accounts\Domain\Queries\FindAccounts
- */
 class FindAccounts extends AbstractPaginatableQuery
 {
 

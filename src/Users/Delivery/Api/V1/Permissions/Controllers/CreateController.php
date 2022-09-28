@@ -11,12 +11,6 @@ use App\Users\Domain\Queries\GetPermissionByName;
 use Somnambulist\Bundles\ApiBundle\Response\Types\ObjectType;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-/**
- * Class CreateController
- *
- * @package    App\Users\Delivery\Api\V1\Permissions\Controllers
- * @subpackage App\Users\Delivery\Api\V1\Permissions\Controllers\CreateController
- */
 class CreateController extends ApiController
 {
     public function __invoke(CreatePermissionRequest $request): JsonResponse

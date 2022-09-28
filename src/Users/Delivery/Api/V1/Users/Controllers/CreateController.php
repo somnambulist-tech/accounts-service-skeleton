@@ -9,15 +9,9 @@ use App\Users\Domain\Commands\CreateUser;
 use App\Users\Domain\Models\AccountId;
 use App\Users\Domain\Queries\GetUserById;
 use Somnambulist\Bundles\ApiBundle\Response\Types\ObjectType;
-use Somnambulist\Components\Domain\Utils\IdentityGenerator;
+use Somnambulist\Components\Utils\IdentityGenerator;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-/**
- * Class CreateController
- *
- * @package    App\Users\Delivery\Api\V1\Users\Controllers
- * @subpackage App\Users\Delivery\Api\V1\Users\Controllers\CreateController
- */
 class CreateController extends ApiController
 {
     public function __invoke(CreateUserRequest $request): JsonResponse

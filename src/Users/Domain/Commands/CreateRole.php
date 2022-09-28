@@ -3,15 +3,9 @@
 namespace App\Users\Domain\Commands;
 
 use App\Users\Domain\Models\RoleName;
-use Somnambulist\Components\Domain\Commands\AbstractCommand;
-use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Components\Commands\AbstractCommand;
+use Somnambulist\Components\Models\Types\Identity\Uuid;
 
-/**
- * Class CreateRole
- *
- * @package    App\Users\Domain\Commands
- * @subpackage App\Users\Domain\Commands\CreateRole
- */
 class CreateRole extends AbstractCommand
 {
 

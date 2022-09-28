@@ -7,14 +7,8 @@ use App\Accounts\Domain\Services\Repositories\AccountRepository as AccountReposi
 use App\Accounts\Infrastructure\Persistence\EntityLocators\AccountLocator;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\Persistence\ObjectManager;
-use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Components\Models\Types\Identity\Uuid;
 
-/**
- * Class AccountRepository
- *
- * @package    App\Accounts\Infrastructure\Persistence\Repositories
- * @subpackage App\Accounts\Infrastructure\Persistence\Repositories\AccountRepository
- */
 class AccountRepository implements AccountRepositoryContract
 {
     private ObjectManager $em;

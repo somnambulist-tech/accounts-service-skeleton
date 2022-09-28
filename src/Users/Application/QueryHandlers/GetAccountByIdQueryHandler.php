@@ -5,15 +5,9 @@ namespace App\Users\Application\QueryHandlers;
 use App\Accounts\Delivery\ViewModels\AccountView;
 use App\Accounts\Domain\Models\Account;
 use App\Users\Domain\Queries\GetAccountById;
-use Somnambulist\Components\Domain\Entities\Exceptions\EntityNotFoundException;
+use Somnambulist\Components\Models\Exceptions\EntityNotFoundException;
 use Somnambulist\Components\ReadModels\Exceptions\EntityNotFoundException as ReadModelNotFound;
 
-/**
- * Class GetAccountByIdQueryHandler
- *
- * @package    App\Users\Application\QueryHandlers
- * @subpackage App\Users\Application\QueryHandlers\GetAccountByIdQueryHandler
- */
 class GetAccountByIdQueryHandler
 {
     public function __invoke(GetAccountById $query): AccountView

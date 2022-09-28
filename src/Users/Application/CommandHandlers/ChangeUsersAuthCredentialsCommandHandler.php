@@ -7,17 +7,11 @@ use App\Users\Domain\Queries\FindUsers;
 use App\Users\Domain\Services\Repositories\UserRepository;
 use Assert\InvalidArgumentException;
 use Pagerfanta\Pagerfanta;
-use Somnambulist\Components\Domain\Entities\Types\Auth\Password;
-use Somnambulist\Components\Domain\Entities\Types\Identity\EmailAddress;
-use Somnambulist\Components\Domain\Queries\QueryBus;
+use Somnambulist\Components\Models\Types\Auth\Password;
+use Somnambulist\Components\Models\Types\Identity\EmailAddress;
+use Somnambulist\Components\Queries\QueryBus;
 use function sprintf;
 
-/**
- * Class ChangeUsersAuthCredentialsCommandHandler
- *
- * @package    App\Users\Application\CommandHandlers
- * @subpackage App\Users\Application\CommandHandlers\ChangeUsersAuthCredentialsCommandHandler
- */
 class ChangeUsersAuthCredentialsCommandHandler
 {
     public function __construct(private UserRepository $users, private QueryBus $queryBus)

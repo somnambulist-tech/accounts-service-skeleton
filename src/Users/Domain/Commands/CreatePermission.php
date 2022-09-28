@@ -3,14 +3,8 @@
 namespace App\Users\Domain\Commands;
 
 use App\Users\Domain\Models\PermissionName;
-use Somnambulist\Components\Domain\Commands\AbstractCommand;
+use Somnambulist\Components\Commands\AbstractCommand;
 
-/**
- * Class CreatePermission
- *
- * @package    App\Users\Domain\Commands
- * @subpackage App\Users\Domain\Commands\CreatePermission
- */
 class CreatePermission extends AbstractCommand
 {
 

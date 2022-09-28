@@ -12,12 +12,6 @@ use IteratorAggregate;
 use Traversable;
 use function array_map;
 
-/**
- * Class UserRoles
- *
- * @package    App\Users\Domain\Models\User
- * @subpackage App\Users\Domain\Models\User\UserRoles
- */
 class UserRoles implements Countable, IteratorAggregate
 {
     private User       $root;

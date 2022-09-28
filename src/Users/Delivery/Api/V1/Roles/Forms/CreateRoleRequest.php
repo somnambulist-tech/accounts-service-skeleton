@@ -4,12 +4,6 @@ namespace App\Users\Delivery\Api\V1\Roles\Forms;
 
 use Somnambulist\Bundles\FormRequestBundle\Http\FormRequest;
 
-/**
- * Class CreateRoleRequest
- *
- * @package    App\Users\Delivery\Api\V1\Roles\Forms
- * @subpackage App\Users\Delivery\Api\V1\Roles\Forms\CreateRoleRequest
- */
 class CreateRoleRequest extends FormRequest
 {
     public function rules(): array

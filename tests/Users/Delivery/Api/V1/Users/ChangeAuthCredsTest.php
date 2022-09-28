@@ -11,11 +11,6 @@ use App\Users\Delivery\ViewModels\UserView;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
- * Class ChangeAuthCredsTest
- *
- * @package    App\Tests\Users\Delivery\Api\V1\Users
- * @subpackage App\Tests\Users\Delivery\Api\V1\Users\ChangeAuthCredsTest
- *
  * @group      users
  * @group      users-delivery
  * @group      users-delivery-api
@@ -23,7 +18,6 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
  */
 class ChangeAuthCredsTest extends WebTestCase
 {
-
     use BootTestClient;
     use FixturesTrait;
     use MakeJsonRequestTo;

@@ -8,16 +8,10 @@ use App\Users\Delivery\Api\V1\Users\Transformers\UserViewTransformer;
 use App\Users\Domain\Commands\ChangeUsersAuthCredentials;
 use App\Users\Domain\Queries\GetUserById;
 use Somnambulist\Bundles\ApiBundle\Response\Types\ObjectType;
-use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Components\Models\Types\Identity\Uuid;
 use Somnambulist\Components\ReadModels\Manager;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-/**
- * Class ChangeAuthCredentialsController
- *
- * @package    App\Users\Delivery\Api\V1\Users\Controllers
- * @subpackage App\Users\Delivery\Api\V1\Users\Controllers\ChangeAuthCredentialsController
- */
 class ChangeAuthCredentialsController extends ApiController
 {
     public function __invoke(ChangeAuthCredentialsRequest $request, Uuid $id): JsonResponse

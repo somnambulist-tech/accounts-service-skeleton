@@ -9,12 +9,6 @@ use App\Users\Infrastructure\Persistence\EntityLocators\PermissionLocator;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\Persistence\ObjectManager;
 
-/**
- * Class PermissionRepository
- *
- * @package    App\Users\Infrastructure\Persistence\Repositories
- * @subpackage App\Users\Infrastructure\Persistence\Repositories\PermissionRepository
- */
 class PermissionRepository implements PermissionRepositoryContract
 {
     private ObjectManager $em;
@@ -31,7 +25,7 @@ class PermissionRepository implements PermissionRepositoryContract
 
     public function findByName(string $name): Permission
     {
-        return $this->repo()->findOneByOrFail(['name' => new UserName($name)]);
+        return $this->repo()->findOneByOrFail(['name' => $name]);
     }
 
     public function store(Permission $permission): bool

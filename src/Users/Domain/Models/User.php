@@ -7,17 +7,11 @@ use App\Users\Domain\Models\User\UserPermissions;
 use App\Users\Domain\Models\User\UserRoles;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Somnambulist\Components\Domain\Entities\AggregateRoot;
-use Somnambulist\Components\Domain\Entities\Types\Auth\Password;
-use Somnambulist\Components\Domain\Entities\Types\Identity\EmailAddress;
-use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Components\Models\AggregateRoot;
+use Somnambulist\Components\Models\Types\Auth\Password;
+use Somnambulist\Components\Models\Types\Identity\EmailAddress;
+use Somnambulist\Components\Models\Types\Identity\Uuid;
 
-/**
- * Class User
- *
- * @package    App\Users\Domain\Models
- * @subpackage App\Users\Domain\Models\User
- */
 class User extends AggregateRoot
 {
     private AccountId $account;

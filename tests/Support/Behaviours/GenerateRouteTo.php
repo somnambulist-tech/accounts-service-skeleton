@@ -5,16 +5,10 @@ namespace App\Tests\Support\Behaviours;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Trait GenerateRouteTo
- *
- * @package    App\Tests\Support\Behaviours
- * @subpackage App\Tests\Support\Behaviours\GenerateRouteTo
- *
  * @property ContainerInterface static $container
  */
 trait GenerateRouteTo
 {
-
     /**
      * Create a route from the named route with the specified parameters
      *

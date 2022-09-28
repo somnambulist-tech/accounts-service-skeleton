@@ -2,14 +2,8 @@
 
 namespace App\Users\Domain\Queries;
 
-use Somnambulist\Components\Domain\Queries\AbstractPaginatableQuery;
+use Somnambulist\Components\Queries\AbstractPaginatableQuery;
 
-/**
- * Class FindPermissions
- *
- * @package    App\Users\Domain\Queries
- * @subpackage App\Users\Domain\Queries\FindPermissions
- */
 class FindPermissions extends AbstractPaginatableQuery
 {
 

@@ -5,15 +5,8 @@ namespace App\Tests\Support\Behaviours;
 use Doctrine\ORM\EntityManagerInterface;
 use Somnambulist\Components\Domain\Doctrine\AbstractEntityLocator;
 
-/**
- * Trait DoctrineHelper
- *
- * @package    App\Tests\Support\Behaviours
- * @subpackage App\Tests\Support\Behaviours\DoctrineHelper
- */
 trait DoctrineHelper
 {
-
     protected function doctrine(): EntityManagerInterface
     {
         return static::getContainer()->get('doctrine')->getManager();

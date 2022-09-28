@@ -2,18 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Resources\Migrations;
+namespace App\Migrations;
 
 use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;
-use Somnambulist\Components\Domain\Utils\IdentityGenerator;
+use Somnambulist\Components\Utils\IdentityGenerator;
 
-/**
- * Class Version20201003220231
- *
- * @package    App\Resources\Migrations
- * @subpackage App\Resources\Migrations\Version20201003220231
- */
 final class Version20201003220231 extends AbstractMigration
 {
     public function getDescription() : string
@@ -23,7 +17,6 @@ final class Version20201003220231 extends AbstractMigration
 
     public function up(Schema $schema) : void
     {
-        // this up() migration is auto-generated, please modify it to your needs
         $root = IdentityGenerator::random()->toString();
         $user = IdentityGenerator::random()->toString();
         $su   = IdentityGenerator::random()->toString();
@@ -59,7 +52,6 @@ final class Version20201003220231 extends AbstractMigration
 
     public function down(Schema $schema) : void
     {
-        // this down() migration is auto-generated, please modify it to your needs
         $this->addSql('TRUNCATE roles CASCADE');
     }
 }

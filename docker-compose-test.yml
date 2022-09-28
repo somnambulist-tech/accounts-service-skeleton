@@ -16,7 +16,7 @@ services:
       - backend
 
   db-accounts:
-    image: postgres:12-alpine
+    image: postgres:14-alpine
     environment:
       POSTGRES_DB: accounts
       POSTGRES_USER: mycompany

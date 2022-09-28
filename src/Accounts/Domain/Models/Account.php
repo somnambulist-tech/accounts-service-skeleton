@@ -4,15 +4,9 @@ namespace App\Accounts\Domain\Models;
 
 use App\Accounts\Domain\Events as Event;
 use Assert\Assert;
-use Somnambulist\Components\Domain\Entities\AggregateRoot;
-use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Components\Models\AggregateRoot;
+use Somnambulist\Components\Models\Types\Identity\Uuid;
 
-/**
- * Class Account
- *
- * @package    App\Accounts\Domain\Models
- * @subpackage App\Accounts\Domain\Models\Account
- */
 class Account extends AggregateRoot
 {
     protected string $name;

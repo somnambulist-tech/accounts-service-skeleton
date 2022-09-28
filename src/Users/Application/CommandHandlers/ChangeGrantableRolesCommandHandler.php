@@ -5,12 +5,6 @@ namespace App\Users\Application\CommandHandlers;
 use App\Users\Domain\Commands\ChangeGrantableRoles;
 use App\Users\Domain\Services\Repositories\RoleRepository;
 
-/**
- * Class ChangeGrantableRolesCommandHandler
- *
- * @package    App\Users\Application\CommandHandlers
- * @subpackage App\Users\Application\CommandHandlers\ChangeGrantableRolesCommandHandler
- */
 class ChangeGrantableRolesCommandHandler
 {
     public function __construct(private RoleRepository $roles)

@@ -10,16 +10,10 @@ use App\Users\Domain\Queries\GetAccountById;
 use App\Users\Domain\Services\Repositories\PermissionRepository;
 use App\Users\Domain\Services\Repositories\RoleRepository;
 use App\Users\Domain\Services\Repositories\UserRepository;
-use Somnambulist\Components\Domain\Entities\Types\Auth\Password;
-use Somnambulist\Components\Domain\Entities\Types\Identity\EmailAddress;
-use Somnambulist\Components\Domain\Queries\QueryBus;
+use Somnambulist\Components\Models\Types\Auth\Password;
+use Somnambulist\Components\Models\Types\Identity\EmailAddress;
+use Somnambulist\Components\Queries\QueryBus;
 
-/**
- * Class CreateUserCommandHandler
- *
- * @package    App\Users\Application\CommandHandlers
- * @subpackage App\Users\Application\CommandHandlers\CreateUserCommandHandler
- */
 class CreateUserCommandHandler
 {
     public function __construct(

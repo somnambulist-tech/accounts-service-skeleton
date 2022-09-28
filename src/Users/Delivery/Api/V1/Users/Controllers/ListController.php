@@ -8,16 +8,9 @@ use App\Users\Delivery\Api\V1\Users\Transformers\UserViewTransformer;
 use App\Users\Domain\Queries\FindUsers;
 use Pagerfanta\Pagerfanta;
 use Somnambulist\Bundles\ApiBundle\Response\Types\PagerfantaType;
-use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Components\Models\Types\Identity\Uuid;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
-/**
- * Class ListController
- *
- * @package    App\Users\Delivery\Api\V1\Users\Controllers
- * @subpackage App\Users\Delivery\Api\V1\Users\Controllers\ListController
- */
 class ListController extends ApiController
 {
     public function __invoke(SearchUsersRequest $request): JsonResponse
@@ -32,13 +25,7 @@ class ListController extends ApiController
 
         /** @var Pagerfanta $result */
         $result  = $this->query()->execute($query);
-        $binding = new PagerfantaType(
-            $result,
-            UserViewTransformer::class,
-            $this->generateUrl($request->attributes->get('_route'), $request->query->all(), UrlGeneratorInterface::ABSOLUTE_URL)
-        );
-        $binding->include(...$request->includes());
 
-        return $this->paginate($binding);
+        return $this->paginate(PagerfantaType::fromFormRequest($request, $result, UserViewTransformer::class));
     }
 }

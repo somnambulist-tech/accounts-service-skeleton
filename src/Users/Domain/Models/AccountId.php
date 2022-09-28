@@ -2,14 +2,8 @@
 
 namespace App\Users\Domain\Models;
 
-use Somnambulist\Components\Domain\Entities\Types\Identity\AbstractIdentity;
+use Somnambulist\Components\Models\Types\Identity\AbstractIdentity;
 
-/**
- * Class AccountId
- *
- * @package    App\Users\Domain\Models
- * @subpackage App\Users\Domain\Models\AccountId
- */
 final class AccountId extends AbstractIdentity
 {
 

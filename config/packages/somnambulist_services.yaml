@@ -4,37 +4,34 @@ services:
         autowire: true
         autoconfigure: true
 
-    Somnambulist\Components\Domain\Events\Publishers\DoctrineEventPublisher:
+    Somnambulist\Components\Events\Publishers\DoctrineEventPublisher:
         tags: ['doctrine.event_subscriber']
 
-    Somnambulist\Components\Domain\Events\Adapters\DomainEventNormalizer:
+    Somnambulist\Components\Events\Adapters\DomainEventNormalizer:
 
-    somnambulist.domain.event_serializer:
-        alias: Somnambulist\Components\Domain\Events\Adapters\MessengerSerializer
-
-    Somnambulist\Components\Domain\Commands\CommandBus:
-        alias: Somnambulist\Components\Domain\Commands\Adapters\MessengerCommandBus
+    Somnambulist\Components\Commands\CommandBus:
+        alias: Somnambulist\Components\Commands\Adapters\MessengerCommandBus
         public: true
 
-    Somnambulist\Components\Domain\Commands\Adapters\MessengerCommandBus:
+    Somnambulist\Components\Commands\Adapters\MessengerCommandBus:
 
-    Somnambulist\Components\Domain\Events\EventBus:
-        alias: Somnambulist\Components\Domain\Events\Adapters\MessengerEventBus
+    Somnambulist\Components\Events\EventBus:
+        alias: Somnambulist\Components\Events\Adapters\MessengerEventBus
         public: true
 
-    Somnambulist\Components\Domain\Jobs\Adapters\MessengerJobQueue:
+    Somnambulist\Components\Jobs\Adapters\MessengerJobQueue:
 
-    Somnambulist\Components\Domain\Jobs\JobQueue:
-        alias: Somnambulist\Components\Domain\Jobs\Adapters\MessengerJobQueue
+    Somnambulist\Components\Jobs\JobQueue:
+        alias: Somnambulist\Components\Jobs\Adapters\MessengerJobQueue
         public: true
 
-    Somnambulist\Components\Domain\Events\Adapters\MessengerEventBus:
+    Somnambulist\Components\Events\Adapters\MessengerEventBus:
 
-    Somnambulist\Components\Domain\Queries\QueryBus:
-        alias: Somnambulist\Components\Domain\Queries\Adapters\MessengerQueryBus
+    Somnambulist\Components\Queries\QueryBus:
+        alias: Somnambulist\Components\Queries\Adapters\MessengerQueryBus
         public: true
 
-    Somnambulist\Components\Domain\Queries\Adapters\MessengerQueryBus:
+    Somnambulist\Components\Queries\Adapters\MessengerQueryBus:
 
     Somnambulist\Bundles\ApiBundle\ArgumentResolvers\:
         resource: '../../vendor/somnambulist/api-bundle/src/ArgumentResolvers/'

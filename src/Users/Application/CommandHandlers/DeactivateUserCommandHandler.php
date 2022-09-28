@@ -5,12 +5,6 @@ namespace App\Users\Application\CommandHandlers;
 use App\Users\Domain\Commands\DeactivateUser;
 use App\Users\Domain\Services\Repositories\UserRepository;
 
-/**
- * Class DeactivateUserCommandHandler
- *
- * @package    App\Users\Application\CommandHandlers
- * @subpackage App\Users\Application\CommandHandlers\DeactivateUserCommandHandler
- */
 class DeactivateUserCommandHandler
 {
     public function __construct(private UserRepository $repository)

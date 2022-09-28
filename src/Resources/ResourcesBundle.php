@@ -5,15 +5,9 @@ namespace App\Resources;
 use App\Users\Infrastructure\Persistence\Types\PermissionNameType;
 use App\Users\Infrastructure\Persistence\Types\RoleNameType;
 use App\Users\Infrastructure\Persistence\Types\UserNameType;
-use Somnambulist\Components\Domain\Doctrine\TypeBootstrapper;
+use Somnambulist\Components\Doctrine\TypeBootstrapper;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-/**
- * Class ResourcesBundle
- *
- * @package    App\Resources
- * @subpackage App\Resources\ResourcesBundle
- */
 class ResourcesBundle extends Bundle
 {
 

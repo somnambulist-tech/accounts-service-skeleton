@@ -3,20 +3,15 @@
 namespace App\Users\Infrastructure\Persistence\EntityLocators;
 
 use App\Users\Domain\Models\Role;
-use Somnambulist\Components\Domain\Doctrine\AbstractEntityLocator;
+use Somnambulist\Components\Doctrine\AbstractModelLocator;
 
 /**
- * Class RoleLocator
- *
- * @package    App\Users\Infrastructure\Persistence\EntityLocators
- * @subpackage App\Users\Infrastructure\Persistence\EntityLocators\RoleLocator
- *
  * @method Role find($id, $lockMode = null, $lockVersion = null)
  * @method Role findOrFail($id)
  * @method Role findOneBy(array $criteria, array $orderBy = null)
  * @method Role findOneByOrFail(array $criteria, array $orderBy = null)
  */
-class RoleLocator extends AbstractEntityLocator
+class RoleLocator extends AbstractModelLocator
 {
     protected function getEntityUuidFieldName(): string
     {

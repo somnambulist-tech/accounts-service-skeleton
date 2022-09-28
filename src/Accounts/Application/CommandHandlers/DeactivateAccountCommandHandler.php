@@ -5,12 +5,6 @@ namespace App\Accounts\Application\CommandHandlers;
 use App\Accounts\Domain\Commands\DeactivateAccount;
 use App\Accounts\Domain\Services\Repositories\AccountRepository;
 
-/**
- * Class DeactivateAccountCommandHandler
- *
- * @package    App\Accounts\Application\CommandHandlers
- * @subpackage App\Accounts\Application\CommandHandlers\DeactivateAccountCommandHandler
- */
 class DeactivateAccountCommandHandler
 {
     public function __construct(private AccountRepository $repository)

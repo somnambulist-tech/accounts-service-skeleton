@@ -5,15 +5,9 @@ namespace App\Users\Application\QueryHandlers;
 use App\Users\Delivery\ViewModels\UserView;
 use App\Users\Domain\Models\User;
 use App\Users\Domain\Queries\GetUserById;
-use Somnambulist\Components\Domain\Entities\Exceptions\EntityNotFoundException;
+use Somnambulist\Components\Models\Exceptions\EntityNotFoundException;
 use Somnambulist\Components\ReadModels\Exceptions\EntityNotFoundException as ReadModelNotFound;
 
-/**
- * Class GetUserByIdQueryHandler
- *
- * @package    App\Users\Application\QueryHandlers
- * @subpackage App\Users\Application\QueryHandlers\GetUserByIdQueryHandler
- */
 class GetUserByIdQueryHandler
 {
     public function __invoke(GetUserById $query): UserView

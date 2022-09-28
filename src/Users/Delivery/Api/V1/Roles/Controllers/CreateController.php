@@ -9,15 +9,9 @@ use App\Users\Domain\Commands\CreateRole;
 use App\Users\Domain\Models\RoleName;
 use App\Users\Domain\Queries\GetRoleById;
 use Somnambulist\Bundles\ApiBundle\Response\Types\ObjectType;
-use Somnambulist\Components\Domain\Utils\IdentityGenerator;
+use Somnambulist\Components\Utils\IdentityGenerator;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-/**
- * Class CreateController
- *
- * @package    App\Users\Delivery\Api\V1\Roles\Controllers
- * @subpackage App\Users\Delivery\Api\V1\Roles\Controllers\CreateController
- */
 class CreateController extends ApiController
 {
     public function __invoke(CreateRoleRequest $request): JsonResponse

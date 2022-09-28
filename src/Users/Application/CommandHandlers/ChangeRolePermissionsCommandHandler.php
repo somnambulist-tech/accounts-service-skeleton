@@ -7,14 +7,8 @@ use App\Users\Domain\Models\Permission;
 use App\Users\Domain\Models\PermissionName;
 use App\Users\Domain\Services\Repositories\PermissionRepository;
 use App\Users\Domain\Services\Repositories\RoleRepository;
-use Somnambulist\Components\Domain\Entities\Exceptions\EntityNotFoundException;
+use Somnambulist\Components\Models\Exceptions\EntityNotFoundException;
 
-/**
- * Class ChangeRolePermissionsCommandHandler
- *
- * @package    App\Users\Application\CommandHandlers
- * @subpackage App\Users\Application\CommandHandlers\ChangeRolePermissionsCommandHandler
- */
 class ChangeRolePermissionsCommandHandler
 {
     public function __construct(private RoleRepository $roles, private PermissionRepository $permissions)

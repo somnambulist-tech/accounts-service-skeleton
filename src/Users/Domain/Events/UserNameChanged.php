@@ -2,14 +2,8 @@
 
 namespace App\Users\Domain\Events;
 
-use Somnambulist\Components\Domain\Events\AbstractEvent;
+use Somnambulist\Components\Events\AbstractEvent;
 
-/**
- * Class UserNameChanged
- *
- * @package    App\Users\Domain\Events
- * @subpackage App\Users\Domain\Events\UserNameChanged
- */
 class UserNameChanged extends AbstractEvent
 {
     protected string $group = 'user';

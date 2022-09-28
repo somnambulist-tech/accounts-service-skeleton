@@ -8,12 +8,6 @@ use Doctrine\DBAL\Types\ConversionException;
 use Doctrine\DBAL\Types\Type;
 use InvalidArgumentException;
 
-/**
- * Class AbstractNameType
- *
- * @package    App\Users\Infrastructure\Persistence\Types
- * @subpackage App\Users\Infrastructure\Persistence\Types\AbstractNameType
- */
 class AbstractNameType extends Type
 {
     protected string $name = 'name';
@@ -21,7 +15,7 @@ class AbstractNameType extends Type
 
     public function getSQLDeclaration(array $column, AbstractPlatform $platform): string
     {
-        return $platform->getVarcharTypeDeclarationSQL($column);
+        return $platform->getStringTypeDeclarationSQL($column);
     }
 
     public function convertToPHPValue($value, AbstractPlatform $platform): mixed

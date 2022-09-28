@@ -14,12 +14,6 @@ use Somnambulist\Components\Domain\Entities\Types\Auth\Password;
 use Somnambulist\Components\Domain\Entities\Types\Identity\EmailAddress;
 use Somnambulist\Components\Domain\Utils\IdentityGenerator;
 
-/**
- * Class UserFactory
- *
- * @package    App\Tests\Support\Factories
- * @subpackage App\Tests\Support\Factories\UserFactory
- */
 class UserFactory
 {
 

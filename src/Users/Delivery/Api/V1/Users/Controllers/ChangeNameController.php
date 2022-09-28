@@ -8,15 +8,9 @@ use App\Users\Delivery\Api\V1\Users\Transformers\UserViewTransformer;
 use App\Users\Domain\Commands\ChangeUsersName;
 use App\Users\Domain\Queries\GetUserById;
 use Somnambulist\Bundles\ApiBundle\Response\Types\ObjectType;
-use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Components\Models\Types\Identity\Uuid;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-/**
- * Class ChangeNameController
- *
- * @package    App\Users\Delivery\Api\V1\Users\Controllers
- * @subpackage App\Users\Delivery\Api\V1\Users\Controllers\ChangeNameController
- */
 class ChangeNameController extends ApiController
 {
     public function __invoke(ChangeNameRequest $request, Uuid $id): JsonResponse

@@ -6,12 +6,6 @@ use App\Users\Delivery\ViewModels\UserView;
 use App\Users\Domain\Queries\FindUsers;
 use Pagerfanta\Pagerfanta;
 
-/**
- * Class FindUsersQueryHandler
- *
- * @package    App\Users\Application\QueryHandlers
- * @subpackage App\Users\Application\QueryHandlers\FindUsersQueryHandler
- */
 class FindUsersQueryHandler
 {
     public function __invoke(FindUsers $query): Pagerfanta

@@ -5,12 +5,6 @@ namespace App\Users\Application\CommandHandlers;
 use App\Users\Domain\Commands\ActivateUser;
 use App\Users\Domain\Services\Repositories\UserRepository;
 
-/**
- * Class ActivateUserCommandHandler
- *
- * @package    App\Users\Application\CommandHandlers
- * @subpackage App\Users\Application\CommandHandlers\ActivateUserCommandHandler
- */
 class ActivateUserCommandHandler
 {
     public function __construct(private UserRepository $repository)

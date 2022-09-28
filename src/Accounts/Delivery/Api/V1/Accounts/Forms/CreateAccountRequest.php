@@ -2,14 +2,8 @@
 
 namespace App\Accounts\Delivery\Api\V1\Accounts\Forms;
 
-use Somnambulist\Bundles\FormRequestBundle\Http\FormRequest;
+use App\Resources\Delivery\Api\Forms\FormRequest;
 
-/**
- * Class CreateAccountRequest
- *
- * @package    App\Accounts\Delivery\Api\V1\Accounts\Forms
- * @subpackage App\Accounts\Delivery\Api\V1\Accounts\Forms\CreateAccountRequest
- */
 class CreateAccountRequest extends FormRequest
 {
     public function rules(): array

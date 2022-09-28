@@ -6,12 +6,6 @@ use App\Accounts\Domain\Commands\CreateAccount;
 use App\Accounts\Domain\Models\Account;
 use App\Accounts\Domain\Services\Repositories\AccountRepository;
 
-/**
- * Class CreateAccountCommandHandler
- *
- * @package    App\Accounts\Application\CommandHandlers
- * @subpackage App\Accounts\Application\CommandHandlers\CreateAccountCommandHandler
- */
 class CreateAccountCommandHandler
 {
     public function __construct(private AccountRepository $accounts)

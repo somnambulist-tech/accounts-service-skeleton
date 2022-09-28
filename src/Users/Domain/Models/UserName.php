@@ -3,14 +3,8 @@
 namespace App\Users\Domain\Models;
 
 use Assert\Assert;
-use Somnambulist\Components\Domain\Entities\AbstractValueObject;
+use Somnambulist\Components\Models\AbstractValueObject;
 
-/**
- * Class UserName
- *
- * @package    App\Users\Domain\Models
- * @subpackage App\Users\Domain\Models\UserName
- */
 final class UserName extends AbstractValueObject
 {
     public function __construct(private string $value)

@@ -4,12 +4,6 @@ namespace App\Accounts\Delivery\Api\V1\Accounts\Forms;
 
 use App\Resources\Delivery\Api\Forms\FormRequest;
 
-/**
- * Class SearchAccountsRequest
- *
- * @package    App\Accounts\Delivery\Api\V1\Accounts\Forms
- * @subpackage App\Accounts\Delivery\Api\V1\Accounts\Forms\SearchAccountsRequest
- */
 class SearchAccountsRequest extends FormRequest
 {
     public function rules(): array

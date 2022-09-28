@@ -7,11 +7,6 @@ use App\Tests\Support\Behaviours\MakeJsonRequestTo;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
- * Class CreatePermissionsTest
- *
- * @package    App\Tests\Users\Delivery\Api\V1\Permissions
- * @subpackage App\Tests\Users\Delivery\Api\V1\Permissions\CreatePermissionsTest
- *
  * @group      users
  * @group      users-delivery
  * @group      users-delivery-api
@@ -19,7 +14,6 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
  */
 class DestroyPermissionsTest extends WebTestCase
 {
-
     use BootTestClient;
     use MakeJsonRequestTo;
 

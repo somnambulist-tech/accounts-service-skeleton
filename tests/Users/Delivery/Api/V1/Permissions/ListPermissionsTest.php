@@ -9,11 +9,6 @@ use App\Tests\Support\Fixtures\RoleWithPermissionFixture;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
- * Class ListPermissionsTest
- *
- * @package    App\Tests\Users\Delivery\Api\V1\Permissions
- * @subpackage App\Tests\Users\Delivery\Api\V1\Permissions\ListPermissionsTest
- *
  * @group      users
  * @group      users-delivery
  * @group      users-delivery-api
@@ -21,7 +16,6 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
  */
 class ListPermissionsTest extends WebTestCase
 {
-
     use BootTestClient;
     use FixturesTrait;
     use MakeJsonRequestTo;

@@ -5,12 +5,6 @@ namespace App\Users\Application\CommandHandlers;
 use App\Users\Domain\Commands\DestroyRole;
 use App\Users\Domain\Services\Repositories\RoleRepository;
 
-/**
- * Class DestroyRoleCommandHandler
- *
- * @package    App\Users\Application\CommandHandlers
- * @subpackage App\Users\Application\CommandHandlers\DestroyRoleCommandHandler
- */
 class DestroyRoleCommandHandler
 {
     public function __construct(private RoleRepository $roles)

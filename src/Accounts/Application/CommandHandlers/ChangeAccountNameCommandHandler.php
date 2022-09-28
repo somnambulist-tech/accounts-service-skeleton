@@ -5,12 +5,6 @@ namespace App\Accounts\Application\CommandHandlers;
 use App\Accounts\Domain\Commands\ChangeAccountName;
 use App\Accounts\Domain\Services\Repositories\AccountRepository;
 
-/**
- * Class ChangeAccountNameCommandHandler
- *
- * @package    App\Accounts\Application\CommandHandlers
- * @subpackage App\Accounts\Application\CommandHandlers\ChangeAccountNameCommandHandler
- */
 class ChangeAccountNameCommandHandler
 {
     public function __construct(private AccountRepository $repository)

@@ -18,12 +18,6 @@ use function str_replace;
 use function str_starts_with;
 use function ucfirst;
 
-/**
- * Class Kernel
- *
- * @package    App
- * @subpackage App\Kernel
- */
 class Kernel extends BaseKernel
 {
     use MicroKernelTrait;

@@ -2,18 +2,11 @@
 
 namespace App\Accounts\Domain\Commands;
 
-use Somnambulist\Components\Domain\Commands\AbstractCommand;
-use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Components\Commands\AbstractCommand;
+use Somnambulist\Components\Models\Types\Identity\Uuid;
 
-/**
- * Class ActivateAccount
- *
- * @package    App\Accounts\Domain\Commands
- * @subpackage App\Accounts\Domain\Commands\ActivateAccount
- */
 class ActivateAccount extends AbstractCommand
 {
-
     private Uuid $id;
 
     public function __construct(Uuid $id)

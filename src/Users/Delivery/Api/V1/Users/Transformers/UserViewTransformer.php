@@ -10,12 +10,6 @@ use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
 use League\Fractal\TransformerAbstract;
 
-/**
- * Class UserViewTransformer
- *
- * @package    App\Users\Delivery\Api\V1\Users\Transformers
- * @subpackage App\Users\Delivery\Api\V1\Users\Transformers\UserViewTransformer
- */
 class UserViewTransformer extends TransformerAbstract
 {
     protected array $availableIncludes = ['account', 'permissions', 'roles',];

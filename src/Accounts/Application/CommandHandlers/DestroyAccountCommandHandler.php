@@ -6,14 +6,8 @@ use App\Accounts\Domain\Commands\DestroyAccount;
 use App\Accounts\Domain\Queries\CountUsersOnAccount;
 use App\Accounts\Domain\Services\Repositories\AccountRepository;
 use Assert\Assert;
-use Somnambulist\Components\Domain\Queries\QueryBus;
+use Somnambulist\Components\Queries\QueryBus;
 
-/**
- * Class DestroyAccountCommandHandler
- *
- * @package    App\Accounts\Application\CommandHandlers
- * @subpackage App\Accounts\Application\CommandHandlers\DestroyAccountCommandHandler
- */
 class DestroyAccountCommandHandler
 {
     public function __construct(private AccountRepository $repository, private QueryBus $queryBus)

@@ -4,18 +4,13 @@ namespace App\Users\Delivery\ViewModels;
 
 use App\Accounts\Delivery\ViewModels\AccountView;
 use Somnambulist\Components\Collection\Contracts\Collection;
-use Somnambulist\Components\Domain\Entities\Types\DateTime\DateTime;
-use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Components\Models\Types\DateTime\DateTime;
+use Somnambulist\Components\Models\Types\Identity\Uuid;
 use Somnambulist\Components\ReadModels\Model;
 use Somnambulist\Components\ReadModels\Relationships\BelongsTo;
 use Somnambulist\Components\ReadModels\Relationships\BelongsToMany;
 
 /**
- * Class UserView
- *
- * @package    App\Users\Delivery\ViewModels
- * @subpackage App\Users\Delivery\ViewModels\UserView
- *
  * @property-read Uuid                        $uuid
  * @property-read Uuid                        $account_id
  * @property-read string                      $email

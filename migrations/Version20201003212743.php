@@ -2,17 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Resources\Migrations;
+namespace App\Migrations;
 
 use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;
 
-/**
- * Class Version20201003212743
- *
- * @package    App\Resources\Migrations
- * @subpackage App\Resources\Migrations\Version20201003212743
- */
 final class Version20201003212743 extends AbstractMigration
 {
     public function getDescription() : string
@@ -22,7 +16,6 @@ final class Version20201003212743 extends AbstractMigration
 
     public function up(Schema $schema) : void
     {
-        // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('CREATE TABLE accounts (id UUID NOT NULL, name VARCHAR(255) NOT NULL, active BOOLEAN DEFAULT \'false\' NOT NULL, created_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, updated_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE INDEX idx_accounts_active ON accounts (active)');
         $this->addSql('COMMENT ON COLUMN accounts.id IS \'(DC2Type:uuid)\'');
@@ -66,7 +59,6 @@ final class Version20201003212743 extends AbstractMigration
 
     public function down(Schema $schema) : void
     {
-        // this down() migration is auto-generated, please modify it to your needs
         $this->addSql('ALTER TABLE role_permissions DROP CONSTRAINT FK_1FBA94E6FED90CCA');
         $this->addSql('ALTER TABLE user_permissions DROP CONSTRAINT FK_84F605FAFED90CCA');
         $this->addSql('ALTER TABLE role_permissions DROP CONSTRAINT FK_1FBA94E6D60322AC');

@@ -3,20 +3,15 @@
 namespace App\Users\Infrastructure\Persistence\EntityLocators;
 
 use App\Users\Domain\Models\Permission;
-use Somnambulist\Components\Domain\Doctrine\AbstractEntityLocator;
+use Somnambulist\Components\Doctrine\AbstractModelLocator;
 
 /**
- * Class PermissionLocator
- *
- * @package    App\Users\Infrastructure\Persistence\EntityLocators
- * @subpackage App\Users\Infrastructure\Persistence\EntityLocators\PermissionLocator
- *
  * @method Permission find($id, $lockMode = null, $lockVersion = null)
  * @method Permission findOrFail($id)
  * @method Permission findOneBy(array $criteria, array $orderBy = null)
  * @method Permission findOneByOrFail(array $criteria, array $orderBy = null)
  */
-class PermissionLocator extends AbstractEntityLocator
+class PermissionLocator extends AbstractModelLocator
 {
     protected function getEntityUuidFieldName(): string
     {

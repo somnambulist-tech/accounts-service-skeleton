@@ -2,15 +2,10 @@
 
 namespace App\Users\Delivery\ViewModels;
 
-use Somnambulist\Components\Domain\Entities\Types\DateTime\DateTime;
+use Somnambulist\Components\Models\Types\DateTime\DateTime;
 use Somnambulist\Components\ReadModels\Model;
 
 /**
- * Class PermissionView
- *
- * @package    App\Users\Delivery\ViewModels
- * @subpackage App\Users\Delivery\ViewModels\PermissionView
- *
  * @property-read int      $int
  * @property-read string   $name
  * @property-read DateTime $created_at

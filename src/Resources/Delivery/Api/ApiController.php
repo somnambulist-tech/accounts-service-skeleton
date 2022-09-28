@@ -3,16 +3,10 @@
 namespace App\Resources\Delivery\Api;
 
 use Somnambulist\Bundles\ApiBundle\Controllers\ApiController as BaseController;
-use Somnambulist\Components\Domain\Commands\CommandBus;
-use Somnambulist\Components\Domain\Jobs\JobQueue;
-use Somnambulist\Components\Domain\Queries\QueryBus;
+use Somnambulist\Components\Commands\CommandBus;
+use Somnambulist\Components\Jobs\JobQueue;
+use Somnambulist\Components\Queries\QueryBus;
 
-/**
- * Class ApiController
- *
- * @package    App\Resources\Delivery\Api
- * @subpackage App\Resources\Delivery\Api\ApiController
- */
 abstract class ApiController extends BaseController
 {
     public static function getSubscribedServices(): array

@@ -2,15 +2,9 @@
 
 namespace App\Users\Domain\Commands;
 
-use Somnambulist\Components\Domain\Commands\AbstractCommand;
-use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Components\Commands\AbstractCommand;
+use Somnambulist\Components\Models\Types\Identity\Uuid;
 
-/**
- * Class ActivateUser
- *
- * @package    App\Users\Domain\Commands
- * @subpackage App\Users\Domain\Commands\ActivateUser
- */
 class ActivateUser extends AbstractCommand
 {
 

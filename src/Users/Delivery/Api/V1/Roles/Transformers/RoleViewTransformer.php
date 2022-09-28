@@ -7,12 +7,6 @@ use App\Users\Delivery\ViewModels\RoleView;
 use League\Fractal\Resource\Collection;
 use League\Fractal\TransformerAbstract;
 
-/**
- * Class RoleViewTransformer
- *
- * @package    App\Users\Delivery\Api\V1\Roles\Transformers
- * @subpackage App\Users\Delivery\Api\V1\Roles\Transformers\RoleViewTransformer
- */
 class RoleViewTransformer extends TransformerAbstract
 {
     protected array $availableIncludes = ['roles', 'permissions',];

@@ -2,14 +2,8 @@
 
 namespace App\Users\Domain\Models;
 
-use Somnambulist\Components\Domain\Entities\Types\DateTime\DateTime;
+use Somnambulist\Components\Models\Types\DateTime\DateTime;
 
-/**
- * Class Permission
- *
- * @package    App\Users\Domain\Models
- * @subpackage App\Users\Domain\Models\Permission
- */
 class Permission
 {
     private ?int $id = null;

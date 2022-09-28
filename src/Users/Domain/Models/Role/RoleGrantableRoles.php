@@ -8,12 +8,6 @@ use Doctrine\Common\Collections\Collection;
 use IteratorAggregate;
 use Traversable;
 
-/**
- * Class RoleGrantableRoles
- *
- * @package    App\Users\Domain\Models\Role
- * @subpackage App\Users\Domain\Models\Role\RoleGrantableRoles
- */
 class RoleGrantableRoles implements Countable, IteratorAggregate
 {
     private Role $role;

@@ -6,12 +6,6 @@ use App\Tests\Support\Behaviours\UseObjectFactoryHelper;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
-/**
- * Class AccountFixture
- *
- * @package    App\Tests\Support\Fixtures
- * @subpackage App\Tests\Support\Fixtures\AccountFixture
- */
 class AccountFixture extends Fixture
 {
     use UseObjectFactoryHelper;

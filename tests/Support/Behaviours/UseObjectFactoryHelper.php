@@ -5,12 +5,6 @@ namespace App\Tests\Support\Behaviours;
 use App\Tests\Support\ObjectFactoryHelper;
 use Faker\Factory;
 
-/**
- * Trait UseObjectFactoryHelper
- *
- * @package    App\Tests\Support\Behaviours
- * @subpackage App\Tests\Support\Behaviours\UseObjectFactoryHelper
- */
 trait UseObjectFactoryHelper
 {
 

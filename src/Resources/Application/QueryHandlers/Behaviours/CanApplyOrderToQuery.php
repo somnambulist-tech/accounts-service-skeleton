@@ -2,15 +2,10 @@
 
 namespace App\Resources\Application\QueryHandlers\Behaviours;
 
-use Somnambulist\Components\Domain\Queries\AbstractPaginatableQuery;
+use Somnambulist\Components\Queries\AbstractPaginatableQuery;
 use Somnambulist\Components\ReadModels\ModelBuilder;
 
 /**
- * Trait CanApplyOrderToQuery
- *
- * @package    App\Resources\Application\QueryHandlers\Behaviours
- * @subpackage App\Resources\Application\QueryHandlers\Behaviours\CanApplyOrderToQuery
- *
  * @property-read array $availableOrderFields
  */
 trait CanApplyOrderToQuery

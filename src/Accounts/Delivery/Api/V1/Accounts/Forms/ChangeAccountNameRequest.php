@@ -2,14 +2,8 @@
 
 namespace App\Accounts\Delivery\Api\V1\Accounts\Forms;
 
-use Somnambulist\Bundles\FormRequestBundle\Http\FormRequest;
+use App\Resources\Delivery\Api\Forms\FormRequest;
 
-/**
- * Class ChangeAccountNameRequest
- *
- * @package    App\Accounts\Delivery\Api\V1\Accounts\Forms
- * @subpackage App\Accounts\Delivery\Api\V1\Accounts\Forms\ChangeAccountNameRequest
- */
 class ChangeAccountNameRequest extends FormRequest
 {
 

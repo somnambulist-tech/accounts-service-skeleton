@@ -10,11 +10,6 @@ use App\Tests\Support\Fixtures\AccountWithUserFixture;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
- * Class ListAccountTest
- *
- * @package    App\Tests\Accounts\Delivery\Api\V1\Accounts
- * @subpackage App\Tests\Accounts\Delivery\Api\V1\Accounts\ListAccountTest
- *
  * @group      accounts
  * @group      accounts-delivery
  * @group      accounts-delivery-api

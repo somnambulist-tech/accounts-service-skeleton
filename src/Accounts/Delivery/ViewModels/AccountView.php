@@ -4,17 +4,12 @@ namespace App\Accounts\Delivery\ViewModels;
 
 use App\Users\Delivery\ViewModels\UserView;
 use Somnambulist\Components\Collection\Contracts\Collection;
-use Somnambulist\Components\Domain\Entities\Types\DateTime\DateTime;
-use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Components\Models\Types\DateTime\DateTime;
+use Somnambulist\Components\Models\Types\Identity\Uuid;
 use Somnambulist\Components\ReadModels\Model;
 use Somnambulist\Components\ReadModels\Relationships\HasOneToMany;
 
 /**
- * Class AccountView
- *
- * @package    App\Accounts\Delivery\ViewModels
- * @subpackage App\Accounts\Delivery\ViewModels\AccountView
- *
  * @property-read Uuid                  $id
  * @property-read string                $name
  * @property-read bool                  $active

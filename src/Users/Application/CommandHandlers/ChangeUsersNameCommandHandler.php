@@ -6,12 +6,6 @@ use App\Users\Domain\Commands\ChangeUsersName;
 use App\Users\Domain\Models\UserName;
 use App\Users\Domain\Services\Repositories\UserRepository;
 
-/**
- * Class ChangeUsersNameCommandHandler
- *
- * @package    App\Users\Application\CommandHandlers
- * @subpackage App\Users\Application\CommandHandlers\ChangeUsersNameCommandHandler
- */
 class ChangeUsersNameCommandHandler
 {
     public function __construct(private UserRepository $repository)

@@ -3,14 +3,8 @@
 namespace App\Users\Domain\Queries;
 
 use App\Users\Domain\Models\PermissionName;
-use Somnambulist\Components\Domain\Queries\AbstractQuery;
+use Somnambulist\Components\Queries\AbstractQuery;
 
-/**
- * Class GetPermissionByName
- *
- * @package    App\Users\Domain\Queries
- * @subpackage App\Users\Domain\Queries\GetPermissionByName
- */
 class GetPermissionByName extends AbstractQuery
 {
     public function __construct(private PermissionName $name)

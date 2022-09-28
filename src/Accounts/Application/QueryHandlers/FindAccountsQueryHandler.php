@@ -7,12 +7,6 @@ use App\Accounts\Domain\Queries\FindAccounts;
 use App\Resources\Application\QueryHandlers\Behaviours\CanApplyOrderToQuery;
 use Pagerfanta\Pagerfanta;
 
-/**
- * Class FindAccountsQueryHandler
- *
- * @package    App\Accounts\Application\QueryHandlers
- * @subpackage App\Accounts\Application\QueryHandlers\FindAccountsQueryHandler
- */
 class FindAccountsQueryHandler
 {
     use CanApplyOrderToQuery;

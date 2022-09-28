@@ -7,12 +7,6 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-/**
- * Class AbstractCommand
- *
- * @package    App\Accounts\Delivery\Console
- * @subpackage App\Accounts\Delivery\Console\AbstractCommand
- */
 abstract class AbstractCommand extends Command implements ContainerAwareInterface
 {
     private ?ContainerInterface $container = null;

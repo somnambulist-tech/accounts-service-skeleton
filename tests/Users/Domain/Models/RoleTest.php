@@ -10,18 +10,12 @@ use Somnambulist\Components\Domain\Utils\IdentityGenerator;
 use Somnambulist\Components\Domain\Utils\Tests\Assertions\AssertEntityHasPropertyWithValue;
 
 /**
- * Class RoleTest
- *
- * @package    App\Tests\Users\Domain\Models
- * @subpackage App\Tests\Users\Domain\Models\RoleTest
- *
  * @group users
  * @group users-domain
  * @group users-domain-models
  */
 class RoleTest extends TestCase
 {
-
     use AssertEntityHasPropertyWithValue;
     use UseObjectFactoryHelper;
 

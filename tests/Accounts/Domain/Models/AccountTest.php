@@ -3,11 +3,9 @@
 namespace App\Tests\Accounts\Domain\Models;
 
 use App\Accounts\Domain\Events\AccountCreated;
-use App\Accounts\Domain\Events\AccountCurrencyUpdated;
 use App\Accounts\Domain\Events\AccountDestroyed;
 use App\Accounts\Domain\Events\AccountNameUpdated;
 use App\Accounts\Domain\Models\Account;
-use App\Accounts\Domain\Models\Client;
 use App\Tests\Support\Behaviours\UseObjectFactoryHelper;
 use Assert\AssertionFailedException;
 use PHPUnit\Framework\TestCase;
@@ -16,11 +14,6 @@ use Somnambulist\Components\Domain\Utils\Tests\Assertions\AssertEntityHasPropert
 use Somnambulist\Components\Domain\Utils\Tests\Assertions\AssertHasDomainEventOfType;
 
 /**
- * Class AccountTest
- *
- * @package    App\Tests\Accounts\Domain\Models
- * @subpackage App\Tests\Accounts\Domain\Models\AccountTest
- *
  * @group accounts
  * @group accounts-domain
  * @group accounts-domain-models

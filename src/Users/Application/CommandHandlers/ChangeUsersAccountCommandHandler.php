@@ -6,14 +6,8 @@ use App\Users\Domain\Commands\ChangeUsersAccount;
 use App\Users\Domain\Models\AccountId;
 use App\Users\Domain\Queries\GetAccountById;
 use App\Users\Domain\Services\Repositories\UserRepository;
-use Somnambulist\Components\Domain\Queries\QueryBus;
+use Somnambulist\Components\Queries\QueryBus;
 
-/**
- * Class ChangeUsersAccountCommandHandler
- *
- * @package    App\Users\Application\CommandHandlers
- * @subpackage App\Users\Application\CommandHandlers\ChangeUsersAccountCommandHandler
- */
 class ChangeUsersAccountCommandHandler
 {
     public function __construct(private UserRepository $repository, private QueryBus $queryBus)

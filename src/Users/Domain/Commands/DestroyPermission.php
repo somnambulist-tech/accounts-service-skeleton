@@ -2,14 +2,8 @@
 
 namespace App\Users\Domain\Commands;
 
-use Somnambulist\Components\Domain\Commands\AbstractCommand;
+use Somnambulist\Components\Commands\AbstractCommand;
 
-/**
- * Class DestroyPermission
- *
- * @package    App\Users\Domain\Commands
- * @subpackage App\Users\Domain\Commands\DestroyPermission
- */
 class DestroyPermission extends AbstractCommand
 {
 

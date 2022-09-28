@@ -6,12 +6,6 @@ use App\Users\Delivery\ViewModels\PermissionView;
 use App\Users\Domain\Queries\FindPermissions;
 use Pagerfanta\Pagerfanta;
 
-/**
- * Class FindPermissionsQueryHandler
- *
- * @package    App\Users\Application\QueryHandlers
- * @subpackage App\Users\Application\QueryHandlers\FindPermissionsQueryHandler
- */
 class FindPermissionsQueryHandler
 {
     public function __invoke(FindPermissions $query): Pagerfanta

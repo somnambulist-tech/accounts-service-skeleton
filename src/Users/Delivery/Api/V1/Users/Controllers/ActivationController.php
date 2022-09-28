@@ -8,15 +8,9 @@ use App\Users\Domain\Commands\ActivateUser;
 use App\Users\Domain\Commands\DeactivateUser;
 use App\Users\Domain\Queries\GetUserById;
 use Somnambulist\Bundles\ApiBundle\Response\Types\ObjectType;
-use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Components\Models\Types\Identity\Uuid;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-/**
- * Class ActivationController
- *
- * @package    App\Users\Delivery\Api\V1\Users\Controllers
- * @subpackage App\Users\Delivery\Api\V1\Users\Controllers\ActivationController
- */
 class ActivationController extends ApiController
 {
     public function activateAction(Uuid $id): JsonResponse

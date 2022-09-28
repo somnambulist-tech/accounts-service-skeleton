@@ -5,12 +5,6 @@ namespace App\Tests\Support\Factories;
 use App\Accounts\Domain\Models\Account;
 use Somnambulist\Components\Domain\Utils\IdentityGenerator;
 
-/**
- * Class AccountFactory
- *
- * @package    App\Tests\Support\Factories
- * @subpackage App\Tests\Support\Factories\AccountFactory
- */
 class AccountFactory
 {
 

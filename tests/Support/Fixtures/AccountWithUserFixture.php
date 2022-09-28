@@ -8,12 +8,6 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Somnambulist\Components\Domain\Entities\Types\Identity\EmailAddress;
 
-/**
- * Class AccountWithUserFixture
- *
- * @package    App\Tests\Support\Fixtures
- * @subpackage App\Tests\Support\Fixtures\AccountWithUserFixture
- */
 class AccountWithUserFixture extends Fixture
 {
     use UseObjectFactoryHelper;

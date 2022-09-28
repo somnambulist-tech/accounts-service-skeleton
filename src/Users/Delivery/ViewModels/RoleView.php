@@ -3,17 +3,12 @@
 namespace App\Users\Delivery\ViewModels;
 
 use Somnambulist\Components\Collection\Contracts\Collection;
-use Somnambulist\Components\Domain\Entities\Types\DateTime\DateTime;
-use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Components\Models\Types\DateTime\DateTime;
+use Somnambulist\Components\Models\Types\Identity\Uuid;
 use Somnambulist\Components\ReadModels\Model;
 use Somnambulist\Components\ReadModels\Relationships\BelongsToMany;
 
 /**
- * Class RoleView
- *
- * @package    App\Users\Delivery\ViewModels
- * @subpackage App\Users\Delivery\ViewModels\RoleView
- *
  * @property-read Uuid                        $id
  * @property-read string                      $name
  * @property-read DateTime                    $created_at

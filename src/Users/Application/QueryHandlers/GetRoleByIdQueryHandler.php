@@ -5,15 +5,9 @@ namespace App\Users\Application\QueryHandlers;
 use App\Users\Delivery\ViewModels\RoleView;
 use App\Users\Domain\Models\Role;
 use App\Users\Domain\Queries\GetRoleById;
-use Somnambulist\Components\Domain\Entities\Exceptions\EntityNotFoundException;
+use Somnambulist\Components\Models\Exceptions\EntityNotFoundException;
 use Somnambulist\Components\ReadModels\Exceptions\EntityNotFoundException as ReadModelNotFound;
 
-/**
- * Class GetRoleByIdQueryHandler
- *
- * @package    App\Users\Application\QueryHandlers
- * @subpackage App\Users\Application\QueryHandlers\GetRoleByIdQueryHandler
- */
 class GetRoleByIdQueryHandler
 {
     public function __invoke(GetRoleById $query): RoleView

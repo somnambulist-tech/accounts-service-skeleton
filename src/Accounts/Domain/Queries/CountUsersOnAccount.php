@@ -2,15 +2,9 @@
 
 namespace App\Accounts\Domain\Queries;
 
-use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
-use Somnambulist\Components\Domain\Queries\AbstractQuery;
+use Somnambulist\Components\Models\Types\Identity\Uuid;
+use Somnambulist\Components\Queries\AbstractQuery;
 
-/**
- * Class CountUsersOnAccount
- *
- * @package    App\Accounts\Domain\Queries
- * @subpackage App\Accounts\Domain\Queries\CountUsersOnAccount
- */
 class CountUsersOnAccount extends AbstractQuery
 {
     public function __construct(private Uuid $id)

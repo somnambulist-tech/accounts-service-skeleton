@@ -6,11 +6,6 @@ use App\Tests\Support\Behaviours\BootTestClient;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
- * Class DocumentationTest
- *
- * @package    App\Tests
- * @subpackage App\Tests\DocumentationTest
- *
  * @group docs
  */
 class DocumentationTest extends WebTestCase

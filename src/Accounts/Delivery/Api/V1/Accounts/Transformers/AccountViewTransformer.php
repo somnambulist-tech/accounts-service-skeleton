@@ -7,12 +7,6 @@ use App\Users\Delivery\Api\V1\Users\Transformers\UserViewTransformer;
 use League\Fractal\Resource\Collection;
 use League\Fractal\TransformerAbstract;
 
-/**
- * Class AccountViewTransformer
- *
- * @package    App\Accounts\Delivery\Api\V1\Accounts\Transformers
- * @subpackage App\Accounts\Delivery\Api\V1\Accounts\Transformers\AccountViewTransformer
- */
 class AccountViewTransformer extends TransformerAbstract
 {
     protected array $availableIncludes = ['users',];

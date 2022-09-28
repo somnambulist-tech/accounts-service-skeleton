@@ -10,15 +10,8 @@ use function json_encode;
 use function property_exists;
 use function sprintf;
 
-/**
- * Class MakeJsonRequestTo
- *
- * @package App\Tests\Support\Behaviours
- * @subpackage App\Tests\Support\Behaviours\MakeJsonRequestTo
- */
 trait MakeJsonRequestTo
 {
-
     use GenerateRouteTo;
 
     /**

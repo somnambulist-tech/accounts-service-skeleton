@@ -9,12 +9,6 @@ use App\Users\Domain\Models\Role;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
-/**
- * Class RoleWithPermissionFixture
- *
- * @package    App\Tests\Support\Fixtures
- * @subpackage App\Tests\Support\Fixtures\RoleWithPermissionFixture
- */
 class RoleWithPermissionFixture extends Fixture
 {
     use UseObjectFactoryHelper;

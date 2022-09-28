@@ -2,14 +2,8 @@
 
 namespace App\Accounts\Domain\Events;
 
-use Somnambulist\Components\Domain\Events\AbstractEvent;
+use Somnambulist\Components\Events\AbstractEvent;
 
-/**
- * Class AccountCreated
- *
- * @package    App\Accounts\Domain\Events
- * @subpackage App\Accounts\Domain\Events\AccountCreated
- */
 class AccountCreated extends AbstractEvent
 {
     protected string $group = 'account';

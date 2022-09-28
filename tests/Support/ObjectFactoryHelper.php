@@ -16,11 +16,6 @@ use function in_array;
 use function sprintf;
 
 /**
- * Class ObjectFactoryHelper
- *
- * @package    App\Tests\Support
- * @subpackage App\Tests\Support\ObjectFactoryHelper
- *
  * @property-read Uuid           $uuid
  * @property-read Generator      $faker
  * @property-read AccountFactory $account

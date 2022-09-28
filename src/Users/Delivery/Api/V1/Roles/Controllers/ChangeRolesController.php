@@ -8,15 +8,9 @@ use App\Users\Delivery\Api\V1\Roles\Transformers\RoleViewTransformer;
 use App\Users\Domain\Commands\ChangeGrantableRoles;
 use App\Users\Domain\Queries\GetRoleById;
 use Somnambulist\Bundles\ApiBundle\Response\Types\ObjectType;
-use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Components\Models\Types\Identity\Uuid;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-/**
- * Class ChangeRolesController
- *
- * @package    App\Users\Delivery\Api\V1\Roles\Controllers
- * @subpackage App\Users\Delivery\Api\V1\Roles\Controllers\ChangeRolesController
- */
 class ChangeRolesController extends ApiController
 {
     public function __invoke(ChangeGrantableRolesRequest $request, Uuid $id): JsonResponse

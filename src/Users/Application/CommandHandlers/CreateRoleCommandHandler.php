@@ -8,15 +8,9 @@ use App\Users\Domain\Models\PermissionName;
 use App\Users\Domain\Models\Role;
 use App\Users\Domain\Services\Repositories\PermissionRepository;
 use App\Users\Domain\Services\Repositories\RoleRepository;
-use Somnambulist\Components\Domain\Entities\Exceptions\EntityNotFoundException;
-use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Components\Models\Exceptions\EntityNotFoundException;
+use Somnambulist\Components\Models\Types\Identity\Uuid;
 
-/**
- * Class CreateRoleCommandHandler
- *
- * @package    App\Users\Application\CommandHandlers
- * @subpackage App\Users\Application\CommandHandlers\CreateRoleCommandHandler
- */
 class CreateRoleCommandHandler
 {
     public function __construct(private RoleRepository $roles, private PermissionRepository $permissions)

@@ -9,11 +9,6 @@ use App\Users\Delivery\ViewModels\RoleView;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
- * Class CreateRoleTest
- *
- * @package    App\Tests\Users\Delivery\Api\V1\Roles
- * @subpackage App\Tests\Users\Delivery\Api\V1\Roles\CreateRoleTest
- *
  * @group      users
  * @group      users-delivery
  * @group      users-delivery-api

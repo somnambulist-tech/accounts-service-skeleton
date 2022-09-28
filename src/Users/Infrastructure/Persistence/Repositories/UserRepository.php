@@ -7,14 +7,8 @@ use App\Users\Domain\Services\Repositories\UserRepository as UserRepositoryContr
 use App\Users\Infrastructure\Persistence\EntityLocators\UserLocator;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\Persistence\ObjectManager;
-use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Components\Models\Types\Identity\Uuid;
 
-/**
- * Class UserRepository
- *
- * @package    App\Users\Infrastructure\Persistence\Repositories
- * @subpackage App\Users\Infrastructure\Persistence\Repositories\UserRepository
- */
 class UserRepository implements UserRepositoryContract
 {
     private ObjectManager $em;

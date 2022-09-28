@@ -2,15 +2,9 @@
 
 namespace App\Users\Domain\Queries;
 
-use Somnambulist\Components\Domain\Queries\AbstractFindByIdQuery;
-use Somnambulist\Components\Domain\Queries\Behaviours\CanIncludeRelatedData;
+use Somnambulist\Components\Queries\AbstractFindByIdQuery;
+use Somnambulist\Components\Queries\Behaviours\CanIncludeRelatedData;
 
-/**
- * Class GetUserById
- *
- * @package    App\Users\Domain\Queries
- * @subpackage App\Users\Domain\Queries\GetUserById
- */
 class GetUserById extends AbstractFindByIdQuery
 {
     use CanIncludeRelatedData;

@@ -7,18 +7,12 @@ use App\Users\Domain\Models\PermissionName;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class PermissionTest
- *
- * @package    App\Tests\Users\Domain\Models
- * @subpackage App\Tests\Users\Domain\Models\PermissionTest
- *
  * @group users
  * @group users-domain
  * @group users-domain-models
  */
 class PermissionTest extends TestCase
 {
-
     public function testCreate()
     {
         $ent = new Permission(new PermissionName('permission'));

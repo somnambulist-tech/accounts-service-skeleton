@@ -5,12 +5,6 @@ namespace App\Accounts\Application\CommandHandlers;
 use App\Accounts\Domain\Commands\ActivateAccount;
 use App\Accounts\Domain\Services\Repositories\AccountRepository;
 
-/**
- * Class ActivateAccountCommandHandler
- *
- * @package    App\Accounts\Application\CommandHandlers
- * @subpackage App\Accounts\Application\CommandHandlers\ActivateAccountCommandHandler
- */
 class ActivateAccountCommandHandler
 {
     public function __construct(private AccountRepository $repository)

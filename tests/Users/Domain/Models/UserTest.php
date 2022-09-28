@@ -20,11 +20,6 @@ use Somnambulist\Components\Domain\Utils\Tests\Assertions\AssertEntityHasPropert
 use Somnambulist\Components\Domain\Utils\Tests\Assertions\AssertHasDomainEventOfType;
 
 /**
- * Class UserTest
- *
- * @package    App\Accounts\Tests\Unit\Domain\Models
- * @subpackage App\Accounts\Tests\Unit\Domain\Models\UserTest
- *
  * @group users
  * @group users-domain
  * @group users-domain-models

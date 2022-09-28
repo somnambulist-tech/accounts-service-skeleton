@@ -6,12 +6,6 @@ use App\Tests\Support\Behaviours\UseObjectFactoryHelper;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
-/**
- * Class RoleFixture
- *
- * @package    App\Tests\Support\Fixtures
- * @subpackage App\Tests\Support\Fixtures\RoleFixture
- */
 class RoleFixture extends Fixture
 {
     use UseObjectFactoryHelper;

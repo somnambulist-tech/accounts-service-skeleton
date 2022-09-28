@@ -6,17 +6,11 @@ use App\Users\Domain\Models\Role\RoleGrantableRoles;
 use App\Users\Domain\Models\Role\RolePermissions;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Somnambulist\Components\Domain\Entities\AggregateRoot;
-use Somnambulist\Components\Domain\Entities\Exceptions\InvalidDomainStateException;
-use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Components\Models\AggregateRoot;
+use Somnambulist\Components\Models\Exceptions\InvalidDomainStateException;
+use Somnambulist\Components\Models\Types\Identity\Uuid;
 use function sprintf;
 
-/**
- * Class Role
- *
- * @package    App\Users\Domain\Models
- * @subpackage App\Users\Domain\Models\Role
- */
 class Role extends AggregateRoot
 {
     const ROLE_ADMIN       = 'admin';

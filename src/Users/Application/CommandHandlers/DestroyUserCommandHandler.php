@@ -5,12 +5,6 @@ namespace App\Users\Application\CommandHandlers;
 use App\Users\Domain\Commands\DestroyUser;
 use App\Users\Domain\Services\Repositories\UserRepository;
 
-/**
- * Class DestroyUserCommandHandler
- *
- * @package    App\Users\Application\CommandHandlers
- * @subpackage App\Users\Application\CommandHandlers\DestroyUserCommandHandler
- */
 class DestroyUserCommandHandler
 {
     public function __construct(private UserRepository $repository)

@@ -2,14 +2,8 @@
 
 namespace App\Users\Domain\Queries;
 
-use Somnambulist\Components\Domain\Queries\AbstractPaginatableQuery;
+use Somnambulist\Components\Queries\AbstractPaginatableQuery;
 
-/**
- * Class FindRoles
- *
- * @package    App\Users\Domain\Queries
- * @subpackage App\Users\Domain\Queries\FindRoles
- */
 class FindRoles extends AbstractPaginatableQuery
 {
     public function getName(): ?string

@@ -7,15 +7,9 @@ use App\Users\Delivery\Api\V1\Users\Forms\ViewUserRequest;
 use App\Users\Delivery\Api\V1\Users\Transformers\UserViewTransformer;
 use App\Users\Domain\Queries\GetUserById;
 use Somnambulist\Bundles\ApiBundle\Response\Types\ObjectType;
-use Somnambulist\Components\Domain\Entities\Types\Identity\Uuid;
+use Somnambulist\Components\Models\Types\Identity\Uuid;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-/**
- * Class ViewController
- *
- * @package    App\Users\Delivery\Api\V1\Users\Controllers
- * @subpackage App\Users\Delivery\Api\V1\Users\Controllers\ViewController
- */
 class ViewController extends ApiController
 {
     public function __invoke(ViewUserRequest $request, Uuid $id): JsonResponse
@@ -25,8 +19,6 @@ class ViewController extends ApiController
 
         $entity = $this->query()->execute($query);
 
-        return $this->item(
-            (new ObjectType($entity, UserViewTransformer::class))->include(...$request->includes())
-        );
+        return $this->item(ObjectType::fromFormRequest($request, $entity, UserViewTransformer::class));
     }
 }

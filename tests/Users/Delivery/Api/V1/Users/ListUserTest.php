@@ -10,11 +10,6 @@ use App\Tests\Support\Fixtures\AccountWithUserFixture;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
- * Class ListUserTest
- *
- * @package    App\Tests\Users\Delivery\Api\V1\Users
- * @subpackage App\Tests\Users\Delivery\Api\V1\Users\ListUserTest
- *
  * @group      users
  * @group      users-delivery
  * @group      users-delivery-api
@@ -22,7 +17,6 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
  */
 class ListUserTest extends WebTestCase
 {
-
     use BootTestClient;
     use FixturesTrait;
     use MakeJsonRequestTo;

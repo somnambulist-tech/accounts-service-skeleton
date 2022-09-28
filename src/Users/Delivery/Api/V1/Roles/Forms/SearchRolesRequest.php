@@ -4,12 +4,6 @@ namespace App\Users\Delivery\Api\V1\Roles\Forms;
 
 use App\Resources\Delivery\Api\Forms\FormRequest;
 
-/**
- * Class SearchUsersRequest
- *
- * @package    App\Users\Delivery\Api\V1\Permissions\Forms
- * @subpackage App\Users\Delivery\Api\V1\Permissions\Forms\SearchUsersRequest
- */
 class SearchRolesRequest extends FormRequest
 {
     public function rules(): array
