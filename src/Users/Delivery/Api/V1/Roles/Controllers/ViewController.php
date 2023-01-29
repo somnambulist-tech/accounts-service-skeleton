@@ -15,7 +15,7 @@ class ViewController extends ApiController
     public function __invoke(ViewRoleRequest $request, Uuid $id): JsonResponse
     {
         $query = new GetRoleById($id);
-        $query->with(...$request->includes());
+        $query->include(...$request->includes());
 
         return $this->item(ObjectType::fromFormRequest($request, $this->query()->execute($query), RoleViewTransformer::class));
     }

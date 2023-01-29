@@ -13,10 +13,10 @@ class ChangeGrantableRolesCommandHandler
 
     public function __invoke(ChangeGrantableRoles $command)
     {
-        $role = $this->roles->find($command->getId());
+        $role = $this->roles->find($command->id);
         $role->roles()->revokeAll();
 
-        foreach ($command->getRoles() as $roleId) {
+        foreach ($command->roles as $roleId) {
             $role->roles()->grant($this->roles->find($roleId));
         }
 

@@ -2,9 +2,8 @@
 
 namespace App\Users\Domain\Queries;
 
-use Somnambulist\Components\Queries\AbstractPaginatableQuery;
+use Somnambulist\Bundles\ApiBundle\Queries\AbstractExpressionQuery;
 
-class FindPermissions extends AbstractPaginatableQuery
+class FindPermissions extends AbstractExpressionQuery
 {
-
 }

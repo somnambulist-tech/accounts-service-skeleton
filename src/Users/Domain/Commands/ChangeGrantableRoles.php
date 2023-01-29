@@ -7,23 +7,7 @@ use Somnambulist\Components\Models\Types\Identity\Uuid;
 
 class ChangeGrantableRoles extends AbstractCommand
 {
-
-    private Uuid $id;
-    private array $roles;
-
-    public function __construct(Uuid $id, array $roles = [])
+    public function __construct(public readonly Uuid $id, public readonly array $roles = [])
     {
-        $this->id    = $id;
-        $this->roles = $roles;
-    }
-
-    public function getId(): Uuid
-    {
-        return $this->id;
-    }
-
-    public function getRoles(): array
-    {
-        return $this->roles;
     }
 }

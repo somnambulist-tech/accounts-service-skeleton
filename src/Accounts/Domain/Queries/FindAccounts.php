@@ -2,19 +2,9 @@
 
 namespace App\Accounts\Domain\Queries;
 
-use Somnambulist\Components\Models\Types\Identity\Uuid;
-use Somnambulist\Components\Queries\AbstractPaginatableQuery;
+use Somnambulist\Bundles\ApiBundle\Queries\AbstractExpressionQuery;
 
-class FindAccounts extends AbstractPaginatableQuery
+class FindAccounts extends AbstractExpressionQuery
 {
 
-    public function getId(): ?Uuid
-    {
-        return $this->getCriteria()->get('id');
-    }
-
-    public function getName(): ?string
-    {
-        return $this->getCriteria()->get('name');
-    }
 }

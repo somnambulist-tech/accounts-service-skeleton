@@ -13,7 +13,7 @@ class DestroyPermissionCommandHandler
 
     public function __invoke(DestroyPermission $command)
     {
-        $perm = $this->permissions->findByName($command->getName());
+        $perm = $this->permissions->findByName($command->name);
 
         $this->permissions->destroy($perm);
     }

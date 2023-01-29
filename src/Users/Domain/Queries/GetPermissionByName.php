@@ -7,12 +7,7 @@ use Somnambulist\Components\Queries\AbstractQuery;
 
 class GetPermissionByName extends AbstractQuery
 {
-    public function __construct(private PermissionName $name)
+    public function __construct(public readonly PermissionName $name)
     {
-    }
-
-    public function getName(): PermissionName
-    {
-        return $this->name;
     }
 }

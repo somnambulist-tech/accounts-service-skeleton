@@ -20,21 +20,19 @@ class UserRepository implements UserRepositoryContract
     
     public function find(Uuid $id): User
     {
-        return $this->repo()->findOrFailByUUID($id);
+        return $this->repo()->findOrFail($id);
     }
 
-    public function store(User $user): bool
+    public function store(User $user): void
     {
         $this->em->persist($user);
-
-        return true;
+        $this->em->flush();
     }
 
-    public function destroy(User $user): bool
+    public function destroy(User $user): void
     {
         $this->em->remove($user);
-
-        return true;
+        $this->em->flush();
     }
 
     private function repo(): UserLocator

@@ -17,10 +17,10 @@ class ChangeRolePermissionsCommandHandler
 
     public function __invoke(ChangeRolePermissions $command)
     {
-        $role = $this->roles->find($command->getId());
+        $role = $this->roles->find($command->id);
         $role->permissions()->revokeAll();
 
-        foreach ($command->getPermissions() as $permId) {
+        foreach ($command->permissions as $permId) {
             $role->permissions()->grant($this->getOrCreatePermission($permId));
         }
 

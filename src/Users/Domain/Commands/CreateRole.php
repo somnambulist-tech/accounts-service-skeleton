@@ -8,37 +8,11 @@ use Somnambulist\Components\Models\Types\Identity\Uuid;
 
 class CreateRole extends AbstractCommand
 {
-
-    private Uuid     $id;
-    private RoleName $name;
-    private array    $permissions;
-    private array $roles;
-
-    public function __construct(Uuid $id, RoleName $name, array $permissions = [], array $roles = [])
-    {
-        $this->id          = $id;
-        $this->name        = $name;
-        $this->permissions = $permissions;
-        $this->roles       = $roles;
-    }
-
-    public function getId(): Uuid
-    {
-        return $this->id;
-    }
-
-    public function getName(): RoleName
-    {
-        return $this->name;
-    }
-
-    public function getPermissions(): array
-    {
-        return $this->permissions;
-    }
-
-    public function getRoles(): array
-    {
-        return $this->roles;
+    public function __construct(
+        public readonly Uuid $id,
+        public readonly RoleName $name,
+        public readonly array $permissions = [],
+        public readonly array $roles = []
+    ) {
     }
 }

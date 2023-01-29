@@ -2,7 +2,7 @@
 
 namespace App\Resources\Application\QueryHandlers\Behaviours;
 
-use Somnambulist\Components\Queries\AbstractPaginatableQuery;
+use Somnambulist\Components\Queries\Contracts\Sortable;
 use Somnambulist\Components\ReadModels\ModelBuilder;
 
 /**
@@ -10,15 +10,15 @@ use Somnambulist\Components\ReadModels\ModelBuilder;
  */
 trait CanApplyOrderToQuery
 {
-    private function applySortCriteria(ModelBuilder $qb, AbstractPaginatableQuery $query, string $field, string $dir = 'ASC'): void
+    private function applySortCriteria(ModelBuilder $qb, Sortable $query, string $field, string $dir = 'ASC'): void
     {
-        if (!$query->getOrderBy()->count()) {
+        if (!$query->orderBy()->count()) {
             $qb->orderBy($field, $dir);
 
             return;
         }
 
-        foreach ($query->getOrderBy() as $field => $dir) {
+        foreach ($query->orderBy() as $field => $dir) {
             if (in_array($field, $this->availableOrderFields)) {
                 $qb->orderBy($field, $dir);
             }

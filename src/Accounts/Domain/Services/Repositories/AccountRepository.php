@@ -8,7 +8,6 @@ use Somnambulist\Components\Models\Types\Identity\Uuid;
 
 interface AccountRepository
 {
-
     /**
      * @param Uuid $id
      *
@@ -17,8 +16,8 @@ interface AccountRepository
      */
     public function find(Uuid $id): Account;
 
-    public function store(Account $account): bool;
+    public function store(Account $account): void;
 
-    public function destroy(Account $account): bool;
+    public function destroy(Account $account): void;
 
 }

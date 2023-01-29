@@ -13,12 +13,12 @@ class GetUserByIdQueryHandler
     public function __invoke(GetUserById $query): UserView
     {
         $qb = UserView::query();
-        $qb->with(...$query->getIncludes())->orderBy('name');
+        $qb->include(...$query->includes())->orderBy('name');
 
         try {
-            return $qb->findOrFail($query->getId());
+            return $qb->findOrFail($query->id());
         } catch (ReadModelNotFound) {
-            throw EntityNotFoundException::entityNotFound(User::class, (string)$query->getId());
+            throw EntityNotFoundException::entityNotFound(User::class, (string)$query->id());
         }
     }
 }

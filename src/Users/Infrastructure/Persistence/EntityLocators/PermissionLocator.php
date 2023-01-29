@@ -3,7 +3,8 @@
 namespace App\Users\Infrastructure\Persistence\EntityLocators;
 
 use App\Users\Domain\Models\Permission;
-use Somnambulist\Components\Doctrine\AbstractModelLocator;
+use Doctrine\Persistence\ManagerRegistry;
+use Somnambulist\Components\Doctrine\AbstractServiceModelLocator;
 
 /**
  * @method Permission find($id, $lockMode = null, $lockVersion = null)
@@ -11,8 +12,13 @@ use Somnambulist\Components\Doctrine\AbstractModelLocator;
  * @method Permission findOneBy(array $criteria, array $orderBy = null)
  * @method Permission findOneByOrFail(array $criteria, array $orderBy = null)
  */
-class PermissionLocator extends AbstractModelLocator
+class PermissionLocator extends AbstractServiceModelLocator
 {
+    public function __construct(ManagerRegistry $registry)
+    {
+        parent::__construct($registry, Permission::class);
+    }
+
     protected function getEntityUuidFieldName(): string
     {
         return 'id';

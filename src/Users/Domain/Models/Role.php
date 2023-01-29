@@ -32,14 +32,6 @@ class Role extends AggregateRoot
         $this->initializeTimestamps();
     }
 
-    /**
-     * @internal
-     */
-    public function updateTimestamps(): void
-    {
-        $this->changeLastUpdatedToNow();
-    }
-
     public function destroy(): void
     {
         if ($this->isReserved()) {
@@ -47,7 +39,7 @@ class Role extends AggregateRoot
         }
     }
 
-    public function isReserved(): bool
+    private function isReserved(): bool
     {
         return in_array((string)$this->name, [self::ROLE_USER, self::ROLE_ROOT, self::ROLE_SWITCH_USER]);
     }

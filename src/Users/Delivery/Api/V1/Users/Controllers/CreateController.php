@@ -19,12 +19,12 @@ class CreateController extends ApiController
         $this->command()->dispatch(
             new CreateUser(
                 $id = IdentityGenerator::random(),
-                new AccountId($request->get('account_id')),
-                $request->get('email'),
-                $request->get('password'),
-                $request->get('name'),
-                $request->request->all('roles'),
-                $request->request->all('permissions'),
+                new AccountId($request->data()->get('account_id')),
+                $request->data()->get('email'),
+                $request->data()->get('password'),
+                $request->data()->get('name'),
+                $request->data()->get('roles', []),
+                $request->data()->get('permissions', []),
             )
         );
 

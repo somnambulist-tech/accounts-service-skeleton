@@ -10,7 +10,7 @@ class ViewAccountRequest extends FormRequest
     {
         return [
             'include'  => [
-                'nullable',
+                'sometimes',
                 'regex:/(users(.roles)?(.permissions)?)|(roles(.permissions)?)/',
             ],
         ];

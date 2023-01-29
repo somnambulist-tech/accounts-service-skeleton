@@ -6,16 +6,7 @@ use Somnambulist\Components\Commands\AbstractCommand;
 
 class DestroyPermission extends AbstractCommand
 {
-
-    private string $name;
-
-    public function __construct(string $name)
+    public function __construct(public readonly string $name)
     {
-        $this->name = $name;
-    }
-
-    public function getName(): string
-    {
-        return $this->name;
     }
 }

@@ -15,8 +15,14 @@ class ChangeNameController extends ApiController
 {
     public function __invoke(ChangeAccountNameRequest $request, Uuid $id): JsonResponse
     {
-        $this->command()->dispatch(new ChangeAccountName($id, $request->get('name')));
+        $this->command()->dispatch(new ChangeAccountName($id, $request->data()->get('name')));
 
-        return $this->updated(ObjectType::fromFormRequest($request, $this->query()->execute(new GetAccountById($id)), AccountViewTransformer::class));
+        return $this->updated(
+            ObjectType::fromFormRequest(
+                $request,
+                $this->query()->execute(new GetAccountById($id)),
+                AccountViewTransformer::class
+            )
+        );
     }
 }

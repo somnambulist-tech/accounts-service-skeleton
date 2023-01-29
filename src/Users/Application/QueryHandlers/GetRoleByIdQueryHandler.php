@@ -13,12 +13,12 @@ class GetRoleByIdQueryHandler
     public function __invoke(GetRoleById $query): RoleView
     {
         $qb = RoleView::query();
-        $qb->with(...$query->getIncludes());
+        $qb->include(...$query->includes());
 
         try {
-            return $qb->findOrFail((string)$query->getId());
+            return $qb->findOrFail((string)$query->id());
         } catch (ReadModelNotFound) {
-            throw EntityNotFoundException::entityNotFound(Role::class, (string)$query->getId());
+            throw EntityNotFoundException::entityNotFound(Role::class, (string)$query->id());
         }
     }
 }

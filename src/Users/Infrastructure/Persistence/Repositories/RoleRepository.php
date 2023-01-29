@@ -28,18 +28,16 @@ class RoleRepository implements RoleRepositoryContract
         return $this->repo()->findOneByOrFail(['name' => $name]);
     }
 
-    public function store(Role $role): bool
+    public function store(Role $role): void
     {
         $this->em->persist($role);
-
-        return true;
+        $this->em->flush();
     }
-
-    public function destroy(Role $role): bool
+    
+    public function destroy(Role $role): void
     {
         $this->em->remove($role);
-
-        return true;
+        $this->em->flush();
     }
 
     private function repo(): RoleLocator

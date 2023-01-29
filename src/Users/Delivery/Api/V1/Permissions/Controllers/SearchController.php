@@ -7,14 +7,15 @@ use App\Users\Delivery\Api\V1\Permissions\Forms\SearchPermissionsRequest;
 use App\Users\Delivery\Api\V1\Permissions\Transformers\PermissionViewTransformer;
 use App\Users\Domain\Queries\FindPermissions;
 use Pagerfanta\Pagerfanta;
+use Somnambulist\Bundles\ApiBundle\Request\Filters\Expression\CompositeExpression;
 use Somnambulist\Bundles\ApiBundle\Response\Types\PagerfantaType;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-class ListController extends ApiController
+class SearchController extends ApiController
 {
     public function __invoke(SearchPermissionsRequest $request): JsonResponse
     {
-        $query = new FindPermissions([], [], $request->page(), $request->perPage(50, 5000));
+        $query = new FindPermissions(CompositeExpression::and(), [], $request->page(), $request->perPage(50, 5000));
 
         /** @var Pagerfanta $result */
         $result = $this->query()->execute($query);

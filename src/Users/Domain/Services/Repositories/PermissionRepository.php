@@ -23,8 +23,8 @@ interface PermissionRepository
      */
     public function findByName(string $name): Permission;
 
-    public function store(Permission $permission): bool;
+    public function store(Permission $permission): void;
 
-    public function destroy(Permission $permission): bool;
+    public function destroy(Permission $permission): void;
 
 }

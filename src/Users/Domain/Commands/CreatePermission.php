@@ -7,16 +7,7 @@ use Somnambulist\Components\Commands\AbstractCommand;
 
 class CreatePermission extends AbstractCommand
 {
-
-    private PermissionName $name;
-
-    public function __construct(PermissionName $name)
+    public function __construct(public readonly PermissionName $name)
     {
-        $this->name = $name;
-    }
-
-    public function getName(): PermissionName
-    {
-        return $this->name;
     }
 }

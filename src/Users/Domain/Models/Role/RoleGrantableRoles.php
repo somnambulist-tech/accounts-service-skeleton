@@ -2,6 +2,8 @@
 
 namespace App\Users\Domain\Models\Role;
 
+use App\Users\Domain\Events\AllRolesHaveBeenRevokedFromRole;
+use App\Users\Domain\Events\RoleHasBeenAllowedToGrantRoles;
 use App\Users\Domain\Models\Role;
 use Countable;
 use Doctrine\Common\Collections\Collection;
@@ -31,15 +33,20 @@ class RoleGrantableRoles implements Countable, IteratorAggregate
 
     public function grant(Role ...$roles): void
     {
+        $granted = [];
+
         foreach ($roles as $role) {
             if ($this->roles->contains($role)) {
                 continue;
             }
 
             $this->roles->add($role);
+            $granted[] = $role->id();
         }
 
-        $this->role->updateTimestamps();
+        $this->role->raise(RoleHasBeenAllowedToGrantRoles::class, [
+            'roles' => $granted,
+        ]);
     }
 
     public function revoke(Role ...$roles): void
@@ -48,13 +55,15 @@ class RoleGrantableRoles implements Countable, IteratorAggregate
             $this->roles->removeElement($role);
         }
 
-        $this->role->updateTimestamps();
+        $this->role->raise(RoleHasBeenAllowedToGrantRoles::class, [
+            'roles' => array_map(fn(Role $role) => $role->id(), $roles),
+        ]);
     }
 
     public function revokeAll(): void
     {
         $this->roles->clear();
 
-        $this->role->updateTimestamps();
+        $this->role->raise(AllRolesHaveBeenRevokedFromRole::class);
     }
 }

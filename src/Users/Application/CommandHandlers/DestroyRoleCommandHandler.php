@@ -13,7 +13,7 @@ class DestroyRoleCommandHandler
 
     public function __invoke(DestroyRole $command)
     {
-        $role = $this->roles->find($command->getId());
+        $role = $this->roles->find($command->id);
         $role->destroy();
 
         $this->roles->destroy($role);

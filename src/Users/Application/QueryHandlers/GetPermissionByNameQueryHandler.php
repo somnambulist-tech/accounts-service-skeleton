@@ -13,9 +13,9 @@ class GetPermissionByNameQueryHandler
     public function __invoke(GetPermissionByName $query): PermissionView
     {
         try {
-            return PermissionView::query()->whereColumn('name', '=', $query->getName())->fetchFirstOrFail();
+            return PermissionView::query()->whereColumn('name', '=', $query->name)->fetchFirstOrFail();
         } catch (NoResultsException) {
-            throw EntityNotFoundException::entityNotFound(Permission::class, (string)$query->getName());
+            throw EntityNotFoundException::entityNotFound(Permission::class, (string)$query->name);
         }
     }
 }

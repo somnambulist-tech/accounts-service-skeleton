@@ -6,6 +6,7 @@ use App\Accounts\Delivery\ViewModels\AccountView;
 use App\Accounts\Domain\Queries\FindAccounts;
 use App\Resources\Application\QueryHandlers\Behaviours\CanApplyOrderToQuery;
 use Pagerfanta\Pagerfanta;
+use Somnambulist\Bundles\ApiBundle\Request\Filters\ApplyApiExpressionsToDBALQueryBuilder;
 
 class FindAccountsQueryHandler
 {
@@ -16,17 +17,16 @@ class FindAccountsQueryHandler
     public function __invoke(FindAccounts $query): Pagerfanta
     {
         $qb = AccountView::query();
-        $qb->with(...$query->getIncludes());
+        $qb->include(...$query->includes());
 
         $this->applySortCriteria($qb, $query, 'name');
 
-        if ($query->getId()) {
-            $qb->whereColumn('id', '=', $query->getId());
-        }
-        if ($query->getName()) {
-            $qb->whereColumn('name', 'ILIKE', sprintf('%%%s%%', $query->getName()));
-        }
+        $mapper = new ApplyApiExpressionsToDBALQueryBuilder([
+            'id'   => 'a.id',
+            'name' => 'a.name',
+        ]);
+        $mapper->apply($query->where(), $qb->getQueryBuilder());
 
-        return $qb->paginate($query->getPage(), $query->getPerPage());
+        return $qb->paginate($query->page(), $query->perPage());
     }
 }

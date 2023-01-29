@@ -26,22 +26,22 @@ class CreateUserCommandHandler
 
     public function __invoke(CreateUser $command)
     {
-        $this->queryBus->execute(new GetAccountById($command->getAccount()->toUuid()));
+        $this->queryBus->execute(new GetAccountById($command->account->toUuid()));
 
         $user = User::create(
-            $command->getId(),
-            $command->getAccount(),
-            new EmailAddress($command->getEmail()),
-            new Password($command->getPassword()),
-            new UserName($command->getName())
+            $command->id,
+            $command->account,
+            new EmailAddress($command->email),
+            new Password($command->password),
+            new UserName($command->name)
         );
 
         $user->roles()->grant($this->roles->findByName(Role::ROLE_USER));
 
-        foreach ($command->getRoles() as $role) {
+        foreach ($command->roles as $role) {
             $user->roles()->grant($this->roles->findByName($role));
         }
-        foreach ($command->getPermissions() as $perm) {
+        foreach ($command->permissions as $perm) {
             $user->permissions()->grant($this->permissions->findByName($perm));
         }
 

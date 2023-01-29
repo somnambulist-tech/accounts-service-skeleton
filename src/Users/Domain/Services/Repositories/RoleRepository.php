@@ -24,7 +24,7 @@ interface RoleRepository
      */
     public function findByName(string $name): Role;
 
-    public function store(Role $role): bool;
+    public function store(Role $role): void;
 
-    public function destroy(Role $role): bool;
+    public function destroy(Role $role): void;
 }

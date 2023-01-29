@@ -7,12 +7,7 @@ use Somnambulist\Components\Queries\AbstractQuery;
 
 class CountUsersOnAccount extends AbstractQuery
 {
-    public function __construct(private Uuid $id)
+    public function __construct(public readonly Uuid $id)
     {
-    }
-
-    public function getId(): Uuid
-    {
-        return $this->id;
     }
 }

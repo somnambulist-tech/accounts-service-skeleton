@@ -23,18 +23,16 @@ class AccountRepository implements AccountRepositoryContract
         return $this->repo()->findOrFail($id);
     }
 
-    public function store(Account $account): bool
+    public function store(Account $account): void
     {
         $this->em->persist($account);
-
-        return true;
+        $this->em->flush();
     }
 
-    public function destroy(Account $account): bool
+    public function destroy(Account $account): void
     {
         $this->em->remove($account);
-
-        return true;
+        $this->em->flush();
     }
 
     private function repo(): AccountLocator

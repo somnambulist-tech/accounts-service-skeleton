@@ -1,6 +1,6 @@
-list:
+search:
     path: /
-    controller: App\Accounts\Delivery\Api\V1\Accounts\Controllers\ListController
+    controller: App\Accounts\Delivery\Api\V1\Accounts\Controllers\SearchController
     methods: GET
     defaults:
         operation: 'getSearchAccounts'

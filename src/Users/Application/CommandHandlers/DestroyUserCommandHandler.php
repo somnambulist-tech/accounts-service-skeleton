@@ -13,7 +13,7 @@ class DestroyUserCommandHandler
 
     public function __invoke(DestroyUser $command)
     {
-        $user = $this->repository->find($command->getId());
+        $user = $this->repository->find($command->id);
         $user->destroy();
 
         $this->repository->destroy($user);

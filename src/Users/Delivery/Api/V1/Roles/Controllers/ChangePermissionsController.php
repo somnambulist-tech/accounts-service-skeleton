@@ -15,11 +15,14 @@ class ChangePermissionsController extends ApiController
 {
     public function __invoke(ChangePermissionsRequest $request, Uuid $id): JsonResponse
     {
-        $this->command()->dispatch(new ChangeRolePermissions($id, $request->get('permissions', [])));
+        $this->command()->dispatch(new ChangeRolePermissions($id, $request->data()->get('permissions', [])));
 
         return $this->updated(
-            (new ObjectType($this->query()->execute(new GetRoleById($id)), RoleViewTransformer::class))
-                ->include('roles', 'permissions')
+            new ObjectType(
+                $this->query()->execute(new GetRoleById($id)),
+                RoleViewTransformer::class,
+                includes: ['roles', 'permissions']
+            )
         );
     }
 }

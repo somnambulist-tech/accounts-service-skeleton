@@ -13,7 +13,7 @@ class DeactivateAccountCommandHandler
 
     public function __invoke(DeactivateAccount $command)
     {
-        $account = $this->repository->find($command->getId());
+        $account = $this->repository->find($command->id);
         $account->deactivate();
 
         $this->repository->store($account);

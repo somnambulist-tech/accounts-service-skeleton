@@ -3,7 +3,8 @@
 namespace App\Accounts\Infrastructure\Persistence\EntityLocators;
 
 use App\Accounts\Domain\Models\Account;
-use Somnambulist\Components\Doctrine\AbstractModelLocator;
+use Doctrine\Persistence\ManagerRegistry;
+use Somnambulist\Components\Doctrine\AbstractServiceModelLocator;
 
 /**
  * @method Account find($id, $lockMode = null, $lockVersion = null)
@@ -11,8 +12,13 @@ use Somnambulist\Components\Doctrine\AbstractModelLocator;
  * @method Account findOneBy(array $criteria, array $orderBy = null)
  * @method Account findOneByOrFail(array $criteria, array $orderBy = null)
  */
-class AccountLocator extends AbstractModelLocator
+class AccountLocator extends AbstractServiceModelLocator
 {
+    public function __construct(ManagerRegistry $registry)
+    {
+        parent::__construct($registry, Account::class);
+    }
+
     protected function getEntityUuidFieldName(): string
     {
         return 'id';

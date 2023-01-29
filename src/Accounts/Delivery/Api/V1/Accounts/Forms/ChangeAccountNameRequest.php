@@ -6,7 +6,6 @@ use App\Resources\Delivery\Api\Forms\FormRequest;
 
 class ChangeAccountNameRequest extends FormRequest
 {
-
     public function rules(): array
     {
         return [

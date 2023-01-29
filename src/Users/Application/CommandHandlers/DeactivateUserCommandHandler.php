@@ -13,7 +13,7 @@ class DeactivateUserCommandHandler
 
     public function __invoke(DeactivateUser $command)
     {
-        $user = $this->repository->find($command->getId());
+        $user = $this->repository->find($command->id);
         $user->deactivate();
 
         $this->repository->store($user);

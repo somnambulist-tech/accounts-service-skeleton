@@ -15,8 +15,8 @@ class CreateAccountCommandHandler
     public function __invoke(CreateAccount $command)
     {
         $account = Account::create(
-            $command->getId(),
-            $command->getName(),
+            $command->id,
+            $command->name,
         );
 
         $this->accounts->store($account);

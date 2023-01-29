@@ -13,8 +13,8 @@ class ChangeAccountNameCommandHandler
 
     public function __invoke(ChangeAccountName $command)
     {
-        $account = $this->repository->find($command->getId());
-        $account->changeName($command->getName());
+        $account = $this->repository->find($command->id);
+        $account->changeName($command->name);
 
         $this->repository->store($account);
     }

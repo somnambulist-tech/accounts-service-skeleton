@@ -16,7 +16,7 @@ interface UserRepository
      */
     public function find(Uuid $id): User;
 
-    public function store(User $user): bool;
+    public function store(User $user): void;
 
-    public function destroy(User $user): bool;
+    public function destroy(User $user): void;
 }

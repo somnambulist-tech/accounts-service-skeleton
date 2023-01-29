@@ -19,8 +19,8 @@ class ChangeAuthCredentialsController extends ApiController
         $this->command()->dispatch(
             new ChangeUsersAuthCredentials(
                 $id,
-                $request->get('email'),
-                $request->get('password')
+                $request->data()->get('email'),
+                $request->data()->get('password')
             )
         );
 

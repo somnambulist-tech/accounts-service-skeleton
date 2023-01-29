@@ -14,6 +14,6 @@ class CreatePermissionCommandHandler
 
     public function __invoke(CreatePermission $command)
     {
-        $this->permissions->store(new Permission($command->getName()));
+        $this->permissions->store(new Permission($command->name));
     }
 }

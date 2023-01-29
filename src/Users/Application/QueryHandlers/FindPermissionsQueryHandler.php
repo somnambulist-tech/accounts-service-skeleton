@@ -10,6 +10,6 @@ class FindPermissionsQueryHandler
 {
     public function __invoke(FindPermissions $query): Pagerfanta
     {
-        return PermissionView::query()->orderBy('name')->paginate($query->getPage(), $query->getPerPage());
+        return PermissionView::query()->orderBy('name')->paginate($query->page(), $query->perPage());
     }
 }

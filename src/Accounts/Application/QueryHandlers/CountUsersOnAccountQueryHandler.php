@@ -9,6 +9,6 @@ class CountUsersOnAccountQueryHandler
 {
     public function __invoke(CountUsersOnAccount $query): int
     {
-        return UserView::query()->whereColumn('account_id', '=', $query->getId())->count();
+        return UserView::query()->whereColumn('account_id', '=', $query->id)->count();
     }
 }

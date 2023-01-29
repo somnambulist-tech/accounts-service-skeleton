@@ -15,7 +15,7 @@ class ViewController extends ApiController
     public function __invoke(ViewUserRequest $request, Uuid $id): JsonResponse
     {
         $query   = new GetUserById($id);
-        $query->with(...$request->includes());
+        $query->include(...$request->includes());
 
         $entity = $this->query()->execute($query);
 

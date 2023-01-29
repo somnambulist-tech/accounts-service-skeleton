@@ -2,12 +2,8 @@
 
 namespace App\Users\Domain\Queries;
 
-use Somnambulist\Components\Queries\AbstractPaginatableQuery;
+use Somnambulist\Bundles\ApiBundle\Queries\AbstractExpressionQuery;
 
-class FindRoles extends AbstractPaginatableQuery
+class FindRoles extends AbstractExpressionQuery
 {
-    public function getName(): ?string
-    {
-        return $this->getCriteria()->get('name');
-    }
 }

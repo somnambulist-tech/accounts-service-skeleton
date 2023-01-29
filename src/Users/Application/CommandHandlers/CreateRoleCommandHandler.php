@@ -19,12 +19,12 @@ class CreateRoleCommandHandler
 
     public function __invoke(CreateRole $command)
     {
-        $role = new Role($command->getId(), $command->getName());
+        $role = new Role($command->id, $command->name);
 
-        foreach ($command->getRoles() as $roleId) {
+        foreach ($command->roles as $roleId) {
             $role->roles()->grant($this->roles->find(new Uuid($roleId)));
         }
-        foreach ($command->getPermissions() as $permId) {
+        foreach ($command->permissions as $permId) {
             $role->permissions()->grant($this->getOrCreatePermission($permId));
         }
 

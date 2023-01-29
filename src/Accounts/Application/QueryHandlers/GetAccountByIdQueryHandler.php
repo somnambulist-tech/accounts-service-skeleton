@@ -13,9 +13,9 @@ class GetAccountByIdQueryHandler
     public function __invoke(GetAccountById $query): AccountView
     {
         try {
-            return AccountView::findOrFail($query->getId());
+            return AccountView::findOrFail($query->id());
         } catch (ReadModelNotFound) {
-            throw EntityNotFoundException::entityNotFound(Account::class, (string)$query->getId());
+            throw EntityNotFoundException::entityNotFound(Account::class, (string)$query->id());
         }
     }
 }

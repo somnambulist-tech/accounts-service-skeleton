@@ -18,14 +18,17 @@ class CreateController extends ApiController
     {
         $this->command()->dispatch(new CreateRole(
             $id = IdentityGenerator::random(),
-            new RoleName($request->get('name')),
-            $request->request->all('permissions'),
-            $request->request->all('roles'),
+            new RoleName($request->data()->get('name')),
+            $request->data()->get('permissions', []),
+            $request->data()->get('roles', []),
         ));
 
         return $this->created(
-            (new ObjectType($this->query()->execute(new GetRoleById($id)), RoleViewTransformer::class))
-                ->include('roles', 'permissions')
+            new ObjectType(
+                $this->query()->execute(new GetRoleById($id)),
+                RoleViewTransformer::class,
+                includes: ['roles', 'permissions']
+            )
         );
     }
 }

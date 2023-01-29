@@ -7,16 +7,7 @@ use Somnambulist\Components\Models\Types\Identity\Uuid;
 
 class DestroyAccount extends AbstractCommand
 {
-
-    private Uuid $id;
-
-    public function __construct(Uuid $id)
+    public function __construct(public readonly Uuid $id)
     {
-        $this->id = $id;
-    }
-
-    public function getId(): Uuid
-    {
-        return $this->id;
     }
 }

@@ -13,7 +13,7 @@ class ActivateAccountCommandHandler
 
     public function __invoke(ActivateAccount $command)
     {
-        $account = $this->repository->find($command->getId());
+        $account = $this->repository->find($command->id);
         $account->activate();
 
         $this->repository->store($account);

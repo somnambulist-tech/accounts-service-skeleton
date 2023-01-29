@@ -14,7 +14,7 @@ class ViewController extends ApiController
 {
     public function __invoke(ViewAccountRequest $request, Uuid $id): JsonResponse
     {
-        $account = $this->query()->execute((new GetAccountById($id))->with(...$request->includes()));
+        $account = $this->query()->execute((new GetAccountById($id))->include(...$request->includes()));
 
         return $this->item((ObjectType::fromFormRequest($request, $account, AccountViewTransformer::class)));
     }

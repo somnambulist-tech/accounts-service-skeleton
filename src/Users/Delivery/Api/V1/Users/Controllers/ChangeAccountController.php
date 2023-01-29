@@ -15,7 +15,7 @@ class ChangeAccountController extends ApiController
 {
     public function __invoke(UpdateAccountRequest $request, Uuid $id): JsonResponse
     {
-        $this->command()->dispatch(new ChangeUsersAccount($id, new Uuid($request->get('account_id'))));
+        $this->command()->dispatch(new ChangeUsersAccount($id, new Uuid($request->data()->get('account_id'))));
 
         return $this->updated(new ObjectType($this->query()->execute(new GetUserById($id)), UserViewTransformer::class));
     }

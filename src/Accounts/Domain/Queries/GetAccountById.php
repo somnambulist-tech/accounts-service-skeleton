@@ -7,6 +7,5 @@ use Somnambulist\Components\Queries\Behaviours\CanIncludeRelatedData;
 
 class GetAccountById extends AbstractFindByIdQuery
 {
-
     use CanIncludeRelatedData;
 }

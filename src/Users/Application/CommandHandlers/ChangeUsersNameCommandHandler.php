@@ -14,8 +14,8 @@ class ChangeUsersNameCommandHandler
 
     public function __invoke(ChangeUsersName $command)
     {
-        $user = $this->repository->find($command->getId());
-        $user->changeName(new UserName($command->getName()));
+        $user = $this->repository->find($command->id);
+        $user->changeName(new UserName($command->name));
 
         $this->repository->store($user);
     }

@@ -3,7 +3,6 @@
 namespace App\Users\Infrastructure\Persistence\Repositories;
 
 use App\Users\Domain\Models\Permission;
-use App\Users\Domain\Models\UserName;
 use App\Users\Domain\Services\Repositories\PermissionRepository as PermissionRepositoryContract;
 use App\Users\Infrastructure\Persistence\EntityLocators\PermissionLocator;
 use Doctrine\Persistence\ManagerRegistry;
@@ -28,18 +27,16 @@ class PermissionRepository implements PermissionRepositoryContract
         return $this->repo()->findOneByOrFail(['name' => $name]);
     }
 
-    public function store(Permission $permission): bool
+    public function store(Permission $permission): void
     {
         $this->em->persist($permission);
-
-        return true;
+        $this->em->flush();
     }
 
-    public function destroy(Permission $permission): bool
+    public function destroy(Permission $permission): void
     {
         $this->em->remove($permission);
-
-        return true;
+        $this->em->flush();
     }
 
     private function repo(): PermissionLocator

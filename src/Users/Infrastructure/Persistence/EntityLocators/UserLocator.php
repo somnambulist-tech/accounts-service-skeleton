@@ -3,7 +3,8 @@
 namespace App\Users\Infrastructure\Persistence\EntityLocators;
 
 use App\Users\Domain\Models\User;
-use Somnambulist\Components\Doctrine\AbstractModelLocator;
+use Doctrine\Persistence\ManagerRegistry;
+use Somnambulist\Components\Doctrine\AbstractServiceModelLocator;
 use Somnambulist\Components\Models\Types\Identity\Uuid;
 
 /**
@@ -13,8 +14,13 @@ use Somnambulist\Components\Models\Types\Identity\Uuid;
  * @method User findOneByOrFail(array $criteria, array $orderBy = null)
  * @method User findOrFailByUUID(Uuid $uuid)
  */
-class UserLocator extends AbstractModelLocator
+class UserLocator extends AbstractServiceModelLocator
 {
+    public function __construct(ManagerRegistry $registry)
+    {
+        parent::__construct($registry, User::class);
+    }
+
     protected function getEntityUuidFieldName(): string
     {
         return 'id';

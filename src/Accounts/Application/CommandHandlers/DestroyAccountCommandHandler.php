@@ -16,8 +16,8 @@ class DestroyAccountCommandHandler
 
     public function __invoke(DestroyAccount $command)
     {
-        $account = $this->repository->find($command->getId());
-        $users   = $this->queryBus->execute(new CountUsersOnAccount($command->getId()));
+        $account = $this->repository->find($command->id);
+        $users   = $this->queryBus->execute(new CountUsersOnAccount($command->id));
 
         Assert::lazy()->tryAll()
             ->that($users, 'users')->eq(0, '%s Users still belong to this account.')

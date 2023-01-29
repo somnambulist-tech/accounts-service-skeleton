@@ -1,6 +1,6 @@
-list:
+search:
     path: /
-    controller: App\Users\Delivery\Api\V1\Roles\Controllers\ListController
+    controller: App\Users\Delivery\Api\V1\Roles\Controllers\SearchController
     methods: GET
     defaults:
         operation: 'getSearchRoles'

@@ -24,9 +24,7 @@ use Somnambulist\Components\ReadModels\Relationships\HasOneToMany;
 class AccountView extends Model
 {
     protected string $table = 'accounts';
-
     protected ?string $tableAlias = 'a';
-
     protected ?string $foreignKey = 'account_id';
 
     protected array $casts = [

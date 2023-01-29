@@ -15,7 +15,7 @@ class ChangeNameController extends ApiController
 {
     public function __invoke(ChangeNameRequest $request, Uuid $id): JsonResponse
     {
-        $this->command()->dispatch(new ChangeUsersName($id, $request->get('name')));
+        $this->command()->dispatch(new ChangeUsersName($id, $request->data()->get('name')));
 
         return $this->updated(new ObjectType($this->query()->execute(new GetUserById($id)), UserViewTransformer::class));
     }

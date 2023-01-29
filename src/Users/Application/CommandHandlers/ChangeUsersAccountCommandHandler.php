@@ -16,11 +16,11 @@ class ChangeUsersAccountCommandHandler
 
     public function __invoke(ChangeUsersAccount $command)
     {
-        $this->queryBus->execute(new GetAccountById($command->getAccountId()));
+        $this->queryBus->execute(new GetAccountById($command->accountId));
 
-        $user = $this->repository->find($command->getId());
+        $user = $this->repository->find($command->id);
 
-        $user->changeAccount(new AccountId((string)$command->getAccountId()));
+        $user->changeAccount(new AccountId((string)$command->accountId));
 
         $this->repository->store($user);
     }

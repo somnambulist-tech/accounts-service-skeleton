@@ -17,13 +17,17 @@ class ActivationController extends ApiController
     {
         $this->command()->dispatch(new ActivateAccount($id));
 
-        return $this->updated(new ObjectType($this->query()->execute(new GetAccountById($id)), AccountViewTransformer::class));
+        return $this->updated(
+            new ObjectType($this->query()->execute(new GetAccountById($id)), AccountViewTransformer::class)
+        );
     }
 
     public function deactivateAction(Uuid $id): JsonResponse
     {
         $this->command()->dispatch(new DeactivateAccount($id));
 
-        return $this->updated(new ObjectType($this->query()->execute(new GetAccountById($id)), AccountViewTransformer::class));
+        return $this->updated(
+            new ObjectType($this->query()->execute(new GetAccountById($id)), AccountViewTransformer::class)
+        );
     }
 }

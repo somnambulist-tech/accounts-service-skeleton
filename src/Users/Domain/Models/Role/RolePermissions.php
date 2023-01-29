@@ -2,12 +2,17 @@
 
 namespace App\Users\Domain\Models\Role;
 
+use App\Users\Domain\Events\AllPermissionsHaveBeenRevokedFromRole;
+use App\Users\Domain\Events\GrantedPermissionsToRole;
+use App\Users\Domain\Events\RevokedPermissionsFromRole;
 use App\Users\Domain\Models\Permission;
 use App\Users\Domain\Models\Role;
 use Countable;
 use Doctrine\Common\Collections\Collection;
 use IteratorAggregate;
 use Traversable;
+
+use function array_map;
 
 class RolePermissions implements Countable, IteratorAggregate
 {
@@ -32,15 +37,20 @@ class RolePermissions implements Countable, IteratorAggregate
 
     public function grant(Permission ...$permissions): void
     {
+        $granted = [];
+
         foreach ($permissions as $permission) {
             if ($this->permissions->contains($permission)) {
                 continue;
             }
 
             $this->permissions->add($permission);
+            $granted[] = $permission->name();
         }
 
-        $this->role->updateTimestamps();
+        $this->role->raise(GrantedPermissionsToRole::class, [
+            'permissions' => $granted,
+        ]);
     }
 
     public function revoke(Permission ...$permissions): void
@@ -49,13 +59,15 @@ class RolePermissions implements Countable, IteratorAggregate
             $this->permissions->removeElement($permission);
         }
 
-        $this->role->updateTimestamps();
+        $this->role->raise(RevokedPermissionsFromRole::class, [
+            'permissions' => array_map(fn(Permission $permission) => $permission->name(), $permissions),
+        ]);
     }
 
     public function revokeAll(): void
     {
         $this->permissions->clear();
 
-        $this->role->updateTimestamps();
+        $this->role->raise(AllPermissionsHaveBeenRevokedFromRole::class);
     }
 }

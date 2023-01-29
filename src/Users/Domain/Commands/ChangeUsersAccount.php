@@ -7,23 +7,7 @@ use Somnambulist\Components\Models\Types\Identity\Uuid;
 
 class ChangeUsersAccount extends AbstractCommand
 {
-
-    protected Uuid $id;
-    protected Uuid $accountId;
-
-    public function __construct(Uuid $id, Uuid $accountId)
+    public function __construct(public readonly Uuid $id, public readonly Uuid $accountId)
     {
-        $this->id        = $id;
-        $this->accountId = $accountId;
-    }
-
-    public function getId(): Uuid
-    {
-        return $this->id;
-    }
-
-    public function getAccountId(): Uuid
-    {
-        return $this->accountId;
     }
 }
