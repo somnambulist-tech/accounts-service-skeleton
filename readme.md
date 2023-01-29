@@ -2,7 +2,7 @@
 
 Provides a skeleton project for an Accounts microservice. This service provides:
 
- * Symfony 6 application running under [PHP-PM](https://github.com/php-pm/php-pm)
+ * Symfony 6.2 application running under [PHP-PM](https://github.com/php-pm/php-pm)
  * Accounts model
  * User model
  * Roles and Permissions

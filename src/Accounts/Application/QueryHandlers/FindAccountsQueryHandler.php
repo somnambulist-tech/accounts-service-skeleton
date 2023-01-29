@@ -24,6 +24,8 @@ class FindAccountsQueryHandler
         $mapper = new ApplyApiExpressionsToDBALQueryBuilder([
             'id'   => 'a.id',
             'name' => 'a.name',
+        ], [
+            'name' => 'ILIKE',
         ]);
         $mapper->apply($query->where(), $qb->getQueryBuilder());
 
