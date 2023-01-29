@@ -1,0 +1,28 @@
+type: object
+properties:
+    id:
+        type: string
+        format: uuid
+   
+    name:
+        type: string
+   
+    created_at:
+        type: string
+        format: date-time
+   
+    updated_at:
+        type: string
+        format: date-time
+   
+    permissions:
+        type: array
+        description: The set of permissions granted to this role.
+        items:
+            $ref: "#/components/schemas/Permission"
+
+    roles:
+        type: array
+        description: The list of roles that this role may grant to another User.
+        items:
+            $ref: "#/components/schemas/Role"
