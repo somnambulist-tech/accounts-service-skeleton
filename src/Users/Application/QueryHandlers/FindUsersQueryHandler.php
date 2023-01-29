@@ -20,7 +20,7 @@ class FindUsersQueryHandler
             'email'      => 'u.email',
             'active'     => 'u.active',
         ], [
-            'name' => 'LIKE',
+            'name' => 'ILIKE',
         ]))->apply($query->where(), $qb->getQueryBuilder());
 
         return $qb->paginate($query->page(), $query->perPage());

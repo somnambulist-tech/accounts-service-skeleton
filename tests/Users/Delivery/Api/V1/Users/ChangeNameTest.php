@@ -28,7 +28,7 @@ class ChangeNameTest extends WebTestCase
 
     public function testChangeName(): void
     {
-        $res = $this->changeName('test@test.com');
+        $res = $this->changeName('test@test.com')['data'];
 
         $this->assertArrayHasKey('id', $res);
         $this->assertEquals('test@test.com', $res['name']);

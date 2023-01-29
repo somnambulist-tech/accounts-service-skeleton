@@ -3,10 +3,18 @@ somnambulist_api:
         converters:
             Assert\InvalidArgumentException: Somnambulist\Bundles\ApiBundle\Response\ExceptionConverters\AssertionExceptionConverter
             Assert\LazyAssertionException: Somnambulist\Bundles\ApiBundle\Response\ExceptionConverters\LazyAssertionExceptionConverter
+            Doctrine\ORM\EntityNotFoundException: Somnambulist\Bundles\ApiBundle\Response\ExceptionConverters\EntityNotFoundConverter
+            Doctrine\ORM\NoResultException: Somnambulist\Bundles\ApiBundle\Response\ExceptionConverters\EntityNotFoundConverter
+            Somnambulist\Components\Models\Exceptions\EntityNotFoundException: Somnambulist\Bundles\ApiBundle\Response\ExceptionConverters\EntityNotFoundConverter
+            Somnambulist\Components\ReadModels\Exceptions\EntityNotFoundException: Somnambulist\Bundles\ApiBundle\Response\ExceptionConverters\EntityNotFoundConverter
+            Somnambulist\Components\ReadModels\Exceptions\NoResultsException: Somnambulist\Bundles\ApiBundle\Response\ExceptionConverters\EntityNotFoundConverter
             Symfony\Component\Messenger\Exception\HandlerFailedException: Somnambulist\Bundles\ApiBundle\Response\ExceptionConverters\HandlerFailedExceptionConverter
+        api_root: '/'
+        doc_root: '/docs'
     subscribers:
         exception_to_json: true
         json_to_post: true
+        request_id: true
     openapi:
         version: '1.0.0'
         title: 'Accounts Service'

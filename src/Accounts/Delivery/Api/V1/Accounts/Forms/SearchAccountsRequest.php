@@ -11,7 +11,7 @@ class SearchAccountsRequest extends SearchFormRequest
     public function rules(): array
     {
         return [
-            'filters'      => 'sometimes|array|array_only_has_keys:id,name',
+            'filters'      => 'sometimes|array|array_can_only_have_keys:id,name',
             'filters.id'   => 'sometimes|uuid',
             'filters.name' => 'sometimes|string|between:1,100',
             'page'         => 'numeric|min:1',

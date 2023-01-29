@@ -9,8 +9,8 @@ class ViewUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'include'    => [
-                'nullable',
+            'include' => [
+                'sometimes',
                 'regex:/(users(.roles)?(.permissions)?)|(roles(.permissions)?)/',
             ],
         ];

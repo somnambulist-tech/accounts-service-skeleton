@@ -13,9 +13,9 @@ class CreateUserRequest extends FormRequest
             'email'         => 'required|email|min:3|max:60',
             'password'      => 'required|min:1|max:255',
             'name'          => 'required|min:1|max:255',
-            'roles'         => 'array',
+            'roles'         => 'sometimes|array',
             'roles.*'       => 'min:1|max:255',
-            'permissions'   => 'array',
+            'permissions'   => 'sometimes|array',
             'permissions.*' => 'min:1|max:255',
         ];
     }

@@ -1,4 +1,0 @@
-services:
-    App\Tests\Support\Fixtures\:
-        resource: '../tests/Support/Fixtures/*'
-        tags: ['doctrine.fixture.orm']

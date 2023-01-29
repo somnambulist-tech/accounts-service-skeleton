@@ -2371,16 +2371,16 @@
         },
         {
             "name": "somnambulist/api-bundle",
-            "version": "5.2.0",
+            "version": "5.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/somnambulist-tech/api-bundle.git",
-                "reference": "3f926431c4ce6eb428da8b9523085d9b1f98c56d"
+                "reference": "891ccfad345385431344ab777601d1a0bef812f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/somnambulist-tech/api-bundle/zipball/3f926431c4ce6eb428da8b9523085d9b1f98c56d",
-                "reference": "3f926431c4ce6eb428da8b9523085d9b1f98c56d",
+                "url": "https://api.github.com/repos/somnambulist-tech/api-bundle/zipball/891ccfad345385431344ab777601d1a0bef812f8",
+                "reference": "891ccfad345385431344ab777601d1a0bef812f8",
                 "shasum": ""
             },
             "require": {
@@ -2440,9 +2440,9 @@
             ],
             "support": {
                 "issues": "https://github.com/somnambulist-tech/api-bundle/issues",
-                "source": "https://github.com/somnambulist-tech/api-bundle/tree/5.2.0"
+                "source": "https://github.com/somnambulist-tech/api-bundle/tree/5.2.1"
             },
-            "time": "2023-01-28T20:03:11+00:00"
+            "time": "2023-01-29T19:01:24+00:00"
         },
         {
             "name": "somnambulist/attribute-model",

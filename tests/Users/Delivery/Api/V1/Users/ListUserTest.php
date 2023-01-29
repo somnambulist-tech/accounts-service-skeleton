@@ -10,10 +10,10 @@ use App\Tests\Support\Fixtures\AccountWithUserFixture;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
- * @group      users
- * @group      users-delivery
- * @group      users-delivery-api
- * @group      users-delivery-api-v1-users
+ * @group users
+ * @group users-delivery
+ * @group users-delivery-api
+ * @group users-delivery-api-v1-users
  */
 class ListUserTest extends WebTestCase
 {
@@ -30,8 +30,8 @@ class ListUserTest extends WebTestCase
     {
         $acc = AccountView::query()->fetchFirstOrFail();
 
-        $res = $this->makeJsonRequestToNamedRoute('api.v1.users.list', [
-            'account_id' => (string)$acc->id(),
+        $res = $this->makeJsonRequestToNamedRoute('api.v1.users.search', [
+            'filters' => ['account_id' => (string)$acc->id()],
         ]);
 
         $this->assertCount(2, $res['data']);

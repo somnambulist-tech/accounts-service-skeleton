@@ -10,9 +10,9 @@ use App\Users\Domain\Models\RoleName;
 use App\Users\Domain\Models\User;
 use App\Users\Domain\Models\UserName;
 use Faker\Generator;
-use Somnambulist\Components\Domain\Entities\Types\Auth\Password;
-use Somnambulist\Components\Domain\Entities\Types\Identity\EmailAddress;
-use Somnambulist\Components\Domain\Utils\IdentityGenerator;
+use Somnambulist\Components\Models\Types\Auth\Password;
+use Somnambulist\Components\Models\Types\Identity\EmailAddress;
+use Somnambulist\Components\Utils\IdentityGenerator;
 
 class UserFactory
 {

@@ -22,7 +22,7 @@ class DestroyRoleTest extends WebTestCase
 
     public function testDestroy(): void
     {
-        $res = $this->makeJsonRequestToNamedRoute('api.v1.roles.create', [], 'POST', ['name' => 'my_role'], 201);
+        $res = $this->makeJsonRequestToNamedRoute('api.v1.roles.create', [], 'POST', ['name' => 'my_role'], 201)['data'];
 
         $this->makeJsonRequestToNamedRoute('api.v1.roles.destroy', ['id' => $res['id']], 'DELETE', [], 204);
     }
@@ -30,7 +30,7 @@ class DestroyRoleTest extends WebTestCase
     public function testDestroyRaisesExceptionOnReservedRoles(): void
     {
         if (null === $root = RoleView::query()->whereColumn('name', '=', 'root')->fetchFirstOrNull()) {
-            $root = (object)$this->makeJsonRequestToNamedRoute('api.v1.roles.create', [], 'POST', ['name' => 'root'], 201);
+            $root = (object)$this->makeJsonRequestToNamedRoute('api.v1.roles.create', [], 'POST', ['name' => 'root'], 201)['data'];
         }
 
         $this->makeJsonRequestToNamedRoute('api.v1.roles.destroy', ['id' => $root->id], 'DELETE', [], 400);

@@ -17,6 +17,8 @@ class CreateController extends ApiController
     {
         $this->command()->dispatch(new CreatePermission($n = new PermissionName($request->data()->get('name'))));
 
-        return $this->created(new ObjectType($this->query()->execute(new GetPermissionByName($n)), PermissionViewTransformer::class));
+        return $this->created(
+            new ObjectType($this->query()->execute(new GetPermissionByName($n)), PermissionViewTransformer::class)
+        );
     }
 }

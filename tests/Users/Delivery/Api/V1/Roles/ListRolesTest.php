@@ -24,7 +24,7 @@ class ListRolesTest extends WebTestCase
     {
         $this->loadFixtures([RoleFixture::class]);
 
-        $results = $this->makeJsonRequestToNamedRoute('api.v1.roles.list');
+        $results = $this->makeJsonRequestToNamedRoute('api.v1.roles.search');
 
         $this->assertNotCount(0, $results['data']);
     }

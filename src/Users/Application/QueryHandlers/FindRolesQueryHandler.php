@@ -17,7 +17,7 @@ class FindRolesQueryHandler
         (new ApplyApiExpressionsToDBALQueryBuilder([
             'name' => 'r.name',
         ], [
-            'name' => 'LIKE',
+            'name' => 'ILIKE',
         ]))->apply($query->where(), $qb->getQueryBuilder());
 
         return $qb->paginate($query->page(), $query->perPage());

@@ -18,7 +18,6 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
  */
 class ListAccountTest extends WebTestCase
 {
-
     use BootTestClient;
     use FixturesTrait;
     use MakeJsonRequestTo;
@@ -30,14 +29,14 @@ class ListAccountTest extends WebTestCase
 
     public function testList(): void
     {
-        $res = $this->makeJsonRequestToNamedRoute('api.v1.accounts.list');
+        $res = $this->makeJsonRequestToNamedRoute('api.v1.accounts.search');
 
         $this->assertCount(2, $res['data']);
     }
 
     public function testPaginationParameters(): void
     {
-        $res = $this->makeJsonRequestToNamedRoute('api.v1.accounts.list', [
+        $res = $this->makeJsonRequestToNamedRoute('api.v1.accounts.search', [
             'per_page' => 1,
             'page'     => 1,
         ]);
@@ -54,8 +53,8 @@ class ListAccountTest extends WebTestCase
     {
         $acc = AccountView::query()->fetchFirstOrFail();
 
-        $res = $this->makeJsonRequestToNamedRoute('api.v1.accounts.list', [
-            'id' => (string)$acc->id(),
+        $res = $this->makeJsonRequestToNamedRoute('api.v1.accounts.search', [
+            'filters' => ['id' => (string)$acc->id()],
         ]);
 
         $this->assertNotCount(0, $res['data']);
@@ -63,7 +62,7 @@ class ListAccountTest extends WebTestCase
 
     public function testFindByName(): void
     {
-        $res = $this->makeJsonRequestToNamedRoute('api.v1.accounts.list', ['name' => 'name']);
+        $res = $this->makeJsonRequestToNamedRoute('api.v1.accounts.search', ['filters' => ['name' => 'name']]);
 
         $this->assertNotCount(0, $res['data']);
     }

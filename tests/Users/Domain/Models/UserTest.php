@@ -16,8 +16,8 @@ use App\Users\Domain\Models\AccountId;
 use App\Users\Domain\Models\User;
 use App\Users\Domain\Models\UserName;
 use PHPUnit\Framework\TestCase;
-use Somnambulist\Components\Domain\Utils\Tests\Assertions\AssertEntityHasPropertyWithValue;
-use Somnambulist\Components\Domain\Utils\Tests\Assertions\AssertHasDomainEventOfType;
+use Somnambulist\Components\Utils\Tests\Assertions\AssertEntityHasPropertyWithValue;
+use Somnambulist\Components\Utils\Tests\Assertions\AssertHasDomainEventOfType;
 
 /**
  * @group users

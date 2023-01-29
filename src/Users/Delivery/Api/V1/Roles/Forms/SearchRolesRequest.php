@@ -11,11 +11,12 @@ class SearchRolesRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'filters'  => 'sometimes|array',
-            'page'     => 'numeric|min:1',
-            'per_page' => 'numeric|min:1|max:100',
-            'include'  => [
-                'nullable',
+            'filters'      => 'sometimes|array|array_can_only_have_keys:name',
+            'filters.name' => 'sometimes|string|max:100',
+            'page'         => 'numeric|min:1',
+            'per_page'     => 'numeric|min:1|max:100',
+            'include'      => [
+                'sometimes',
                 'regex:/(users(.roles)?(.permissions)?)|(roles(.permissions)?)/',
             ],
         ];

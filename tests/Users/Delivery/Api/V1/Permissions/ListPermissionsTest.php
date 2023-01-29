@@ -24,7 +24,7 @@ class ListPermissionsTest extends WebTestCase
     {
         $this->loadFixtures([RoleWithPermissionFixture::class]);
 
-        $results = $this->makeJsonRequestToNamedRoute('api.v1.permissions.list');
+        $results = $this->makeJsonRequestToNamedRoute('api.v1.permissions.search');
 
         $this->assertNotCount(0, $results['data']);
     }

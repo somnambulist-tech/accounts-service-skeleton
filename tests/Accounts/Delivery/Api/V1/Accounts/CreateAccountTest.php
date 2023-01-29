@@ -6,7 +6,7 @@ use App\Tests\Support\Behaviours\BootTestClient;
 use App\Tests\Support\Behaviours\FixturesTrait;
 use App\Tests\Support\Behaviours\MakeJsonRequestTo;
 use App\Tests\Support\Fixtures\AccountWithUserFixture;
-use Somnambulist\Components\Domain\Utils\IdentityGenerator;
+use Somnambulist\Components\Utils\IdentityGenerator;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
@@ -18,7 +18,6 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
  */
 class CreateAccountTest extends WebTestCase
 {
-
     use BootTestClient;
     use FixturesTrait;
     use MakeJsonRequestTo;
@@ -33,7 +32,7 @@ class CreateAccountTest extends WebTestCase
         $res = $this->create([
             'id'   => IdentityGenerator::random()->toString(),
             'name' => 'test',
-        ], 201);
+        ], 201)['data'];
 
         $this->assertArrayHasKey('id', $res);
     }

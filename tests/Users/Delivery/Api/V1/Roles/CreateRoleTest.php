@@ -22,7 +22,9 @@ class CreateRoleTest extends WebTestCase
 
     public function testCreate(): void
     {
-        $res = $this->makeJsonRequestToNamedRoute('api.v1.roles.create', [], 'POST', ['name' => 'my_role'], 201);
+        $res = $this->makeJsonRequestToNamedRoute(
+            'api.v1.roles.create', [], 'POST', ['name' => 'my_role'], 201
+        )['data'];
 
         $this->assertArrayHasKey('id', $res);
         $this->assertArrayHasKey('name', $res);
@@ -52,7 +54,7 @@ class CreateRoleTest extends WebTestCase
                 ]
             ],
             201
-        );
+        )['data'];
 
         $this->assertArrayHasKey('id', $res);
         $this->assertArrayHasKey('name', $res);

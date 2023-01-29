@@ -3,7 +3,7 @@
 namespace App\Tests\Support\Factories;
 
 use App\Accounts\Domain\Models\Account;
-use Somnambulist\Components\Domain\Utils\IdentityGenerator;
+use Somnambulist\Components\Utils\IdentityGenerator;
 
 class AccountFactory
 {

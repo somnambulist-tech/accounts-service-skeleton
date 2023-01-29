@@ -31,7 +31,7 @@ class UpdateAccountTest extends WebTestCase
     {
         $acc = AccountView::query()->fetchFirstOrFail();
 
-        $res = $this->changeAccount((string)$acc->id());
+        $res = $this->changeAccount((string)$acc->id())['data'];
 
         $this->assertArrayHasKey('id', $res);
     }

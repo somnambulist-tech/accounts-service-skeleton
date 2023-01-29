@@ -19,7 +19,8 @@ class CreateController extends ApiController
             ObjectType::fromFormRequest(
                 $request,
                 $this->query()->execute(new GetAccountById($request->command()->id)),
-                AccountViewTransformer::class
+                AccountViewTransformer::class,
+                'data'
             )
         );
     }

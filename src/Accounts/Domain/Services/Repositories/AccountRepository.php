@@ -19,5 +19,4 @@ interface AccountRepository
     public function store(Account $account): void;
 
     public function destroy(Account $account): void;
-
 }

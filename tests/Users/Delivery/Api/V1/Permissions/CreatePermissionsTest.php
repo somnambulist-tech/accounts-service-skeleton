@@ -19,7 +19,9 @@ class CreatePermissionsTest extends WebTestCase
 
     public function testCreate()
     {
-        $res = $this->makeJsonRequestToNamedRoute('api.v1.permissions.create', [], 'POST', ['name' => 'my permission'], 201);
+        $res = $this->makeJsonRequestToNamedRoute(
+            'api.v1.permissions.create', [], 'POST', ['name' => 'my permission'], 201
+        )['data'];
 
         $this->assertArrayHasKey('name', $res);
         $this->assertArrayHasKey('created_at', $res);

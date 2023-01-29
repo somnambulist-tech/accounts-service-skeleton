@@ -26,7 +26,7 @@ class ViewRoleTest extends WebTestCase
         $this->loadFixtures([RoleFixture::class]);
 
         $user = RoleView::query()->fetchFirstOrFail();
-        $res  = $this->makeJsonRequestToNamedRoute('api.v1.roles.view', ['id' => $user->id()]);
+        $res  = $this->makeJsonRequestToNamedRoute('api.v1.roles.view', ['id' => $user->id()])['data'];
 
         $this->assertArrayHasKey('id', $res);
         $this->assertArrayHasKey('name', $res);

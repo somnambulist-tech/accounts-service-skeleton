@@ -1,0 +1,3 @@
+when@dev,test:
+    liip_test_fixtures:
+        keep_database_and_schema: true

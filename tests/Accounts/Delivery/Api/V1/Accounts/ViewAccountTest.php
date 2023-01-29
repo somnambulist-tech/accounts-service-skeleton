@@ -31,7 +31,7 @@ class ViewAccountTest extends WebTestCase
 
         $res = $this->makeJsonRequestToNamedRoute('api.v1.accounts.view', [
             'id' => $acc->id,
-        ]);
+        ])['data'];
 
         $this->assertArrayHasKey('id', $res);
     }
@@ -44,7 +44,7 @@ class ViewAccountTest extends WebTestCase
         $res = $this->makeJsonRequestToNamedRoute('api.v1.accounts.view', [
             'id'      => $acc->id,
             'include' => 'users',
-        ]);
+        ])['data'];
 
         $this->assertNotEmpty($res['users']);
     }

@@ -12,11 +12,11 @@ use App\Tests\Support\Fixtures\AccountWithUserFixture;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
- * @group      accounts
- * @group      accounts-delivery
- * @group      accounts-delivery-api
- * @group      accounts-delivery-api-v1
- * @group      accounts-delivery-api-v1-accounts
+ * @group accounts
+ * @group accounts-delivery
+ * @group accounts-delivery-api
+ * @group accounts-delivery-api-v1
+ * @group accounts-delivery-api-v1-accounts
  */
 class DestroyAccountTest extends WebTestCase
 {

@@ -32,7 +32,7 @@ class ChangeAccountNameTest extends WebTestCase
     {
         $res = $this->update([
             'name' => 'test test',
-        ]);
+        ])['data'];
 
         $this->assertSame('test test', $res['name']);
     }

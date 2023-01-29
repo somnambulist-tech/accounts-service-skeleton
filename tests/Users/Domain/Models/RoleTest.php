@@ -6,8 +6,8 @@ use App\Tests\Support\Behaviours\UseObjectFactoryHelper;
 use App\Users\Domain\Models\Role;
 use App\Users\Domain\Models\RoleName;
 use PHPUnit\Framework\TestCase;
-use Somnambulist\Components\Domain\Utils\IdentityGenerator;
-use Somnambulist\Components\Domain\Utils\Tests\Assertions\AssertEntityHasPropertyWithValue;
+use Somnambulist\Components\Utils\IdentityGenerator;
+use Somnambulist\Components\Utils\Tests\Assertions\AssertEntityHasPropertyWithValue;
 
 /**
  * @group users

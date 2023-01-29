@@ -16,6 +16,8 @@ class ViewController extends ApiController
     {
         $account = $this->query()->execute((new GetAccountById($id))->include(...$request->includes()));
 
-        return $this->item((ObjectType::fromFormRequest($request, $account, AccountViewTransformer::class)));
+        return $this->item(
+            ObjectType::fromFormRequest($request, $account, AccountViewTransformer::class, 'data')
+        );
     }
 }

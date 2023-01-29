@@ -9,9 +9,9 @@ use App\Accounts\Domain\Models\Account;
 use App\Tests\Support\Behaviours\UseObjectFactoryHelper;
 use Assert\AssertionFailedException;
 use PHPUnit\Framework\TestCase;
-use Somnambulist\Components\Domain\Utils\IdentityGenerator;
-use Somnambulist\Components\Domain\Utils\Tests\Assertions\AssertEntityHasPropertyWithValue;
-use Somnambulist\Components\Domain\Utils\Tests\Assertions\AssertHasDomainEventOfType;
+use Somnambulist\Components\Utils\IdentityGenerator;
+use Somnambulist\Components\Utils\Tests\Assertions\AssertEntityHasPropertyWithValue;
+use Somnambulist\Components\Utils\Tests\Assertions\AssertHasDomainEventOfType;
 
 /**
  * @group accounts

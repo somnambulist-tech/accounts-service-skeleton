@@ -33,7 +33,7 @@ class ChangeAuthCredsTest extends WebTestCase
         $user = UserView::query()->fetchFirstOrFail();
 
         $password = $this->factory()->user->password();
-        $res      = $this->changeCreds($user, $user->email(), (string)$password);
+        $res      = $this->changeCreds($user, $user->email(), (string)$password)['data'];
 
         $this->assertSame($user->email, $res['email']);
         $this->assertSame((string)$password, $res['password']);
@@ -49,7 +49,7 @@ class ChangeAuthCredsTest extends WebTestCase
         $this->assertNotEmpty($res['errors']['email']);
     }
 
-    protected function changeCreds(UserView $user, string $email, string $password, int $expectedStatusCode = 200): ?array
+    protected function changeCreds(UserView $user, string $email, string $password, int $expectedStatusCode = 200): array
     {
         return $this->makeJsonRequestToNamedRoute(
             'api.v1.users.change_auth_credentials',

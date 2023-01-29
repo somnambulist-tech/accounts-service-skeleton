@@ -9,6 +9,8 @@ use App\Tests\Support\Behaviours\MakeJsonRequestTo;
 use App\Tests\Support\Fixtures\AccountFixture;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
+use function dump;
+
 /**
  * @group      accounts
  * @group      accounts-delivery
@@ -18,7 +20,6 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
  */
 class ActivationTest extends WebTestCase
 {
-
     use BootTestClient;
     use FixturesTrait;
     use MakeJsonRequestTo;
@@ -38,7 +39,7 @@ class ActivationTest extends WebTestCase
             'POST',
             [],
             200
-        );
+        )['data'];
 
         $this->assertArrayHasKey('id', $res);
         $this->assertTrue($res['active']);
@@ -54,7 +55,7 @@ class ActivationTest extends WebTestCase
             'POST',
             [],
             200
-        );
+        )['data'];
 
         $this->assertTrue($res['active']);
 
@@ -64,7 +65,7 @@ class ActivationTest extends WebTestCase
             'POST',
             [],
             200
-        );
+        )['data'];
 
         $this->assertFalse($res['active']);
     }

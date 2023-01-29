@@ -11,7 +11,7 @@ class SearchUsersRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'filters'            => 'sometimes|array|array_only_has_keys:account_id,name,email,active',
+            'filters'            => 'sometimes|array|array_can_only_have_keys:account_id,name,email,active',
             'filters.account_id' => 'sometimes|uuid',
             'filters.name'       => 'sometimes|string|between:1,100',
             'filters.email'      => 'sometimes|email|between:1,100',

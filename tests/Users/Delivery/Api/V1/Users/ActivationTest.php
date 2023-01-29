@@ -36,7 +36,7 @@ class ActivationTest extends WebTestCase
             'POST',
             [],
             200
-        );
+        )['data'];
 
         $this->assertArrayHasKey('id', $res);
         $this->assertTrue($res['active']);
@@ -52,7 +52,7 @@ class ActivationTest extends WebTestCase
             'POST',
             [],
             200
-        );
+        )['data'];
 
         $this->assertTrue($res['active']);
 
@@ -62,7 +62,7 @@ class ActivationTest extends WebTestCase
             'POST',
             [],
             200
-        );
+        )['data'];
 
         $this->assertFalse($res['active']);
     }

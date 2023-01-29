@@ -17,6 +17,8 @@ class ViewController extends ApiController
         $query = new GetRoleById($id);
         $query->include(...$request->includes());
 
-        return $this->item(ObjectType::fromFormRequest($request, $this->query()->execute($query), RoleViewTransformer::class));
+        return $this->item(
+            ObjectType::fromFormRequest($request, $this->query()->execute($query), RoleViewTransformer::class, 'data')
+        );
     }
 }

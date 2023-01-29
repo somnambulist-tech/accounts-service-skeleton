@@ -65,6 +65,9 @@ services:
         resource: '../src/Accounts/Application/QueryHandlers/*'
         tags: [ { name: messenger.message_handler, bus: query.bus } ]
 
+    App\Accounts\Infrastructure\Persistence\EntityLocators\:
+        resource: '../src/Accounts/Infrastructure/Persistence/EntityLocators/*'
+
     App\Accounts\Infrastructure\Persistence\Repositories\:
         resource: '../src/Accounts/Infrastructure/Persistence/Repositories/*'
 
@@ -97,6 +100,9 @@ services:
         resource: '../src/Users/Application/QueryHandlers/*'
         tags: [ { name: messenger.message_handler, bus: query.bus } ]
 
+    App\Users\Infrastructure\Persistence\EntityLocators\:
+        resource: '../src/Users/Infrastructure/Persistence/EntityLocators/*'
+
     App\Users\Infrastructure\Persistence\Repositories\:
         resource: '../src/Users/Infrastructure/Persistence/Repositories/*'
 
@@ -108,3 +114,11 @@ services:
 
     App\Users\Domain\Services\Repositories\UserRepository:
         alias: App\Users\Infrastructure\Persistence\Repositories\UserRepository
+
+when@dev: &dev
+    services:
+        App\Tests\Support\Fixtures\:
+            resource: '../tests/Support/Fixtures/*'
+            tags: [ 'doctrine.fixture.orm' ]
+
+when@test: *dev

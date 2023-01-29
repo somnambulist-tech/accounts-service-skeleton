@@ -38,7 +38,7 @@ class CreateUserTest extends WebTestCase
             'email'      => 'test@test.com',
             'password'   => (string)$this->factory()->user->password(),
             'name'       => $this->factory()->faker->name,
-        ], 201);
+        ], 201)['data'];
 
         $this->assertArrayHasKey('id', $res);
     }

@@ -21,7 +21,8 @@ class ChangeNameController extends ApiController
             ObjectType::fromFormRequest(
                 $request,
                 $this->query()->execute(new GetAccountById($id)),
-                AccountViewTransformer::class
+                AccountViewTransformer::class,
+                'data'
             )
         );
     }
