@@ -16,7 +16,7 @@ services:
       - backend
 
   db-accounts:
-    image: postgres:14-alpine
+    image: postgres:15-alpine
     environment:
       POSTGRES_DB: accounts
       POSTGRES_USER: mycompany
@@ -27,7 +27,7 @@ services:
       - backend
 
   rabbitmq:
-    image: rabbitmq:3.7-management-alpine
+    image: rabbitmq:3.11-management-alpine
     environment:
       RABBITMQ_ERLANG_COOKIE: rabbitmqcookienamehere
     networks:

@@ -1,5 +1,5 @@
 
-FROM somnambulist/php-ppm:8.1-latest
+FROM somnambulist/php-ppm:8.2-latest
 ENV TERM=xterm-256color
 ENV PGPASSWORD=secret
 
@@ -7,10 +7,10 @@ RUN apk --update add ca-certificates \
     && apk update \
     && apk upgrade \
     && apk --no-cache add -U \
-    php81-pdo_pgsql \
-    php81-pgsql \
-    php81-pecl-xdebug \
-    php81-pecl-amqp \
+    php82-pdo_pgsql \
+    php82-pgsql \
+    php82-pecl-xdebug \
+    php82-pecl-amqp \
     && rm -rf /var/cache/apk/* /tmp/*
 
 # setup custom PHP ini files
@@ -34,4 +34,4 @@ COPY . .
 EXPOSE 8080
 
 # run php-pm on the custom ip so it is externally available
-CMD [ "/docker-entrypoint.sh", "start", "--workers=2", "--cgi-path=/usr/bin/php-cgi81", "--host=0.0.0.0" ]
+CMD [ "/docker-entrypoint.sh", "start", "--workers=2", "--cgi-path=/usr/bin/php-cgi82", "--host=0.0.0.0" ]
